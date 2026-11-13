@@ -1,0 +1,430 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Abelhas sem Ferrão do Maranhão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@1,8..60,500;1,8..60,600&display=swap">
+<style>
+/* Layout: guia em faixas como os guias de cultivares (Características = âmbar escuro, Manejo = verde), placas hexagonais (favo) que abrem a ficha de cada espécie */
+:root{
+  --bg:#f5f1e8; --surface:#fffdf8; --surface-2:#efe7d6; --fg:#241c10; --muted:#6f624c; --line:#ddd1b8;
+  --amber:#e9a514; --amber-deep:#8a5a06; --amber-soft:#fbefcf; --ink:#2b2114;
+  --green:#2f7a3c; --green-deep:#1f5a2b; --green-soft:#e1efdc;
+  --red:#b3401d; --red-soft:#f8e1d7; --blue:#2c5d8f; --blue-soft:#dde8f3; --on-strong:#ffffff;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Segoe UI",Arial,sans-serif;
+  --sci:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17130d; --surface:#211b12; --surface-2:#2b2318; --fg:#f1e9da; --muted:#b5a68b; --line:#3d3325;
+  --amber:#f0b429; --amber-deep:#6b4604; --amber-soft:#3a2d12; --ink:#120e08;
+  --green:#5cb86a; --green-deep:#1d4a25; --green-soft:#1e3122;
+  --red:#ef7a52; --red-soft:#3d2118; --blue:#7fb0e3; --blue-soft:#1b2c3f; --on-strong:#ffffff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17130d; --surface:#211b12; --surface-2:#2b2318; --fg:#f1e9da; --muted:#b5a68b; --line:#3d3325;
+  --amber:#f0b429; --amber-deep:#6b4604; --amber-soft:#3a2d12; --ink:#120e08;
+  --green:#5cb86a; --green-deep:#1d4a25; --green-soft:#1e3122;
+  --red:#ef7a52; --red-soft:#3d2118; --blue:#7fb0e3; --blue-soft:#1b2c3f; --on-strong:#ffffff; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
+a{color:var(--amber-deep)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) a{color:var(--amber)}}
+:root[data-theme="dark"] a{color:var(--amber)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0}
+i.sci,.sci{font-family:var(--sci);font-style:italic;font-weight:500}
+.muted{color:var(--muted)}
+.ni{color:var(--muted);font-style:italic;font-size:.92em}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- Cabeçalho ---------- */
+.mast{position:relative;overflow:hidden;background:var(--ink);color:#fff;margin-inline:-16px;padding:30px 16px 28px}
+.mast::before{content:"";position:absolute;inset:0;background:
+ radial-gradient(circle at 88% 20%,rgba(233,165,20,.55),transparent 42%),
+ linear-gradient(118deg,transparent 0 60%,rgba(47,122,60,.85) 60.2% 100%)}
+.mast canvas{position:absolute;right:0;top:0;height:100%;width:52%;opacity:.35;pointer-events:none}
+.mast .in{position:relative;max-width:1208px;margin:0 auto;display:flex;flex-wrap:wrap;gap:22px 40px;align-items:flex-end;justify-content:space-between}
+.kicker{font-family:var(--display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:14px;color:#f7d57a}
+.mast h1{font-size:clamp(40px,7vw,70px);line-height:.9;font-weight:800;text-transform:uppercase;margin-top:6px}
+.mast h1 span{font-weight:500;display:block;font-size:.62em;letter-spacing:.02em}
+.mast .sub{margin:12px 0 0;max-width:60ch;opacity:.92}
+.hint{display:inline-block;margin-top:14px;border:1px solid rgba(255,255,255,.7);border-radius:6px;padding:4px 10px;font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(4,auto);gap:4px 22px}
+.stats div{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:13px;opacity:.9}
+.stats b{display:block;font-size:40px;line-height:1;letter-spacing:0;color:#f7d57a;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.stats{grid-template-columns:repeat(2,auto)}}
+
+/* ---------- Barra de filtros ---------- */
+.tools{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.tools input,.tools select{font:inherit;font-size:14px;padding:7px 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg)}
+.tools input{flex:1 1 220px;min-width:0}
+.jump{display:flex;gap:6px;flex-wrap:wrap}
+.jump a{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:14px;text-decoration:none;color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--surface)}
+.jump a:hover{border-color:var(--amber)}
+.count{font-size:13px;color:var(--muted)}
+
+/* ---------- Seções ---------- */
+.seg{margin-top:36px;scroll-margin-top:120px}
+.seg-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-bottom:12px}
+.seg-pill{font-family:var(--display);font-weight:800;font-size:26px;text-transform:uppercase;color:var(--ink);background:var(--amber);border-radius:999px;padding:5px 22px;letter-spacing:.01em;line-height:1.1}
+.seg-head .gen{font-family:var(--sci);font-style:italic;color:var(--muted);font-size:15px}
+.seg-head p{margin:0;flex-basis:100%;max-width:80ch;color:var(--muted)}
+
+/* ---------- Placas (favos) ---------- */
+.plates{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:14px;margin-bottom:16px}
+.plate{position:relative;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--fg);background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:10px 8px 10px;transition:transform .15s ease,border-color .15s ease}
+.plate:hover{transform:translateY(-3px);border-color:var(--amber)}
+.hex{width:94px;aspect-ratio:1/1.1547;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--amber);display:grid;place-items:center;max-width:100%}
+.hex .in{width:calc(100% - 8px);height:calc(100% - 8px);clip-path:inherit;background:#fff center/cover no-repeat;display:grid;place-items:center;font-family:var(--display);font-weight:800;color:var(--amber-deep);font-size:24px}
+.plate .g{font-family:var(--sci);font-style:italic;font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.1;text-align:center}
+.plate .e{font-family:var(--sci);font-style:italic;font-weight:600;font-size:17px;line-height:1.1;text-align:center;word-break:break-word}
+.plate .p{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:13px;color:var(--amber-deep);text-align:center;margin-top:3px;line-height:1.1}
+.plate .no{position:absolute;top:6px;left:8px;font-family:var(--display);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.flag{position:absolute;top:6px;right:6px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:1px 7px;line-height:16px}
+.flag.r{background:var(--red-soft);color:var(--red)}
+.flag.i{background:var(--blue-soft);color:var(--blue)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .plate .p{color:var(--amber)}}
+:root[data-theme="dark"] .plate .p{color:var(--amber)}
+
+/* ---------- Tabela-guia ---------- */
+.tablebox{overflow-x:auto;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+table.guide{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%}
+.guide th,.guide td{padding:9px 11px;vertical-align:top;border-bottom:1px solid var(--line);font-size:13.5px}
+.guide td{width:168px;min-width:168px;max-width:168px}
+.guide thead th{background:var(--surface-2);text-align:center;font-weight:400;border-bottom:0}
+.guide thead th a{text-decoration:none;color:var(--fg);display:block}
+.guide thead .corner{position:sticky;left:0;z-index:3;background:var(--surface-2)}
+.guide .band{position:sticky;left:0;z-index:2;width:32px;min-width:32px;padding:0;color:#fff;background:var(--amber-deep)}
+.guide .band span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--display);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;padding:12px 7px;white-space:nowrap}
+.guide .band.m{background:var(--green-deep)}
+.guide th.lab{position:sticky;left:32px;z-index:2;width:136px;min-width:136px;text-align:left;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:12.5px;background:#a36d0a;color:#fff;border-bottom-color:rgba(255,255,255,.2)}
+.guide tr.mg th.lab{background:var(--green)}
+.guide tr.cz td{background:var(--amber-soft)}
+.guide tr.mg td{background:var(--green-soft)}
+.guide td strong{font-family:var(--display);font-size:19px;font-weight:700;line-height:1.05}
+.guide td small{display:block;color:var(--muted);font-size:12px}
+.thname .g{font-family:var(--sci);font-style:italic;font-size:12px;color:var(--muted)}
+.thname .e{font-family:var(--sci);font-style:italic;font-weight:600;font-size:16px;display:block}
+.thname .hex{width:58px;margin:0 auto 6px}
+.pill{display:inline-block;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.03em;text-transform:uppercase;border-radius:999px;padding:1px 9px}
+.pill.sim{background:var(--green);color:#fff}
+.pill.nao{background:var(--red);color:#fff}
+.pill.chao{background:#7a5a2a;color:#fff}
+.st{display:inline-flex;align-items:center;gap:5px;font-weight:600}
+.st::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
+.st.c{color:var(--green)} .st.i{color:var(--blue)} .st.r{color:var(--red)}
+.scrollnote{font-size:12px;color:var(--muted);margin:6px 2px 0}
+.empty{padding:14px;border:1px dashed var(--line);border-radius:10px;color:var(--muted)}
+
+/* ---------- Painéis ---------- */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:36px}
+.grid2>*{min-width:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.panel h3{font-size:24px;color:var(--amber-deep);margin-bottom:8px}
+.panel.g h3{color:var(--green)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .panel h3{color:var(--amber)}}
+:root[data-theme="dark"] .panel h3{color:var(--amber)}
+.panel ul{margin:0;padding-left:18px}.panel li{margin:5px 0}
+.rev{margin-top:36px}
+.rev h3{font-size:28px;margin-bottom:6px}
+.tblw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table.dt{border-collapse:collapse;width:100%;font-size:13.5px}
+.dt th,.dt td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.dt thead th{background:var(--ink);color:#fff;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.03em;white-space:nowrap}
+.dt td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+.foot{margin-top:28px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;max-width:125ch}
+.src{margin:0;padding-left:18px;font-size:14px}.src li{margin:5px 0}
+
+/* ---------- Ficha (subguia) ---------- */
+.flyer{max-width:960px;margin:0 auto}
+.fl-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:16px 12px;align-items:center}
+.btn{font-family:var(--display);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:15px;border:2px solid var(--amber-deep);color:var(--amber-deep);background:var(--surface);border-radius:999px;padding:6px 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{background:var(--amber-soft)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn{color:var(--amber);border-color:var(--amber)}}
+:root[data-theme="dark"] .btn{color:var(--amber);border-color:var(--amber)}
+.fl-hero{position:relative;border-radius:18px;overflow:hidden;background:var(--ink);color:#fff}
+.fl-hero .hero-in{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:stretch}
+.fl-hero .photo{position:relative;background:#fff;min-height:260px;display:grid;place-items:center}
+.fl-hero .photo img{width:100%;height:100%;object-fit:contain;max-height:380px;display:block}
+.fl-hero .photo .ph{font-family:var(--display);font-weight:800;font-size:64px;color:var(--amber-deep)}
+.fl-hero .txt{padding:26px 24px;display:flex;flex-direction:column;justify-content:center;gap:6px;background:radial-gradient(120% 90% at 100% 0%,rgba(233,165,20,.35),transparent 60%)}
+.fl-hero .no{font-family:var(--display);letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:#f7d57a}
+.fl-hero h2{font-family:var(--sci);font-style:italic;font-weight:600;font-size:clamp(30px,4.6vw,46px);line-height:1.02}
+.fl-hero .auth{font-family:var(--body);font-style:normal;font-size:16px;opacity:.8}
+.fl-hero .pop{font-family:var(--display);font-weight:700;font-size:26px;text-transform:uppercase;color:#f7d57a;line-height:1.05}
+.fl-hero .other{opacity:.85;font-size:14px}
+.fl-hero .lead{margin:8px 0 0;opacity:.95;max-width:46ch}
+.marquee{background:var(--amber);color:var(--ink);font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:18px;white-space:nowrap;overflow:hidden;padding:6px 0}
+.marquee span{display:inline-block;padding-left:12px}
+.marquee b{font-weight:500;opacity:.55}
+@media (max-width:720px){.fl-hero .hero-in{grid-template-columns:1fr}}
+.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}
+.badge{display:flex;align-items:center;gap:10px;background:var(--surface);border:2px solid var(--amber);border-radius:14px;padding:8px 12px 8px 8px;line-height:1.15}
+.badge .hx{flex:none;width:36px;aspect-ratio:1/1.1547;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--amber);display:grid;place-items:center;color:var(--ink)}
+.badge .hx svg{width:18px;height:18px}
+.badge small{display:block;font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:11.5px;color:var(--muted)}
+.badge b{font-family:var(--display);font-size:17px;font-weight:700}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:28px}
+.two>*{min-width:0}
+.sec-t{font-size:26px;color:var(--amber-deep);font-weight:700;margin-bottom:10px;padding-bottom:4px;border-bottom:3px solid var(--amber);display:inline-block}
+.sec-t.g{color:var(--green);border-bottom-color:var(--green)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .sec-t:not(.g){color:var(--amber)}}
+:root[data-theme="dark"] .sec-t:not(.g){color:var(--amber)}
+.kv{display:grid;gap:7px}
+.kv .row{display:grid;grid-template-columns:minmax(110px,38%) 1fr;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.kv .k{background:var(--amber-deep);color:#fff;font-family:var(--display);font-weight:600;font-size:15px;padding:7px 10px;display:flex;align-items:center}
+.kv .v{padding:7px 10px;font-size:14px}
+.bio p{margin:0 0 12px}
+.bio b{font-family:var(--display);font-size:16px;letter-spacing:.02em}
+.ma{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.ma .hd{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.stbig{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:14px;border-radius:999px;padding:3px 12px}
+.stbig.c{background:var(--green);color:#fff}.stbig.i{background:var(--blue);color:#fff}.stbig.r{background:var(--red);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1.5px solid var(--line);border-radius:999px;padding:2px 10px;font-size:13.5px;background:var(--surface-2)}
+.chip.pl{border-color:var(--green);background:var(--green-soft)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.gal figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.gal button{all:unset;cursor:zoom-in;display:block;background:#fff;aspect-ratio:4/3}
+.gal button:focus-visible{outline:3px solid var(--amber);outline-offset:-3px}
+.gal img{width:100%;height:100%;object-fit:contain;display:block}
+.gal figcaption{padding:6px 8px;font-size:12.5px;line-height:1.3}
+.gal figcaption span{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+.callout{border-radius:12px;border:2px solid var(--green);background:var(--surface);overflow:hidden}
+.callout h4{margin:0;background:var(--green);color:#fff;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:16px;padding:7px 14px;text-align:center}
+.callout .b{padding:12px 16px}.callout ul{margin:0;padding-left:18px}.callout li{margin:6px 0}
+.callout.warn{border-color:var(--red)}.callout.warn h4{background:var(--red)}
+.pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:30px}
+.lb[hidden]{display:none!important}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,8,4,.88);display:grid;place-items:center;padding:20px}
+.lb img{max-width:100%;max-height:86vh;object-fit:contain;background:#fff;border-radius:6px}
+.lb .cap{color:#fff;text-align:center;margin-top:8px;font-size:13px;max-width:80ch}
+.lb button{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:14px;font:700 16px var(--display);text-transform:uppercase;background:#fff;color:#111;border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:520px){.kv .row{grid-template-columns:1fr}.plates{grid-template-columns:repeat(auto-fill,minmax(112px,1fr))}.hex{width:80px}}
+</style>
+
+<div class="wrap" id="app"></div>
+<div class="lb" id="lb" hidden><div><img id="lbimg" alt=""><div class="cap" id="lbcap"></div></div><button type="button" id="lbx">Fechar</button></div>
+
+<script src="data.js" charset="utf-8"></script>
+<script src="imgs.js" charset="utf-8"></script>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s??"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const NI = '<span class="ni">não informado</span>';
+const slugOf = x => x.dup ? "ptilotrigona-heideri" : (x.g+"-"+x.e).toLowerCase();
+const imgKey = x => (x.g+"-"+x.e).toLowerCase();
+const imgsOf = x => x.dup ? [] : (IMGS[imgKey(x)]||[]);
+const cover = x => { const L=imgsOf(x).filter(i=>!/ficha/.test(i.f)); return L.length? "img/"+L[0].f : null; };
+const byN = [...SP].sort((a,b)=>a.n-b.n);
+const STL = {c:"Registro confirmado",i:"Registro de identidade incerta",r:"Revisar: não confirmado"};
+const MANL = {Sim:["sim","Manejável"],"Não":["nao","Não manejável"],"Chão":["chao","Ninho no chão"]};
+const initials = x => x.g[0]+x.e[0];
+
+function hex(x,cls=""){
+  const c=cover(x);
+  return `<div class="hex ${cls}"><div class="in" ${c?`style="background-image:url('${c}')"`:''}>${c?'':initials(x).toUpperCase()}</div></div>`;
+}
+function plate(x){
+  const f = x.ma.s==="r"?'<span class="flag r">Revisar</span>':x.ma.s==="i"?'<span class="flag i">Incerta</span>':'';
+  return `<a class="plate" href="#${slugOf(x)}" data-q="${esc((x.g+' '+x.e+' '+x.pop+' '+(x.outros||[]).join(' ')+' '+(x.lista||'')).toLowerCase())}" aria-label="Abrir ficha de ${esc(x.g+' '+x.e)}, ${esc(x.pop)}">
+   <span class="no">nº ${x.n}</span>${f}${hex(x)}
+   <span class="g">${esc(x.g)}</span><span class="e">${esc(x.dup?'heideri':x.e)}</span><span class="p">${esc(x.pop)}</span></a>`;
+}
+const pill = m => `<span class="pill ${MANL[m][0]}">${esc(m)}</span>`;
+const stTxt = x => `<span class="st ${x.ma.s}">${x.ma.s==="c"?"Confirmado":x.ma.s==="i"?"Incerto":"Revisar"}</span>`;
+const nid = x => x.ficha?x.ficha.nid:(x.bio?x.bio.nid:null);
+
+function guideTable(L){
+  const cz=[
+   ["Nome popular",x=>`<strong>${esc(x.pop)}</strong>${x.outros&&x.outros.length?`<small>${esc(x.outros.join(", "))}</small>`:''}`],
+   ["Nidificação",x=>nid(x)?esc(nid(x)):NI],
+   ["Colônia",x=>x.ficha?esc(x.ficha.col):NI],
+   ["Tamanho aproximado",x=>x.ficha?`<strong class="num">${esc(x.ficha.tam)}</strong>`:NI],
+   ["Distância máxima de voo",x=>x.ficha?(x.ficha.voo==="Desconhecida"?'<span class="ni">desconhecida</span>':`<strong class="num">${esc(x.ficha.voo)}</strong>`):NI],
+   ["Registro no Maranhão",x=>stTxt(x)+(x.ma.loc?`<small>${esc(x.ma.loc.join(", "))}</small>`:'')]
+  ];
+  const mg=[
+   ["Manejável (lista)",x=>pill(x.man)],
+   ["Cultivos que poliniza",x=>x.pol?esc(x.pol.slice(0,6).join(", "))+(x.pol.length>6?` <small>+${x.pol.length-6} na ficha</small>`:''):'<span class="ni">sem registro nas fontes</span>']
+  ];
+  let h=`<div class="tablebox"><table class="guide"><thead><tr><th class="corner" colspan="2"></th>${L.map(x=>`<th class="thname"><a href="#${slugOf(x)}">${hex(x)}<span class="g">${esc(x.g)}</span><span class="e">${esc(x.dup?'heideri':x.e)}</span></a></th>`).join('')}</tr></thead><tbody>`;
+  cz.forEach((r,i)=>{h+=`<tr class="cz">${i===0?`<th class="band" rowspan="${cz.length}"><span>Características</span></th>`:''}<th class="lab">${r[0]}</th>${L.map(x=>`<td>${r[1](x)}</td>`).join('')}</tr>`});
+  mg.forEach((r,i)=>{h+=`<tr class="mg">${i===0?`<th class="band m" rowspan="${mg.length}"><span>Manejo</span></th>`:''}<th class="lab">${r[0]}</th>${L.map(x=>`<td>${r[1](x)}</td>`).join('')}</tr>`});
+  return h+`</tbody></table></div>`;
+}
+
+let STATE={q:"",man:"",st:""};
+function match(x){
+  const q=STATE.q.trim().toLowerCase();
+  if(q){const hay=(x.g+' '+x.e+' '+x.pop+' '+(x.outros||[]).join(' ')+' '+(x.lista||'')).toLowerCase(); if(!hay.includes(q)) return false;}
+  if(STATE.man && x.man!==STATE.man) return false;
+  if(STATE.st && x.ma.s!==STATE.st) return false;
+  return true;
+}
+function renderSections(){
+  let total=0;
+  $("#secs").innerHTML = GROUPS.map(G=>{
+    const L=byN.filter(x=>x.grp===G.id && match(x)); total+=L.length;
+    if(!L.length) return '';
+    return `<section class="seg" id="${G.id}"><div class="seg-head"><h2 class="seg-pill">${esc(G.t)}</h2><span class="gen">${esc(G.gen)}</span><p>${esc(G.d)}</p></div>
+      <div class="plates">${L.map(plate).join('')}</div>${guideTable(L)}</section>`;
+  }).join('') || `<p class="empty" style="margin-top:30px">Nenhuma espécie corresponde aos filtros. Limpe a busca ou escolha outro filtro.</p>`;
+  $("#count").textContent = `${total} de ${SP.length} espécies`;
+}
+
+function renderGuide(){
+  document.title="Abelhas sem Ferrão do Maranhão";
+  const nConf=SP.filter(x=>x.ma.s==="c").length, nRev=SP.filter(x=>x.ma.s!=="c").length, nGen=new Set(SP.filter(x=>!x.dup).map(x=>x.g)).size;
+  const revs=byN.filter(x=>x.ma.s!=="c"||x.lista);
+  $("#app").innerHTML=`
+  <header class="mast"><canvas id="comb" aria-hidden="true"></canvas><div class="in">
+   <div><div class="kicker">Meliponíneos · Apidae: Meliponini</div>
+    <h1><span>Guia de abelhas sem ferrão do</span>Maranhão</h1>
+    <p class="sub">As 63 espécies da lista de ocorrência no estado, com nomes conferidos no Catálogo Moure, fichas biológicas, fotos e registros de município. Cada placa abre a ficha completa da espécie.</p>
+    <span class="hint">Clique nas placas (favos) e acesse as informações de cada abelha</span></div>
+   <div class="stats"><div><b>63</b>espécies</div><div><b>${nGen}</b>gêneros</div><div><b>${nConf}</b>registros<br>confirmados</div><div><b>${nRev}</b>a revisar<br>ou incertos</div></div>
+  </div></header>
+  <div class="tools" role="search">
+   <input id="q" type="search" placeholder="Buscar por nome científico ou popular (ex.: tiúba, jataí, Partamona)" aria-label="Buscar espécie">
+   <select id="fman" aria-label="Filtrar por manejo"><option value="">Manejo: todas</option><option value="Sim">Manejável</option><option value="Não">Não manejável</option><option value="Chão">Ninho no chão</option></select>
+   <select id="fst" aria-label="Filtrar por registro no Maranhão"><option value="">Registro no MA: todos</option><option value="c">Confirmado</option><option value="i">Identidade incerta</option><option value="r">Revisar</option></select>
+   <span class="count" id="count"></span>
+   <nav class="jump" aria-label="Grupos">${GROUPS.map(G=>`<a href="#${G.id}">${esc(G.t.split(',')[0].split(' e ')[0])}</a>`).join('')}<a href="#revisoes">Revisões</a></nav>
+  </div>
+  <div id="secs"></div>
+  <section class="rev seg" id="revisoes"><h3>Revisões na lista de espécies</h3>
+   <p class="muted" style="max-width:85ch;margin:0 0 12px">Cada nome da lista foi conferido no Moure's Bee Catalogue (CRIA) em 29/09/2026. Abaixo, as correções de grafia e autoria e os registros que o catálogo não confirma para o Maranhão. A numeração é a da lista original.</p>
+   <div class="tblw"><table class="dt"><thead><tr><th>Nº</th><th>Como está na lista</th><th>Nome válido</th><th>Situação no Maranhão</th></tr></thead><tbody>
+   ${revs.map(x=>`<tr><td>${x.n}</td><td>${esc(x.lista||(x.g+' '+x.e+' '+x.a))}</td><td><a href="#${slugOf(x)}"><i class="sci">${esc(x.g+' '+x.e)}</i></a> ${esc(x.a)}</td><td>${stTxt(x)}${x.ma.nota?`<br><span class="muted" style="font-size:13px">${esc(x.ma.nota)}</span>`:(x.ma.s==="c"?`<br><span class="muted" style="font-size:13px">${esc(x.dest)}</span>`:'')}</td></tr>`).join('')}
+   </tbody></table></div></section>
+  <div class="grid2">
+   <div class="panel g"><h3>Criação legal</h3><ul>
+    <li>A Resolução CONAMA nº 496/2020 disciplina a meliponicultura. O uso e manejo de até 49 colônias sem exploração econômica dispensa autorização ambiental (art. 3º, § 3º).</li>
+    <li>A Portaria ICMBio nº 665/2021 criou o Catálogo Nacional de Abelhas-Nativas-Sem-Ferrão e restringe a criação à região de ocorrência natural de cada espécie (art. 3º). Fora dela, só com autorização do órgão ambiental.</li>
+    <li>Captura de ninhos por resgate exige autorização do órgão ambiental. Ninhos-isca são permitidos nas condições da Resolução 496/2020.</li></ul></div>
+   <div class="panel"><h3>Como ler o guia</h3><ul>
+    <li><b>Manejável</b>: classificação da lista original (Sim, Não ou Chão, para espécies de ninho subterrâneo).</li>
+    <li><b>Registro no Maranhão</b>: <span class="st c">confirmado</span> com localidade no Catálogo Moure; <span class="st i">incerto</span> quando o catálogo marca a identidade como duvidosa; <span class="st r">revisar</span> quando o catálogo não lista o estado ou considera o registro um erro.</li>
+    <li>Tamanho, colônia e voo vêm das fichas catalográficas (24 espécies). Nas demais, <span class="ni">não informado</span>.</li></ul></div>
+   <div class="panel"><h3>Fontes</h3><ol class="src">
+    <li>Lista de espécies de meliponíneos com ocorrência no Maranhão (anexo único, compilada da bibliografia científica).</li>
+    <li>Menezes, C. et al. <a href="https://www.embrapa.br/busca-de-publicacoes/-/publicacao/1150556/fichas-catalograficas-de-especies-de-abelhas-sem-ferrao-relevantes-para-a-meliponicultura" target="_blank" rel="noopener">Fichas catalográficas de espécies de abelhas sem ferrão relevantes para a meliponicultura</a>. Embrapa Meio Ambiente, 2022. Fotos © Cristiano Menezes; espécimes © RPSP (USP).</li>
+    <li><a href="https://abelha.org.br/fichas-catalograficas-das-especies-relevantes-para-a-meliponicultura-2/" target="_blank" rel="noopener">A.B.E.L.H.A.: fichas e cartões de espécies</a>.</li>
+    <li><a href="https://moure.cria.org.br/catalogue?id=117368" target="_blank" rel="noopener">Moure's Bee Catalogue: Meliponini</a> (CRIA), consultado em 29/09/2026.</li>
+    <li><a href="http://www2.mma.gov.br/port/conama/legiabre.cfm?codlegi=747" target="_blank" rel="noopener">Resolução CONAMA nº 496/2020</a> · <a href="https://www.gov.br/icmbio/pt-br/acesso-a-informacao/institucional/legislacao/portarias/portarias-2021/Portaria_665_de_03_de_novembro.pdf" target="_blank" rel="noopener">Portaria ICMBio nº 665/2021</a>.</li></ol></div>
+  </div>
+  <p class="foot">Guia elaborado em 09/2026 para o projeto SACMA (Sistema Automático de Classificação de Meliponíneos do Maranhão). Os registros de ocorrência vêm do Catálogo Moure e podem não incluir coletas recentes. Nomes populares variam entre regiões. Imagens sem autoria identificada estão marcadas como "autoria a confirmar" e devem ter o crédito conferido antes da divulgação.</p>`;
+  $("#q").value=STATE.q; $("#fman").value=STATE.man; $("#fst").value=STATE.st;
+  $("#q").addEventListener("input",e=>{STATE.q=e.target.value;renderSections()});
+  $("#fman").addEventListener("change",e=>{STATE.man=e.target.value;renderSections()});
+  $("#fst").addEventListener("change",e=>{STATE.st=e.target.value;renderSections()});
+  renderSections(); drawComb();
+}
+
+function drawComb(){
+  const c=$("#comb"); if(!c) return; const r=c.getBoundingClientRect(); const d=window.devicePixelRatio||1;
+  c.width=r.width*d; c.height=r.height*d; const g=c.getContext("2d"); g.scale(d,d);
+  const s=22, w=Math.sqrt(3)*s; g.strokeStyle="rgba(247,213,122,.9)"; g.lineWidth=1.2;
+  for(let row=-1; row*s*1.5<r.height+s; row++) for(let col=-1; col*w<r.width+w; col++){
+    const cx=col*w+(row%2?w/2:0), cy=row*s*1.5; g.beginPath();
+    for(let k=0;k<6;k++){const a=Math.PI/3*k+Math.PI/6; const px=cx+s*Math.cos(a), py=cy+s*Math.sin(a); k?g.lineTo(px,py):g.moveTo(px,py);} g.closePath(); g.stroke();
+  }
+}
+
+const ICON={home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10l8-6 8 6v10"/><path d="M10 20v-6h4v6"/></svg>',
+ ruler:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17 17 3l4 4L7 21z"/><path d="M8 12l2 2M11 9l2 2M14 6l2 2"/></svg>',
+ fly:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13"/><path d="m12 7 5 5-5 5"/><circle cx="20" cy="12" r="1.5"/></svg>',
+ hand:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>'};
+
+function manejoTips(x){
+  const t=[];
+  if(x.grp==="limao") t.push("Abelha-ladra (cleptobiótica): não coleta alimento em flores e saqueia ninhos de outras abelhas. Mantenha colônias fortes e entradas estreitas nos meliponários próximos.");
+  if(x.g==="Oxytrigona") t.push("Defende o ninho com secreção cáustica que provoca queimaduras na pele. Use proteção e evite abrir o ninho.");
+  if(x.man==="Não") t.push("Classificada como não manejável na lista. Não é indicada para criação racional; conserve os ninhos em campo.");
+  if(x.man==="Chão") t.push("Ninho subterrâneo, em cavidades no solo. A lista a classifica como \"Chão\": não se adapta ao manejo usual em caixas.");
+  if(x.ficha && /defensiv|agressiv/i.test(x.ficha.asp)) t.push("Operárias defensivas: aproxime-se do ninho com cuidado e em horários de menor atividade.");
+  if(x.ficha && /mansa/i.test(x.ficha.asp)) t.push("As fichas descrevem as operárias como mansas.");
+  if(x.ma.s!=="c") t.push("Antes de criar ou multiplicar, confirme a identificação com um especialista: o registro no Maranhão está marcado para revisão.");
+  if(x.man!=="Não" && x.grp!=="limao") t.push("Crie apenas dentro da área de ocorrência natural (Portaria ICMBio 665/2021). Até 49 colônias sem fins econômicos dispensam autorização (CONAMA 496/2020).");
+  return t;
+}
+
+function renderSpecies(x){
+  document.title=`${x.g} ${x.dup?'heideri':x.e} · Abelhas sem Ferrão do Maranhão`;
+  const i=byN.indexOf(x), prev=byN[(i-1+byN.length)%byN.length], next=byN[(i+1)%byN.length];
+  const G=GROUPS.find(g=>g.id===x.grp); const IM=imgsOf(x); const main=IM.find(m=>!/ficha/.test(m.f));
+  const ep = x.dup?'heideri':x.e;
+  const kv=[["Nome científico válido",`<i class="sci">${esc(x.g+' '+x.e)}</i> ${esc(x.a)}`],
+    x.lista?["Como consta na lista",esc(x.lista)]:null,
+    ["Gênero",`<i class="sci">${esc(x.g)}</i>`],["Grupo no guia",esc(G.t)],
+    ["Nome popular (lista)",esc(x.pop)],x.outros&&x.outros.length?["Outros nomes",esc(x.outros.join(", "))]:null,
+    ["Manejável (lista)",pill(x.man)],["Nidificação",nid(x)?esc(nid(x)):NI],
+    ["Colônia",x.ficha?esc(x.ficha.col):NI],["Tamanho aproximado",x.ficha?esc(x.ficha.tam):NI],["Distância máxima de voo",x.ficha?esc(x.ficha.voo):NI]].filter(Boolean);
+  const tips=manejoTips(x); const warn=x.man==="Não"||x.grp==="limao"||x.g==="Oxytrigona";
+  $("#app").innerHTML=`<article class="flyer">
+   <div class="fl-top"><a class="btn" href="#${x.grp}">← Guia de abelhas</a><span class="muted">${esc(G.t)} · nº ${x.n} de 63</span></div>
+   <section class="fl-hero"><div class="hero-in">
+     <div class="photo">${main?`<img src="img/${main.f}" alt="${esc(x.g+' '+x.e+': '+main.k)}">`:`<span class="ph">${initials(x).toUpperCase()}</span>`}</div>
+     <div class="txt"><div class="no">Nº ${x.n} da lista · ${esc(G.gen.split(' · ').length>1?x.g:G.gen)}</div>
+       <h2>${esc(x.g)} ${esc(ep)}${x.dup?'':''} <span class="auth">${esc(x.dup?'Friese, 1900':x.a)}</span></h2>
+       <div class="pop">${esc(x.pop)}</div>${x.outros&&x.outros.length?`<div class="other">Também: ${esc(x.outros.join(", "))}</div>`:''}
+       <p class="lead">${esc(x.dest)}</p></div></div>
+     <div class="marquee" aria-hidden="true"><span>${Array(6).fill(`${esc(x.pop)} <b>·</b> <i>${esc(x.g+' '+ep)}</i> <b>·</b> Maranhão <b>·</b> `).join('')}</span></div>
+   </section>
+   <div class="badges">
+     <div class="badge"><span class="hx">${ICON.hand}</span><span><small>Manejável</small><b>${esc(MANL[x.man][1])}</b></span></div>
+     <div class="badge"><span class="hx">${ICON.home}</span><span><small>Nidificação</small><b>${nid(x)?esc(nid(x).split(/[,(]/)[0]):'Não informado'}</b></span></div>
+     <div class="badge"><span class="hx">${ICON.ruler}</span><span><small>Tamanho</small><b>${x.ficha?esc(x.ficha.tam):'Não informado'}</b></span></div>
+     <div class="badge"><span class="hx">${ICON.fly}</span><span><small>Voo máximo</small><b>${x.ficha?esc(x.ficha.voo):'Não informado'}</b></span></div>
+   </div>
+   <div class="two">
+     <section><h3 class="sec-t g">Características / perfil</h3><div class="kv">${kv.map(r=>`<div class="row"><div class="k">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div></section>
+     <section><h3 class="sec-t">Ocorrência no Maranhão</h3>
+       <div class="ma"><div class="hd"><span class="stbig ${x.ma.s}">${STL[x.ma.s]}</span></div>
+        ${x.ma.loc?`<div class="chips">${x.ma.loc.map(l=>`<span class="chip">${esc(l)}</span>`).join('')}</div>`:''}
+        ${x.ma.nota?`<p style="margin:10px 0 0;font-size:14px">${esc(x.ma.nota)}</p>`:''}
+        <p class="muted" style="margin:10px 0 0;font-size:12.5px">Localidades do <a href="${MOURE(x.moure)}" target="_blank" rel="noopener">Catálogo Moure</a>, consultado em 29/09/2026.</p></div>
+       <h3 class="sec-t g" style="margin-top:22px">Cultivos e plantas que poliniza</h3>
+       ${x.pol?`<div class="chips">${x.pol.map(p=>`<span class="chip pl">${esc(p)}</span>`).join('')}</div><p class="muted" style="font-size:12.5px;margin:8px 0 0">Fonte: cartão de espécie A.B.E.L.H.A.</p>`:`<p class="muted" style="margin:0">Sem registro de polinização de cultivos nas fontes consultadas.</p>`}
+     </section>
+   </div>
+   <section style="margin-top:28px"><h3 class="sec-t">Biologia</h3>
+     ${x.ficha?`<div class="bio"><p><b>Ninho.</b> ${esc(x.ficha.ninho)}</p><p><b>Colônia.</b> ${esc(x.ficha.col)}.</p><p><b>Aspectos gerais.</b> ${esc(x.ficha.asp)}</p><p class="muted" style="font-size:12.5px">Texto das Fichas catalográficas de espécies de abelhas sem ferrão (Menezes et al., Embrapa/USP/A.B.E.L.H.A., 2022).</p></div>`
+      : x.bio?`<div class="bio"><p><b>Nidificação.</b> ${esc(x.bio.nid)}.</p><p>${esc(x.bio.nota)}</p><p class="muted" style="font-size:12.5px">Esta espécie não tem ficha catalográfica no acervo; dados resumidos do Catálogo Moure e, quando indicado, do cartão A.B.E.L.H.A.</p></div>`
+      : `<p class="muted">Consulte a ficha de <a href="#ptilotrigona-lurida">Ptilotrigona lurida</a>.</p>`}
+   </section>
+   ${IM.length?`<section style="margin-top:22px"><h3 class="sec-t">Galeria</h3><div class="gal">${IM.map((m,k)=>`<figure><button type="button" data-k="${k}" aria-label="Ampliar: ${esc(m.k)}"><img src="img/${m.f}" alt="${esc(x.g+' '+x.e+': '+m.k)}" loading="lazy"></button><figcaption>${esc(m.k)}<span>${esc(m.c)}</span></figcaption></figure>`).join('')}</div></section>`:''}
+   <div class="two">
+     <div class="callout${warn?' warn':''}"><h4>${warn?'Atenção no manejo':'Dicas para o manejo'}</h4><div class="b"><ul>${tips.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div></div>
+     <section><h3 class="sec-t">Fontes</h3><ol class="src">
+       <li><a href="${MOURE(x.moure)}" target="_blank" rel="noopener">Moure's Bee Catalogue: <i>${esc(x.g+' '+x.e)}</i></a></li>
+       ${x.ficha?`<li>Menezes, C. et al. <a href="https://www.embrapa.br/busca-de-publicacoes/-/publicacao/1150556/fichas-catalograficas-de-especies-de-abelhas-sem-ferrao-relevantes-para-a-meliponicultura" target="_blank" rel="noopener">Fichas catalográficas de espécies de abelhas sem ferrão</a>. Embrapa Meio Ambiente, 2022.</li>`:''}
+       ${x.pol||IM.some(m=>/card/.test(m.f))?`<li><a href="https://abelha.org.br/fichas-catalograficas-das-especies-relevantes-para-a-meliponicultura-2/" target="_blank" rel="noopener">A.B.E.L.H.A.: cartões de espécies</a></li>`:''}
+       <li>Lista de meliponíneos com ocorrência no Maranhão (anexo único), nº ${x.n}.</li></ol></section>
+   </div>
+   <nav class="pager"><a class="btn" href="#${slugOf(prev)}">← nº ${prev.n} <i class="sci">${esc(prev.g[0]+'. '+(prev.dup?'heideri':prev.e))}</i></a><a class="btn" href="#${slugOf(next)}">nº ${next.n} <i class="sci">${esc(next.g[0]+'. '+(next.dup?'heideri':next.e))}</i> →</a></nav>
+   <p class="foot">Guia de abelhas sem ferrão do Maranhão · 09/2026. Imagens com os créditos indicados; as marcadas "autoria a confirmar" precisam de crédito antes da divulgação.</p>
+  </article>`;
+  document.querySelectorAll(".gal button").forEach(b=>b.addEventListener("click",()=>{const m=IM[+b.dataset.k]; $("#lbimg").src="img/"+m.f; $("#lbimg").alt=m.k; $("#lbcap").textContent=m.k+" · "+m.c; $("#lb").hidden=false; $("#lbx").focus();}));
+  window.scrollTo(0,0);
+}
+$("#lbx").addEventListener("click",()=>{$("#lb").hidden=true});
+$("#lb").addEventListener("click",e=>{if(e.target.id==="lb")$("#lb").hidden=true});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#lb").hidden=true});
+
+let onGuide=false;
+function route(){
+  const h=location.hash.slice(1); const x=SP.find(s=>slugOf(s)===h);
+  if(x){onGuide=false; return renderSpecies(x);}
+  if(!onGuide){renderGuide(); onGuide=true;}
+  if(h){const el=document.getElementById(h); if(el) el.scrollIntoView();} else window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+window.addEventListener("resize",()=>{if(onGuide)drawComb()});
+route();
+</script>
+
+</body></html>
