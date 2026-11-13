@@ -286,7 +286,13 @@ function renderGuide(){
     <p class="sub">As 63 espécies da lista de ocorrência no estado, com nomes conferidos no Catálogo Moure, fichas biológicas, fotos e registros de município. Cada placa abre a ficha completa da espécie.</p>
     <span class="hint">Clique nas placas (favos) e acesse as informações de cada abelha</span></div>
    <div class="stats"><div><b>63</b>espécies</div><div><b>${nGen}</b>gêneros</div><div><b>${nConf}</b>registros<br>confirmados</div><div><b>${nRev}</b>a revisar<br>ou incertos</div></div>
-  </div></header>
+  </div>
+  <div class="authors" aria-label="Autores do guia">
+   <div class="lbl">Autores do guia</div>
+   <div class="author"><span class="hx" aria-hidden="true">AP</span><div><b>Aluisio José Pereira</b><span>Pesquisador em Ciência de Dados · Embrapa Maranhão</span></div></div>
+   <div class="author"><span class="hx" aria-hidden="true">AP</span><div><b>Alexandre Piccinini</b><span>Pesquisador em (Api/Meli)ponicultura · Embrapa Maranhão</span></div></div>
+  </div>
+  </header>
   <div class="tools" role="search">
    <input id="q" type="search" placeholder="Buscar por nome científico ou popular (ex.: tiúba, jataí, Partamona)" aria-label="Buscar espécie">
    <select id="fman" aria-label="Filtrar por manejo"><option value="">Manejo: todas</option><option value="Sim">Manejável</option><option value="Não">Não manejável</option><option value="Chão">Ninho no chão</option></select>
