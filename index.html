@@ -1,221 +1,533 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Abelhas sem Ferrão do Maranhão</title>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia de abelhas sem ferrão do Maranhão — Embrapa Maranhão</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@1,8..60,500;1,8..60,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap">
 <style>
-/* Layout: guia em faixas como os guias de cultivares (Características = âmbar escuro, Manejo = verde), placas hexagonais (favo) que abrem a ficha de cada espécie */
-:root{
-  --bg:#f5f1e8; --surface:#fffdf8; --surface-2:#efe7d6; --fg:#241c10; --muted:#6f624c; --line:#ddd1b8;
-  --amber:#e9a514; --amber-deep:#8a5a06; --amber-soft:#fbefcf; --ink:#2b2114;
-  --green:#2f7a3c; --green-deep:#1f5a2b; --green-soft:#e1efdc;
-  --red:#b3401d; --red-soft:#f8e1d7; --blue:#2c5d8f; --blue-soft:#dde8f3; --on-strong:#ffffff;
-  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
-  --body:"Barlow","Segoe UI",Arial,sans-serif;
-  --sci:"Source Serif 4",Georgia,"Times New Roman",serif;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#17130d; --surface:#211b12; --surface-2:#2b2318; --fg:#f1e9da; --muted:#b5a68b; --line:#3d3325;
-  --amber:#f0b429; --amber-deep:#6b4604; --amber-soft:#3a2d12; --ink:#120e08;
-  --green:#5cb86a; --green-deep:#1d4a25; --green-soft:#1e3122;
-  --red:#ef7a52; --red-soft:#3d2118; --blue:#7fb0e3; --blue-soft:#1b2c3f; --on-strong:#ffffff; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#17130d; --surface:#211b12; --surface-2:#2b2318; --fg:#f1e9da; --muted:#b5a68b; --line:#3d3325;
-  --amber:#f0b429; --amber-deep:#6b4604; --amber-soft:#3a2d12; --ink:#120e08;
-  --green:#5cb86a; --green-deep:#1d4a25; --green-soft:#1e3122;
-  --red:#ef7a52; --red-soft:#3d2118; --blue:#7fb0e3; --blue-soft:#1b2c3f; --on-strong:#ffffff; color-scheme:dark}
+/* Embrapa — tokens (gerado de tokens.json) */
+:root,[data-theme="light"]{--azul-claro:#a3ccee;--azul-medio:#4a96d2;--azul-embrapa:#004993;--azul-escuro:#001f47;--verde-claro:#a7d5c2;--verde-medio:#009f5e;--verde-embrapa:#00773d;--verde-escuro:#003617;--verde-limao:#c7d530;--verde-grama:#74b959;--verde-agua:#03979d;--amarelo:#ffcd1c;--laranja:#f39325;--marrom:#914c15;--branco:#ffffff;--cinza-claro:#e6e6e6;--cinza-medio-claro:#c2c2c2;--cinza-medio:#8e8e8d;--cinza-medio-escuro:#6b6b6a;--cinza-escuro:#454444;--preto:#000000;--fundo:var(--branco);--fundo-suave:var(--cinza-claro);--texto:var(--cinza-escuro);--texto-titulo:var(--azul-escuro);--texto-secundario:var(--cinza-medio-escuro);--texto-sobre-cor:var(--branco);--link:var(--azul-embrapa);--borda:var(--cinza-medio);--divisoria:var(--cinza-medio-claro);--foco:var(--azul-embrapa);--web-azul-noite:#00264c;--web-azul:#3a74b0;--web-azul-link:#447aac;--web-azul-gelo:#b4d0e7;--web-azul-ceu:#7ea7ce;--web-azul-rodape:#8bb0d3;--web-azul-cabecalho:#3b6792;--web-cinza-fundo:#ececec;--web-cinza-menu:#f6f6f6;--web-grafite:#333333;--web-texto-base:#272833;--web-cinza-texto:#58595b;--web-borda-base:#dddddd;--ac-preto:#000000;--ac-amarelo:#ffd700;--ac-laranja:#ff4500;--web-fundo:var(--branco);--web-fundo-secao:var(--web-cinza-fundo);--web-fundo-escuro:var(--web-azul-noite);--web-texto:var(--web-texto-base);--web-titulo:var(--web-azul-noite);--web-texto-claro:var(--branco);--web-link:var(--web-azul-link);--web-link-hover:var(--web-azul-noite);--web-acao:var(--web-azul);--web-texto-acao:var(--branco);--web-acao-hover:var(--web-azul-noite);--web-borda:var(--web-borda-base);--web-foco:var(--web-azul-noite);--web-fundo-claro:var(--web-azul-gelo);--web-fundo-medio:var(--web-azul);--web-fundo-grafite:var(--web-grafite);--web-fundo-cabecalho:var(--web-azul-cabecalho);--web-fundo-menu:var(--web-cinza-menu);--web-texto-apoio-escuro:var(--web-azul-gelo);--web-link-rodape:var(--web-azul-rodape);--web-botao-icone:var(--web-azul-ceu);--web-botao-icone-texto:var(--web-azul-noite);--web-botao-secundario-fundo:var(--branco);--web-botao-secundario-texto:var(--web-azul);--web-contorno:#ffffff00;--web-texto-meta:var(--web-cinza-texto);--web-espaco-4:4px;--web-espaco-8:8px;--web-espaco-10:10px;--web-espaco-16:1rem;--web-espaco-20:20px;--web-espaco-25:25px;--web-espaco-32:2rem;--web-espaco-48:3rem;--web-raio-caixa:5px;--web-raio-card:8px;--web-raio-botao:20px;--web-raio-link:30px;--web-raio-campo:32px;--web-raio-circulo:50%;--web-container:1590px;--web-conteudo-largo:1520px;--web-texto-largura:880px;--web-bp-sm:576px;--web-bp-md:768px;--web-bp-lg:992px;--web-bp-xl:1180px;--web-bp-xxl:1530px;--opacidade-elemento-transparente:0.6;--opacidade-filtro-com-texto:0.75;--opacidade-filtro-sem-texto:0.5;--font-sans:Roboto, Arial, sans-serif;--font-condensed:"Roboto Condensed", Roboto, Arial, sans-serif;--font-serif:"Roboto Serif", Georgia, serif;--font-slab:"Roboto Slab", Roboto, serif;--font-mono:"Roboto Mono", ui-monospace, monospace;--font-web:Inter, Arial, sans-serif;}
+[data-theme="alto-contraste"]{--fundo:#000000;--fundo-suave:#000000;--texto:#ffd700;--texto-titulo:#ffd700;--texto-secundario:#ffd700;--texto-sobre-cor:#ffd700;--link:#ffd700;--borda:#ffffff;--divisoria:#ffffff;--foco:#ff4500;--web-fundo:var(--ac-preto);--web-fundo-secao:var(--ac-preto);--web-fundo-escuro:var(--ac-preto);--web-texto:var(--ac-amarelo);--web-titulo:var(--ac-amarelo);--web-texto-claro:var(--ac-amarelo);--web-link:var(--ac-amarelo);--web-link-hover:var(--ac-laranja);--web-acao:var(--ac-amarelo);--web-texto-acao:var(--ac-preto);--web-acao-hover:var(--ac-laranja);--web-borda:var(--branco);--web-foco:var(--ac-laranja);--web-fundo-claro:var(--ac-preto);--web-fundo-medio:var(--ac-preto);--web-fundo-grafite:var(--ac-preto);--web-fundo-cabecalho:var(--ac-preto);--web-fundo-menu:var(--ac-preto);--web-texto-apoio-escuro:var(--ac-amarelo);--web-link-rodape:var(--ac-amarelo);--web-botao-icone:var(--ac-amarelo);--web-botao-icone-texto:var(--ac-preto);--web-botao-secundario-fundo:var(--ac-preto);--web-botao-secundario-texto:var(--ac-amarelo);--web-contorno:var(--branco);--web-texto-meta:var(--ac-amarelo);}
 
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
-a{color:var(--amber-deep)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) a{color:var(--amber)}}
-:root[data-theme="dark"] a{color:var(--amber)}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
-.wrap{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
-h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0}
-i.sci,.sci{font-family:var(--sci);font-style:italic;font-weight:500}
-.muted{color:var(--muted)}
-.ni{color:var(--muted);font-style:italic;font-size:.92em}
+/* Embrapa — camada web (embrapa-web.css)
+   Reproduz a aparência atual do Portal Embrapa e dos sites de Unidade (tema embrapa-portal-theme,
+   Liferay DXP + Clay) com os MESMOS nomes de classe já publicados.
+   Serve a dois usos:
+   a) dentro do Liferay, por cima do tema atual, sem quebrar páginas fora do padrão;
+   b) em páginas simples (HTML avulso, inclusive gerado por IA): <body class="embp-web">
+      já dá tipografia, títulos, links, listas, tabelas, formulários e grades com a cara dos sites.
+   Regras de convivência:
+   1. Tudo vive em @layer embp: qualquer CSS sem camada (tema atual, estilos inline dos templates,
+      páginas fora do padrão) continua vencendo. Nada quebra ao incluir este arquivo.
+   2. Seletores em :where() (especificidade 0): o tema legado sempre ganha empates.
+   3. Valores vêm de tokens.json (tokens.css); os valores após a vírgula em var() são só reserva.
+   4. Sem !important. */
+@layer embp.base, embp.componentes, embp.utilitarios;
+
+@layer embp.base {
+  :where(.embp-web) {
+    font-family: var(--font-web, Inter, Arial, sans-serif);
+    font-size: 1rem; line-height: 24px;
+    color: var(--web-texto, #272833);
+    background: var(--web-fundo, #ffffff);
+  }
+  :where(.embp-web) :where(a) { color: var(--web-link, #447aac); }
+  :where(.embp-web) :where(a:hover) { color: var(--web-link-hover, #00264c); }
+  :where(.embp-web) :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--web-foco, #00264c); outline-offset: 2px;
+  }
+  :where(.embp-web) :where(img) { max-width: 100%; height: auto; }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.embp-web) *, :where(.embp-web) *::before, :where(.embp-web) *::after { transition: none !important; transform: none !important; }
+  }
+  /* Elementos de texto (páginas simples). Dentro do Liferay o tema atual continua valendo. */
+  :where(.embp-web) { margin: 0; -webkit-font-smoothing: antialiased; }
+  :where(.embp-web) :where(h1, h2, h3, h4) { margin: 0 0 var(--web-espaco-16, 1rem); font-weight: 600; color: var(--web-titulo, #00264c); }
+  :where(.embp-web) :where(h1) { font-size: 2rem; line-height: 38px; max-width: var(--web-texto-largura, 880px); }
+  :where(.embp-web) :where(h2) { font-size: 1.953rem; line-height: 1.2; }
+  :where(.embp-web) :where(h3) { font-size: 1.1875rem; line-height: 24px; }
+  :where(.embp-web) :where(h4) { font-size: 1rem; line-height: 24px; }
+  :where(.embp-web) :where(* + h2) { margin-top: var(--web-espaco-48, 3rem); }
+  :where(.embp-web) :where(* + h3) { margin-top: var(--web-espaco-32, 2rem); }
+  :where(.embp-web) :where(.portlet-title-text, .embp-cards-card-title) { margin-top: 0; }
+  :where(.embp-web) :where(p, ul, ol, dl, table, blockquote, figure) { margin: 0 0 var(--web-espaco-16, 1rem); }
+  /* Listas de texto: só as sem classe e fora de <nav>, para não afetar menus, cards e rodapé */
+  :where(.embp-web) :where(ul:not([class], nav ul), ol:not([class], nav ol)) { padding-left: 1.25rem; }
+  :where(.embp-web) :where(ul:not([class], nav ul), ol:not([class], nav ol)) > :where(li + li) { margin-top: 4px; }
+  :where(.embp-web) :where(strong, b) { font-weight: 600; }
+  :where(.embp-web) :where(small) { font-size: .875rem; }
+  :where(.embp-web) :where(hr) { border: 0; border-top: 1px solid var(--web-borda, #dddddd); margin: var(--web-espaco-32, 2rem) 0; }
+  :where(.embp-web) :where(blockquote) { padding-left: 20px; border-left: 4px solid var(--web-fundo-claro, #b4d0e7); }
+  :where(.embp-web) :where(figcaption) { margin-top: 6px; font-size: .8125rem; color: var(--web-texto-meta, #58595b); }
+  :where(.embp-web) :where(table) { width: 100%; border-collapse: collapse; font-size: .9375rem; }
+  :where(.embp-web) :where(th, td) { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--web-borda, #dddddd); }
+  :where(.embp-web) :where(thead th) { background: var(--web-fundo-escuro, #00264c); color: var(--web-texto-claro, #ffffff); font-weight: 600; border-bottom: 0; }
+  :where(.embp-web) :where(tbody tr:nth-child(even)) { background: var(--web-fundo-secao, #ececec); }
+  :where(.embp-web) :where(caption) { caption-side: top; text-align: left; padding-bottom: 8px; font-weight: 600; color: var(--web-titulo, #00264c); }
+  :where(.embp-web) :where(label) { display: block; margin-bottom: 4px; font-weight: 600; font-size: .875rem; }
+  :where(.embp-web) :where(input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"]), select, textarea) {
+    width: 100%; max-width: 640px; box-sizing: border-box; padding: 8px 12px; font: inherit; color: var(--web-texto, #272833);
+    background: var(--web-fundo, #ffffff); border: 1px solid var(--cinza-medio, #8e8e8d); border-radius: var(--web-raio-caixa, 5px);
+  }
+  :where(.embp-web) :where(code, pre) { font-family: ui-monospace, Consolas, monospace; font-size: .875rem; }
+  :where(.embp-web) :where(pre) { padding: 16px; overflow-x: auto; background: var(--web-fundo-secao, #ececec); border-radius: var(--web-raio-caixa, 5px); }
+  /* Título de seção (portlet) */
+  :where(.portlet-title-text) {
+    display: block; margin: 0 0 var(--web-espaco-16, 1rem);
+    font-size: 1.953rem; line-height: 1.2; font-weight: 600;
+    color: var(--web-titulo, #00264c);
+  }
+}
+
+@layer embp.componentes {
+  /* ---------- Seção / portlet ---------- */
+  :where(.embp-secao) { max-width: var(--web-container, 1590px); margin: 0 auto var(--web-espaco-48, 3rem); padding: 0 var(--web-espaco-32, 2rem); }
+  :where(.sem-limite-de-largura) { max-width: none; }
+  :where(.sem-margem-superior) { margin-top: 0; }
+  :where(.tp-fundo-cinza-claro) { background: var(--web-fundo-secao, #ececec); }
+  :where(.tp-fundo-azul-claro) { background: var(--web-fundo-claro, #b4d0e7); }
+  :where(.tp-fundo-azul-medio) { background: var(--web-fundo-medio, #3a74b0); }
+  :where(.tp-fundo-azul-escuro) { background: var(--web-fundo-escuro, #00264c); }
+  :where(.tp-fundo-cinza-escuro) { background: var(--web-fundo-grafite, #333333); }
+  :where(.tp-fundo-azul-medio, .tp-fundo-azul-escuro, .tp-fundo-cinza-escuro) :where(.portlet-title-text) { color: var(--web-texto-claro, #ffffff); }
+  :where(.tp-fundo-cinza-claro, .tp-fundo-azul-claro, .tp-fundo-azul-medio, .tp-fundo-azul-escuro, .tp-fundo-cinza-escuro) { padding-top: var(--web-espaco-32, 2rem); padding-bottom: var(--web-espaco-32, 2rem); }
+
+  /* ---------- Botões ---------- */
+  :where(.botao-ver-mais) { display: flex; justify-content: center; margin-top: var(--web-espaco-16, 1rem); }
+  :where(.embp-button) {
+    display: block; width: fit-content; margin: 1rem 0; text-align: center; text-decoration: none;
+    padding: var(--web-espaco-4, 4px) var(--web-espaco-10, 10px);
+    background: var(--web-acao, #3a74b0); color: var(--web-texto-acao, #ffffff);
+    border: 1px solid var(--web-acao, #3a74b0); border-radius: var(--web-raio-botao, 20px);
+    font: inherit; cursor: pointer;
+  }
+  :where(.embp-button.grande) { padding: 10px 20px; border-radius: var(--web-raio-link, 30px); }
+  :where(.embp-button):hover { background: var(--web-acao-hover, #00264c); border-color: var(--web-acao-hover, #00264c); color: var(--web-texto-acao, #ffffff); text-decoration: none; }
+  :where(.embp-cards-link) {
+    display: inline-block; margin: 20px; padding: 7px 20px; text-decoration: none;
+    border-radius: var(--web-raio-link, 30px); border: 1px solid var(--web-botao-secundario-texto, #3a74b0);
+    background: var(--web-botao-secundario-fundo, #ffffff); color: var(--web-botao-secundario-texto, #3a74b0);
+  }
+  :where(.embp-cards-link):hover { background: var(--web-acao, #3a74b0); color: var(--web-texto-acao, #ffffff); border-color: transparent; text-decoration: none; }
+  :where(.embp-cards-link) :where(i, svg) { font-size: 12px; margin-left: 6px; }
+
+  /* ---------- Cabeçalho do portal ---------- */
+  :where(.embp_header) { background: var(--web-fundo-cabecalho, #3b6792); color: var(--web-texto-claro, #ffffff); }
+  :where(.embp_header_container) { max-width: var(--web-container, 1590px); margin: 0 auto; padding: 14px var(--web-espaco-32, 2rem); display: flex; align-items: center; gap: 35px; flex-wrap: wrap; }
+  :where(.embp_header_logo) { display: block; flex: none; }
+  :where(.embp_header_logo) :where(img, svg) { width: 117px; min-width: 100px; height: auto; display: block; }
+  :where(.embp_header_container_menus) { flex: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+  :where(.embp_header_menu_top_list, .embp_header_menu_bottom_list) { display: flex; flex-wrap: wrap; gap: 6px 24px; list-style: none; margin: 0; padding: 0; justify-content: flex-end; }
+  :where(.embp_header_menu_top_list_nav_item, .embp_header_menu_bottom_list_nav_item) > :where(a) {
+    display: flex; gap: 5px; align-items: center; color: var(--web-texto-claro, #ffffff);
+    font-size: .875rem; line-height: 21px; font-weight: 700; text-decoration: none; border-bottom: 2px solid transparent;
+  }
+  :where(.embp_header_menu_top_list_nav_item, .embp_header_menu_bottom_list_nav_item) > :where(a):hover { border-bottom-color: var(--web-cinza-fundo, #ececec); color: var(--web-texto-claro, #ffffff); }
+  :where(.embp_header_accessibility_list) { display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; }
+
+  /* ---------- Menu de Unidade + breadcrumb ---------- */
+  :where(.embp_unidades_menu) { background: var(--web-fundo-menu, #f6f6f6); }
+  :where(.embp_unidades_menu) :where(ul) { max-width: var(--web-container, 1590px); margin: 0 auto; padding: 0 var(--web-espaco-32, 2rem); list-style: none; display: flex; flex-wrap: wrap; gap: 4px 28px; min-height: 56px; align-items: center; }
+  :where(.embp_unidades_menu) :where(a) { font-size: .875rem; line-height: 21px; font-weight: 700; color: var(--web-titulo, #00264c); text-decoration: none; border-bottom: 2px solid transparent; }
+  :where(.embp_unidades_menu) :where(a):hover, :where(.embp_unidades_menu) :where(a[aria-current="page"]) { border-bottom-color: var(--web-botao-secundario-texto, #3a74b0); }
+  :where(.embp__breadcrumb, .embp_breadcrumb) :where(ol) { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; font-size: .75rem; }
+  :where(.embp__breadcrumb, .embp_breadcrumb) :where(a, span) { color: var(--web-texto-apoio-escuro, #b4d0e7); text-decoration: none; }
+  :where(.embp__breadcrumb, .embp_breadcrumb) :where(li + li)::before { content: "›"; margin-right: 6px; color: var(--web-texto-apoio-escuro, #b4d0e7); }
+  :where(.embp__breadcrumb, .embp_breadcrumb) :where([aria-current="page"]) { color: var(--web-texto-claro, #ffffff); font-weight: 600; }
+
+  /* ---------- Rodapé ---------- */
+  :where(.embp-footer) { background: var(--web-fundo-escuro, #00264c); color: var(--web-texto-claro, #ffffff); padding-top: var(--web-espaco-48, 3rem); }
+  :where(.embp-footer__container) { max-width: var(--web-container, 1590px); margin: 0 auto; padding: 0 var(--web-espaco-32, 2rem) var(--web-espaco-32, 2rem); display: grid; grid-template-columns: minmax(240px, 1fr) 3fr; gap: var(--web-espaco-32, 2rem); }
+  @media (max-width: 991.98px) { :where(.embp-footer__container) { grid-template-columns: 1fr; } }
+  :where(.embp-footer__infos_logo) { width: 140px; display: block; margin-bottom: 16px; }
+  :where(.embp-footer__infos_logo) :where(svg) { width: 100%; height: auto; display: block; }
+  :where(.embp-footer__infos_info) { display: block; font-size: .875rem; line-height: 1.5; }
+  :where(.embp-footer__infos_title) { margin: 24px 0 12px; font-size: 1.5rem; line-height: 27.6px; font-weight: 600; color: var(--web-texto-claro, #ffffff); }
+  :where(.embp-footer__infos_social_menu) { display: flex; gap: 10px; list-style: none; margin: 0; padding: 0; }
+  :where(.embp-footer__infos_social_menu_item) :where(a) { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: var(--web-texto-apoio-escuro, #b4d0e7); }
+  :where(.embp-footer__menus) { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--web-espaco-20, 20px); }
+  :where(.embp-footer__menus_menu) :where(h3) { margin: 0 0 10px; font-size: 1rem; font-weight: 600; color: var(--web-texto-claro, #ffffff); }
+  :where(.embp-footer__menus_menu) :where(ul) { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  :where(.embp-footer__menus_menu_item) :where(a) { font-size: .875rem; line-height: 18px; color: var(--web-link-rodape, #8bb0d3); text-decoration: none; }
+  :where(.embp-footer__menus_menu_item) :where(a):hover { color: var(--web-texto-claro, #ffffff); text-decoration: underline; }
+  :where(.embp-footer-stripe) { background: var(--web-fundo-secao, #ececec); border-bottom: 20px solid var(--web-fundo-claro, #b4d0e7); padding: 16px 0; color: var(--web-texto, #272833); }
+  :where(.embp-footer__container2) { background: var(--web-fundo-secao, #ececec); color: var(--web-texto, #272833); padding: 20px 24px; font-size: .875rem; }
+  :where(.embp-footer__container2) > :where(div) { max-width: var(--web-container, 1590px); margin: 0 auto; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  :where(.embp-footer__container2) :where(p) { margin: 0; }
+  :where(.embp-footer__container2) :where(a) { color: var(--web-titulo, #00264c); }
+
+  /* ---------- Conteúdos estruturados ---------- */
+  :where(.embp-news-detailed) { max-width: var(--web-texto-largura, 880px); }
+  :where(.visualizacao-noticias) :where(.titulo) { max-width: var(--web-texto-largura, 880px); margin: 8px 0 16px; font-size: 2rem; line-height: 38px; font-weight: 600; color: var(--web-titulo, #00264c); }
+  :where(.data-categoria) { font-size: .75rem; letter-spacing: .075rem; text-transform: uppercase; color: var(--web-texto-meta, #58595b); display: flex; gap: 8px; }
+  :where(.embp-news-featured-media) { margin: 0 0 24px; }
+  :where(.embp-news-featured-img) { width: 100%; border-radius: var(--web-raio-card, 8px); }
+  :where(.embp-news-featured-media) :where(figcaption) { margin-top: 6px; font-size: .8125rem; color: var(--web-texto-meta, #58595b); }
+  :where(.embp-news-body) :where(p) { margin: 0 0 16px; line-height: 1.5; }
+  :where(.embp-news-body) :where(h2) { margin: 32px 0 8px; font-size: 1.375rem; line-height: 1.2; font-weight: 600; color: var(--web-texto, #272833); }
+  :where(.embp-news-body) :where(blockquote) { margin: 24px 0; padding-left: 20px; border-left: 4px solid var(--web-azul-gelo, #b4d0e7); font-size: 1.125rem; }
+  :where(.embp-news-contacts, .embp-news-detailed-more-info) { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--web-borda, #dddddd); font-size: .875rem; }
+
+  :where(.embp-dirigentes-card) { display: grid; grid-template-columns: 180px 1fr; gap: var(--web-espaco-32, 2rem); padding: var(--web-espaco-32, 2rem) 0; border-bottom: 1px solid var(--web-borda, #dddddd); }
+  @media (max-width: 767.98px) { :where(.embp-dirigentes-card) { grid-template-columns: 1fr; } }
+  :where(.embp-dirigentes-card-picture) { width: 180px; aspect-ratio: 1; object-fit: cover; border-radius: var(--web-raio-card, 8px); background: var(--web-fundo-secao, #ececec); }
+  :where(.embp-dirigentes-card-infos) > :where(span) { font-size: .75rem; letter-spacing: .075rem; text-transform: uppercase; color: var(--web-texto-meta, #58595b); }
+  :where(.embp-dirigentes-card-infos) :where(h2) { margin: 4px 0 12px; font-size: 1.5625rem; line-height: 30px; font-weight: 600; color: var(--web-titulo, #00264c); }
+
+  :where(.embp-licitations-contracts) { padding: 20px; margin-bottom: 20px; border: 1px solid var(--web-borda, #dddddd); border-radius: var(--web-raio-card, 8px); background: var(--web-fundo, #ffffff); }
+  :where(.embp-licitations-contracts) :where(h3) { margin: 0 0 12px; font-size: 1.1875rem; font-weight: 600; color: var(--web-titulo, #00264c); }
+  :where(.embp-licitations-contracts) :where(p) { margin: 0 0 6px; }
+  :where(.embp-licitations-contracts-link-editais-anexos) :where(a) { display: inline-block; margin: 8px 0; padding: 7px 20px; border-radius: var(--web-raio-link, 30px); border: 1px solid var(--web-botao-secundario-texto, #3a74b0); color: var(--web-botao-secundario-texto, #3a74b0); text-decoration: none; }
+}
+
+@layer embp.utilitarios {
+  /* Layout de páginas simples */
+  :where(.embp-container) { max-width: var(--web-container, 1590px); margin: 0 auto; padding: 0 var(--web-espaco-32, 2rem); box-sizing: border-box; }
+  :where(.embp-container-texto) { max-width: calc(var(--web-texto-largura, 880px) + 4rem); margin: 0 auto; padding: 0 var(--web-espaco-32, 2rem); box-sizing: border-box; }
+  @media (max-width: 575.98px) { :where(.embp-container, .embp-container-texto) { padding: 0 var(--web-espaco-16, 1rem); } }
+  :where(.embp-main) { display: block; padding: var(--web-espaco-48, 3rem) 0; }
+  :where(.embp-secao-simples) { padding-top: var(--web-espaco-32, 2rem); padding-bottom: var(--web-espaco-32, 2rem); }
+  :where(.embp-grade) { display: grid; gap: var(--web-espaco-20, 20px); grid-template-columns: 1fr; list-style: none; margin: 0; padding: 0; }
+  @media (min-width: 768px) { :where(.embp-grade-2, .embp-grade-3) { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 950px) { :where(.embp-grade-3) { grid-template-columns: repeat(3, 1fr); } }
+  :where(.embp-centro) { display: flex; justify-content: center; }
+  :where(.embp-chapeu) { display: inline-block; font-size: .75rem; line-height: 18px; letter-spacing: .075rem; text-transform: uppercase; color: var(--web-texto-meta, #58595b); }
+  :where(.embp-destaque-texto) { font-size: 1.125rem; line-height: 1.5; color: var(--web-texto, #272833); max-width: var(--web-texto-largura, 880px); }
+  :where(.embp-aviso) { padding: 16px 20px; border-radius: var(--web-raio-card, 8px); background: var(--web-fundo-claro, #b4d0e7); color: var(--web-texto, #272833); border: 1px solid var(--web-contorno, transparent); }
+  :where(.embp-page-banner) { position: relative; padding: var(--web-espaco-48, 3rem) 0; background: var(--web-fundo-escuro, #00264c); color: var(--web-texto-claro, #ffffff); }
+  :where(.embp-page-banner) :where(h1) { color: var(--web-texto-claro, #ffffff); margin: 0; font-size: 2rem; line-height: 1.5; }
+  :where(.embp-page-banner) :where(.embp-chapeu) { color: var(--web-texto-apoio-escuro, #b4d0e7); }
+  :where(.embp-sr-only) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  :where(.embp-pular-conteudo) { position: absolute; left: 8px; top: -100px; padding: 8px 16px; background: var(--web-acao, #3a74b0); color: var(--web-texto-acao, #ffffff); z-index: 1000; }
+  :where(.embp-pular-conteudo):focus { top: 8px; }
+}
+
+/* =====================================================================
+   Embrapa — componentes para painéis e plataformas de dados
+   Complementa tokens.css + embrapa-web.css. Usa só var(--web-*) e tokens.
+   Ordem de inclusão: tokens.css → embrapa-web.css → plataformas.css
+   ===================================================================== */
+
+/* ---------- Página ---------- */
+.embp-web.embp-plataforma{background:var(--web-fundo-secao);overflow-x:hidden}
+.embp-web .mono{font-family:var(--font-mono);font-size:.8125rem}
+.muted{color:var(--web-texto-meta);font-size:.8125rem;line-height:1.5}
+
+/* ---------- Banner da página (título, subtítulo, metadados, indicadores) ---------- */
+.embp-page-banner .embp-chapeu{margin:16px 0 4px}
+.embp-page-banner p.subtitulo{margin:8px 0 0;color:var(--web-texto-apoio-escuro);max-width:var(--web-texto-largura)}
+.banner-meta{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
+.banner-meta li{display:inline-block;padding:4px 12px;border-radius:var(--web-raio-botao);border:1px solid var(--web-botao-icone);color:var(--web-texto-claro);font-size:.8125rem;line-height:20px}
+.banner-meta a{color:var(--web-texto-claro);text-decoration:underline;text-underline-offset:2px}
+.banner-meta a:hover{color:var(--web-texto-apoio-escuro)}
+.painel-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--web-espaco-20);margin:var(--web-espaco-25) 0 0;padding:0;list-style:none}
+.painel-stats li{background:var(--web-fundo);border:1px solid var(--web-contorno);border-radius:var(--web-raio-card);padding:16px 20px;color:var(--web-titulo)}
+.painel-stats b{display:block;font-size:2rem;line-height:1.2;font-weight:600;font-variant-numeric:tabular-nums}
+.painel-stats span{font-size:.75rem;letter-spacing:.075rem;text-transform:uppercase;color:var(--web-texto-meta)}
+
+/* ---------- Menu de seções (âncoras) — fixo no topo ---------- */
+.menu-paineis{position:sticky;top:0;z-index:500}
+.secao-painel{scroll-margin-top:72px}
+.secao-painel + .secao-painel{margin-top:var(--web-espaco-48)}
+.secao-painel .portlet-title-text{margin-top:0}
+
+/* ---------- Painel (cartão de mapa/figura) ---------- */
+.painel{display:flex;flex-direction:column;border-radius:var(--web-raio-card);border:1px solid var(--web-borda);background:var(--web-fundo);overflow:hidden}
+.painel-cab{padding:16px 20px 12px}
+.painel-cab .embp-chapeu{display:block;margin-bottom:2px}
+.painel-cab h3{margin:0;font-size:1.1875rem;line-height:24px;font-weight:600;color:var(--web-titulo)}
+.painel-cab small{display:block;margin-top:2px;color:var(--web-texto-meta)}
+.painel-nota{margin:12px 20px 20px;font-size:.875rem;line-height:1.5;color:var(--web-texto)}
+.mapa-img{margin:0 20px;border-radius:var(--web-raio-caixa);overflow:hidden;border:1px solid var(--web-borda);background:var(--web-fundo-secao)}
+.mapa-img img{display:block;width:100%;height:auto}
+.mapa{margin:0 20px;min-height:260px;border-radius:var(--web-raio-caixa);background:var(--web-fundo-secao);display:grid;place-items:center;text-align:center;color:var(--web-texto-meta);font-size:.875rem;padding:16px;border:1px dashed var(--web-borda)}
+
+/* ---------- Cartão de ferramenta (controles, mapa interativo, gráficos) ---------- */
+.card{background:var(--web-fundo);border:1px solid var(--web-borda);border-radius:var(--web-raio-card);padding:16px 20px;box-sizing:border-box;min-width:0}
+.card h2{margin:0 0 8px;font-size:1.1875rem;line-height:24px;font-weight:600;color:var(--web-titulo)}
+.card h3{margin:20px 0 8px;font-size:1rem;line-height:24px;font-weight:600;color:var(--web-titulo)}
+.card > h3:first-child,.grid2 > div > h3:first-child{margin-top:0}
+.card-cab{margin:0 0 12px}
+.card-cab .embp-chapeu{display:block;margin-bottom:2px}
+.card-cab h2{margin:0}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--web-espaco-20)}
+.top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--web-espaco-20)}
+@media (max-width:1100px){.top{grid-template-columns:1fr}}
+@media (max-width:1000px){.grid2{grid-template-columns:1fr}}
+
+/* ---------- Controles de formulário em linha ---------- */
+.ctrl{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:0 0 12px;font-size:.875rem}
+.ctrl label{display:inline-flex;align-items:center;gap:6px;margin:0;font-weight:600;font-size:.8125rem;color:var(--web-titulo)}
+.ctrl select,.ctrl input:not([type="checkbox"]):not([type="radio"]):not([type="file"]){width:auto;max-width:none;padding:5px 12px;font:inherit;font-size:.8125rem;font-weight:400;color:var(--web-texto);background:var(--web-fundo);border:1px solid var(--cinza-medio);border-radius:var(--web-raio-caixa)}
+.ctrl input[type="checkbox"],.ctrl input[type="radio"]{accent-color:var(--web-acao);width:16px;height:16px;margin:0}
+.ctrl label.simples{font-weight:400;color:var(--web-texto)}
+.ctrl select:focus-visible,.ctrl input:focus-visible{outline:2px solid var(--web-foco);outline-offset:1px}
+
+/* ---------- Botões (mesmo desenho de .embp-button) ---------- */
+.embp-plataforma button{font:inherit;font-size:.8125rem;padding:5px 14px;cursor:pointer;border-radius:var(--web-raio-botao);border:1px solid var(--web-acao);background:var(--web-acao);color:var(--web-texto-acao)}
+.embp-plataforma button:hover{background:var(--web-acao-hover);border-color:var(--web-acao-hover)}
+.embp-plataforma button.sec{background:var(--web-botao-secundario-fundo);color:var(--web-botao-secundario-texto)}
+
+/* ---------- Etiquetas (chips) ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px;padding:0;list-style:none}
+.chips li,.chip{display:inline-block;background:var(--web-fundo-claro);color:var(--web-titulo);border:1px solid var(--web-contorno);border-radius:var(--web-raio-botao);padding:4px 12px;font-size:.8125rem;line-height:20px}
+.chips b,.chip b{font-weight:600;font-variant-numeric:tabular-nums}
+.chip-status{background:var(--web-fundo)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px 16px;font-size:.8125rem;line-height:1.45}
+.kv div span{color:var(--web-texto-meta)}
+
+/* ---------- Indicadores compactos dentro de cartões ---------- */
+.stat{display:inline-block;margin:0 12px 12px 0;padding:10px 16px;min-width:130px;background:var(--web-fundo-secao);border-radius:var(--web-raio-card);font-size:.75rem;letter-spacing:.04rem;text-transform:uppercase;color:var(--web-texto-meta);vertical-align:top}
+.stat b{display:block;font-size:1.375rem;line-height:1.3;font-weight:600;letter-spacing:0;text-transform:none;color:var(--web-titulo);font-variant-numeric:tabular-nums}
+
+/* ---------- Abas (mesmo desenho de .embp_unidades_menu) ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:4px 28px;align-items:center;min-height:56px;margin:var(--web-espaco-32) 0 0;padding:0 20px;background:var(--web-fundo-menu);border:1px solid var(--web-borda);border-bottom:0;border-radius:var(--web-raio-card) var(--web-raio-card) 0 0;position:sticky;top:0;z-index:500}
+.tab{padding:4px 0;cursor:pointer;font-size:.875rem;line-height:21px;font-weight:700;color:var(--web-titulo);border-bottom:2px solid transparent;user-select:none}
+.tab:hover{border-bottom-color:var(--web-botao-secundario-texto)}
+.tab.on,.tab[aria-selected="true"]{border-bottom-color:var(--web-botao-secundario-texto);color:var(--web-acao)}
+.tab:focus-visible{outline:2px solid var(--web-foco);outline-offset:2px}
+.pane{display:none}.pane.on{display:block}
+.pane > .card{border-radius:0 0 var(--web-raio-card) var(--web-raio-card)}
+
+/* ---------- Tabelas densas de dados ---------- */
+.embp-plataforma table{width:100%;border-collapse:collapse;font-size:.8125rem;margin:0}
+.embp-plataforma th,.embp-plataforma td{padding:6px 10px;border-bottom:1px solid var(--web-borda);text-align:right;white-space:nowrap;vertical-align:middle}
+.embp-plataforma th{background:var(--web-fundo-escuro);color:var(--web-texto-claro);font-weight:600;position:sticky;top:0;z-index:1}
+.embp-plataforma tr:nth-child(even) td{background:var(--web-fundo-secao)}
+.embp-plataforma td:first-child,.embp-plataforma th:first-child,.embp-plataforma td.l,.embp-plataforma th.l{text-align:left}
+.scroll{max-height:460px;overflow:auto;border:1px solid var(--web-borda);border-radius:var(--web-raio-caixa)}
+
+/* ---------- Status semânticos ---------- */
+.st-ok,.st-CONFORME{color:var(--verde-embrapa);font-weight:700}
+.st-alerta,.st-ATENÇÃO{color:var(--marrom);font-weight:700}
+.st-erro,.st-DIVERGENTE{color:#b42318;font-weight:700}
+.st-neutro{color:var(--web-texto-meta);font-weight:700}
+
+/* ---------- Mapas (Leaflet) e gráficos (Plotly) ---------- */
+.mapa-interativo{height:600px;border-radius:var(--web-raio-caixa);border:1px solid var(--web-borda);background:var(--web-fundo-secao)}
+.legend{background:var(--web-fundo);padding:10px 12px;border-radius:var(--web-raio-card);font:12px/1.55 var(--font-web);color:var(--web-texto);box-shadow:0 1px 4px rgba(0,0,0,.2);max-width:220px;border:1px solid var(--web-borda)}
+.legend b{color:var(--web-titulo)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-2px}
+.leaflet-container{font-family:var(--font-web)}
+.leaflet-control-layers label{display:block;margin:0;font-weight:400;font-size:.8125rem}
+.plot{width:100%;height:300px}
+
+/* ---------- Rodapé ---------- */
+.embp-footer__menus_menu ul{list-style:none;margin:0;padding:0}
+
+@media (max-width:767.98px){
+ .menu-paineis ul{flex-wrap:nowrap;overflow-x:auto;gap:22px;-webkit-overflow-scrolling:touch}
+ .menu-paineis li{flex:none}
+ .painel-stats b{font-size:1.5rem}
+ .embp_header_container_menus{display:none}
+ .tabs{gap:4px 18px;overflow-x:auto;flex-wrap:nowrap}
+ .tab{flex:none}
+ .mapa-interativo{height:440px}
+}
+
+
+/* =====================================================================
+   Guia de Abelhas sem Ferrão — ajustes desta página (só tokens Embrapa)
+   Cores de marca: amarelo (favo) · marrom (Características) · verde-embrapa (Manejo)
+   ===================================================================== */
+.embp-plataforma .sci{font-style:italic;font-weight:500}
+.ni{color:var(--web-texto-meta);font-style:italic;font-size:.92em}
 .num{font-variant-numeric:tabular-nums}
 
-/* ---------- Cabeçalho ---------- */
-.mast{position:relative;overflow:hidden;background:var(--ink);color:#fff;margin-inline:-16px;padding:30px 16px 28px}
-.mast::before{content:"";position:absolute;inset:0;background:
- radial-gradient(circle at 88% 20%,rgba(233,165,20,.55),transparent 42%),
- linear-gradient(118deg,transparent 0 60%,rgba(47,122,60,.85) 60.2% 100%)}
-.mast canvas{position:absolute;right:0;top:0;height:100%;width:52%;opacity:.35;pointer-events:none}
-.mast .in{position:relative;max-width:1208px;margin:0 auto;display:flex;flex-wrap:wrap;gap:22px 40px;align-items:flex-end;justify-content:space-between}
-.kicker{font-family:var(--display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:14px;color:#f7d57a}
-.mast h1{font-size:clamp(40px,7vw,70px);line-height:.9;font-weight:800;text-transform:uppercase;margin-top:6px}
-.mast h1 span{font-weight:500;display:block;font-size:.62em;letter-spacing:.02em}
-.mast .sub{margin:12px 0 0;max-width:60ch;opacity:.92}
-.hint{display:inline-block;margin-top:14px;border:1px solid rgba(255,255,255,.7);border-radius:6px;padding:4px 10px;font-size:13px}
-.stats{display:grid;grid-template-columns:repeat(4,auto);gap:4px 22px}
-.stats div{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:13px;opacity:.9}
-.stats b{display:block;font-size:40px;line-height:1;letter-spacing:0;color:#f7d57a;font-variant-numeric:tabular-nums}
-@media (max-width:560px){.stats{grid-template-columns:repeat(2,auto)}}
-/* ----------Autores -------------- */
-.authors{position:relative;max-width:1208px;margin:22px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
-.authors .lbl{grid-column:1/-1;font-family:var(--display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:13px;color:#f7d57a}
-.author{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.1);border:1.5px solid rgba(247,213,122,.7);border-radius:14px;padding:10px 14px}
-.author .hx{flex:none;width:44px;aspect-ratio:1/1.1547;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#f7d57a;color:var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:17px}
-.author b{display:block;font-family:var(--display);font-weight:700;font-size:22px;line-height:1.05;letter-spacing:.01em}
-.author span{display:block;font-size:13.5px;opacity:.9;line-height:1.3}
+/* Banner: autores e dica */
+.autores-guia{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:var(--web-espaco-25) 0 0;padding:0;list-style:none}
+.autores-guia li{display:flex;align-items:center;gap:12px;background:var(--web-fundo);color:var(--web-titulo);border-radius:var(--web-raio-card);padding:12px 16px}
+.autores-guia .hx{flex:none;width:40px;aspect-ratio:1/1.1547;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--amarelo);color:var(--web-azul-noite);display:grid;place-items:center;font-weight:700;font-size:.875rem}
+.autores-guia b{display:block;font-size:1rem;line-height:1.25;font-weight:600}
+.autores-guia span.cargo{display:block;font-size:.8125rem;line-height:1.35;color:var(--web-texto-meta)}
 
-  
+/* Busca e filtros */
+.ferramentas{margin:0 0 var(--web-espaco-20)}
+.ferramentas .ctrl{margin:0}
+.ferramentas input[type="search"]{flex:1 1 260px;min-width:0}
+.contagem{font-size:.8125rem;color:var(--web-texto-meta)}
 
-/* ---------- Barra de filtros ---------- */
-.tools{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
-.tools input,.tools select{font:inherit;font-size:14px;padding:7px 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg)}
-.tools input{flex:1 1 220px;min-width:0}
-.jump{display:flex;gap:6px;flex-wrap:wrap}
-.jump a{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:14px;text-decoration:none;color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--surface)}
-.jump a:hover{border-color:var(--amber)}
-.count{font-size:13px;color:var(--muted)}
+/* Seções de grupo */
+.grupo-cab{margin:0 0 var(--web-espaco-16)}
+.grupo-cab .embp-chapeu{display:block;margin-bottom:2px;text-transform:none;letter-spacing:0;font-style:italic;font-size:.875rem}
+.grupo-cab p{margin:6px 0 0;max-width:var(--web-texto-largura);color:var(--web-texto)}
 
-/* ---------- Seções ---------- */
-.seg{margin-top:36px;scroll-margin-top:120px}
-.seg-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-bottom:12px}
-.seg-pill{font-family:var(--display);font-weight:800;font-size:26px;text-transform:uppercase;color:var(--ink);background:var(--amber);border-radius:999px;padding:5px 22px;letter-spacing:.01em;line-height:1.1}
-.seg-head .gen{font-family:var(--sci);font-style:italic;color:var(--muted);font-size:15px}
-.seg-head p{margin:0;flex-basis:100%;max-width:80ch;color:var(--muted)}
+/* Placas (favos) */
+.placas{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin:0 0 var(--web-espaco-20);padding:0;list-style:none}
+.placa{position:relative;display:flex;flex-direction:column;align-items:center;height:100%;box-sizing:border-box;text-decoration:none;color:var(--web-texto);background:var(--web-fundo);border:1px solid var(--web-borda);border-radius:var(--web-raio-card);padding:28px 8px 12px;transition:transform .2s ease,border-color .2s ease}
+.placa:hover{transform:translateY(-.25rem);border-color:var(--web-acao);color:var(--web-texto)}
+.hex{width:92px;max-width:100%;aspect-ratio:1/1.1547;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--amarelo);display:grid;place-items:center}
+.hex .in{width:calc(100% - 8px);height:calc(100% - 8px);clip-path:inherit;background:var(--web-fundo) center/cover no-repeat;display:grid;place-items:center;font-weight:700;color:var(--marrom);font-size:1.375rem}
+.placa .g{font-style:italic;font-size:.8125rem;color:var(--web-texto-meta);margin-top:8px;line-height:1.2;text-align:center}
+.placa .e{font-style:italic;font-weight:600;font-size:1rem;line-height:1.2;text-align:center;word-break:break-word;color:var(--web-titulo)}
+.placa .p{font-weight:700;font-size:.75rem;letter-spacing:.06rem;text-transform:uppercase;color:var(--marrom);text-align:center;margin-top:4px;line-height:1.2}
+.placa .no{position:absolute;top:6px;left:10px;font-size:.75rem;color:var(--web-texto-meta);font-variant-numeric:tabular-nums}
+.flag{position:absolute;top:6px;right:6px;font-weight:700;font-size:.6875rem;letter-spacing:.04rem;text-transform:uppercase;border-radius:var(--web-raio-botao);padding:1px 8px;line-height:16px;border:1px solid currentColor;background:var(--web-fundo)}
+.flag.r{color:#b42318}
+.flag.i{color:var(--azul-embrapa)}
 
-/* ---------- Placas (favos) ---------- */
-.plates{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:14px;margin-bottom:16px}
-.plate{position:relative;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--fg);background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:10px 8px 10px;transition:transform .15s ease,border-color .15s ease}
-.plate:hover{transform:translateY(-3px);border-color:var(--amber)}
-.hex{width:94px;aspect-ratio:1/1.1547;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--amber);display:grid;place-items:center;max-width:100%}
-.hex .in{width:calc(100% - 8px);height:calc(100% - 8px);clip-path:inherit;background:#fff center/cover no-repeat;display:grid;place-items:center;font-family:var(--display);font-weight:800;color:var(--amber-deep);font-size:24px}
-.plate .g{font-family:var(--sci);font-style:italic;font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.1;text-align:center}
-.plate .e{font-family:var(--sci);font-style:italic;font-weight:600;font-size:17px;line-height:1.1;text-align:center;word-break:break-word}
-.plate .p{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:13px;color:var(--amber-deep);text-align:center;margin-top:3px;line-height:1.1}
-.plate .no{position:absolute;top:6px;left:8px;font-family:var(--display);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
-.flag{position:absolute;top:6px;right:6px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:1px 7px;line-height:16px}
-.flag.r{background:var(--red-soft);color:var(--red)}
-.flag.i{background:var(--blue-soft);color:var(--blue)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .plate .p{color:var(--amber)}}
-:root[data-theme="dark"] .plate .p{color:var(--amber)}
+/* Tabela-guia (faixas Características / Manejo) */
+.tablebox{overflow-x:auto;border-radius:var(--web-raio-card);background:var(--web-fundo);border:1px solid var(--web-borda)}
+.embp-plataforma table.guide{border-collapse:separate;border-spacing:0;width:max-content}
+.embp-plataforma .guide th,.embp-plataforma .guide td{padding:8px 10px;vertical-align:top;border-bottom:1px solid var(--web-borda);font-size:.8125rem;text-align:left;white-space:normal}
+.embp-plataforma .guide td{width:168px;min-width:168px;max-width:168px;background:var(--web-fundo)}
+.embp-plataforma .guide thead th{background:var(--web-fundo-secao);color:var(--web-texto);text-align:center;font-weight:400;position:static}
+.guide thead th a{text-decoration:none;color:var(--web-texto);display:block}
+.embp-plataforma .guide thead .corner{position:sticky;left:0;z-index:3;background:var(--web-fundo-secao)}
+.embp-plataforma .guide .band{position:sticky;left:0;z-index:2;width:32px;min-width:32px;padding:0;color:var(--web-texto-claro);background:var(--marrom);text-align:center}
+.guide .band span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);font-weight:700;letter-spacing:.12rem;text-transform:uppercase;font-size:.75rem;padding:12px 7px;white-space:nowrap}
+.embp-plataforma .guide .band.m{background:var(--verde-embrapa)}
+.embp-plataforma .guide th.lab{position:sticky;left:32px;z-index:2;width:136px;min-width:136px;text-align:left;font-weight:700;text-transform:uppercase;letter-spacing:.04rem;font-size:.75rem;background:var(--web-fundo-escuro);color:var(--web-texto-claro);border-bottom-color:rgba(255,255,255,.2)}
+.embp-plataforma .guide tr.cz td{background:color-mix(in srgb,var(--amarelo) 14%,var(--web-fundo))}
+.embp-plataforma .guide tr.mg td{background:color-mix(in srgb,var(--verde-embrapa) 9%,var(--web-fundo))}
+.guide td strong{font-size:1rem;font-weight:600;line-height:1.2;color:var(--web-titulo)}
+.guide td small{display:block;color:var(--web-texto-meta);font-size:.75rem}
+.thname .g{font-style:italic;font-size:.75rem;color:var(--web-texto-meta)}
+.thname .e{font-style:italic;font-weight:600;font-size:.9375rem;display:block;color:var(--web-titulo)}
+.thname .hex{width:56px;margin:0 auto 6px}
 
-/* ---------- Tabela-guia ---------- */
-.tablebox{overflow-x:auto;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
-table.guide{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%}
-.guide th,.guide td{padding:9px 11px;vertical-align:top;border-bottom:1px solid var(--line);font-size:13.5px}
-.guide td{width:168px;min-width:168px;max-width:168px}
-.guide thead th{background:var(--surface-2);text-align:center;font-weight:400;border-bottom:0}
-.guide thead th a{text-decoration:none;color:var(--fg);display:block}
-.guide thead .corner{position:sticky;left:0;z-index:3;background:var(--surface-2)}
-.guide .band{position:sticky;left:0;z-index:2;width:32px;min-width:32px;padding:0;color:#fff;background:var(--amber-deep)}
-.guide .band span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--display);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;padding:12px 7px;white-space:nowrap}
-.guide .band.m{background:var(--green-deep)}
-.guide th.lab{position:sticky;left:32px;z-index:2;width:136px;min-width:136px;text-align:left;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:12.5px;background:#a36d0a;color:#fff;border-bottom-color:rgba(255,255,255,.2)}
-.guide tr.mg th.lab{background:var(--green)}
-.guide tr.cz td{background:var(--amber-soft)}
-.guide tr.mg td{background:var(--green-soft)}
-.guide td strong{font-family:var(--display);font-size:19px;font-weight:700;line-height:1.05}
-.guide td small{display:block;color:var(--muted);font-size:12px}
-.thname .g{font-family:var(--sci);font-style:italic;font-size:12px;color:var(--muted)}
-.thname .e{font-family:var(--sci);font-style:italic;font-weight:600;font-size:16px;display:block}
-.thname .hex{width:58px;margin:0 auto 6px}
-.pill{display:inline-block;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.03em;text-transform:uppercase;border-radius:999px;padding:1px 9px}
-.pill.sim{background:var(--green);color:#fff}
-.pill.nao{background:var(--red);color:#fff}
-.pill.chao{background:#7a5a2a;color:#fff}
+/* Etiquetas de manejo e status */
+.pill{display:inline-block;font-weight:700;font-size:.75rem;letter-spacing:.03rem;text-transform:uppercase;border-radius:var(--web-raio-botao);padding:1px 10px;color:var(--web-texto-claro)}
+.pill.sim{background:var(--verde-embrapa)}
+.pill.nao{background:#b42318}
+.pill.chao{background:var(--marrom)}
 .st{display:inline-flex;align-items:center;gap:5px;font-weight:600}
 .st::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
-.st.c{color:var(--green)} .st.i{color:var(--blue)} .st.r{color:var(--red)}
-.scrollnote{font-size:12px;color:var(--muted);margin:6px 2px 0}
-.empty{padding:14px;border:1px dashed var(--line);border-radius:10px;color:var(--muted)}
+.st.c{color:var(--verde-embrapa)} .st.i{color:var(--azul-embrapa)} .st.r{color:#b42318}
+.scrollnote{font-size:.75rem;color:var(--web-texto-meta);margin:6px 2px 0}
+.empty{padding:16px;border:1px dashed var(--web-borda);border-radius:var(--web-raio-card);color:var(--web-texto-meta);background:var(--web-fundo)}
 
-/* ---------- Painéis ---------- */
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:36px}
-.grid2>*{min-width:0}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
-.panel h3{font-size:24px;color:var(--amber-deep);margin-bottom:8px}
-.panel.g h3{color:var(--green)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .panel h3{color:var(--amber)}}
-:root[data-theme="dark"] .panel h3{color:var(--amber)}
-.panel ul{margin:0;padding-left:18px}.panel li{margin:5px 0}
-.rev{margin-top:36px}
-.rev h3{font-size:28px;margin-bottom:6px}
-.tblw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
-table.dt{border-collapse:collapse;width:100%;font-size:13.5px}
-.dt th,.dt td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-.dt thead th{background:var(--ink);color:#fff;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.03em;white-space:nowrap}
-.dt td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums}
-.foot{margin-top:28px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;max-width:125ch}
-.src{margin:0;padding-left:18px;font-size:14px}.src li{margin:5px 0}
+/* Revisões, painéis e notas */
+.embp-plataforma table.dt td,.embp-plataforma table.dt th{text-align:left;white-space:normal;vertical-align:top}
+.embp-plataforma table.dt td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+.card ul,.card ol{margin:0;padding-left:1.25rem}.card li{margin:6px 0}
+.card-cab h2 + p{margin-top:8px}
+.nota-rodape{margin:var(--web-espaco-32) 0 0;font-size:.8125rem;color:var(--web-texto-meta);border-top:1px solid var(--web-borda);padding-top:12px;max-width:125ch}
+.src{margin:0;padding-left:1.25rem;font-size:.875rem}.src li{margin:6px 0}
 
-/* ---------- Ficha (subguia) ---------- */
-.flyer{max-width:960px;margin:0 auto}
-.fl-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:16px 12px;align-items:center}
-.btn{font-family:var(--display);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:15px;border:2px solid var(--amber-deep);color:var(--amber-deep);background:var(--surface);border-radius:999px;padding:6px 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.btn:hover{background:var(--amber-soft)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn{color:var(--amber);border-color:var(--amber)}}
-:root[data-theme="dark"] .btn{color:var(--amber);border-color:var(--amber)}
-.fl-hero{position:relative;border-radius:18px;overflow:hidden;background:var(--ink);color:#fff}
-.fl-hero .hero-in{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:stretch}
-.fl-hero .photo{position:relative;background:#fff;min-height:260px;display:grid;place-items:center}
-.fl-hero .photo img{width:100%;height:100%;object-fit:contain;max-height:380px;display:block}
-.fl-hero .photo .ph{font-family:var(--display);font-weight:800;font-size:64px;color:var(--amber-deep)}
-.fl-hero .txt{padding:26px 24px;display:flex;flex-direction:column;justify-content:center;gap:6px;background:radial-gradient(120% 90% at 100% 0%,rgba(233,165,20,.35),transparent 60%)}
-.fl-hero .no{font-family:var(--display);letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:#f7d57a}
-.fl-hero h2{font-family:var(--sci);font-style:italic;font-weight:600;font-size:clamp(30px,4.6vw,46px);line-height:1.02}
-.fl-hero .auth{font-family:var(--body);font-style:normal;font-size:16px;opacity:.8}
-.fl-hero .pop{font-family:var(--display);font-weight:700;font-size:26px;text-transform:uppercase;color:#f7d57a;line-height:1.05}
-.fl-hero .other{opacity:.85;font-size:14px}
-.fl-hero .lead{margin:8px 0 0;opacity:.95;max-width:46ch}
-.marquee{background:var(--amber);color:var(--ink);font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:18px;white-space:nowrap;overflow:hidden;padding:6px 0}
-.marquee span{display:inline-block;padding-left:12px}
-.marquee b{font-weight:500;opacity:.55}
-@media (max-width:720px){.fl-hero .hero-in{grid-template-columns:1fr}}
-.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}
-.badge{display:flex;align-items:center;gap:10px;background:var(--surface);border:2px solid var(--amber);border-radius:14px;padding:8px 12px 8px 8px;line-height:1.15}
-.badge .hx{flex:none;width:36px;aspect-ratio:1/1.1547;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--amber);display:grid;place-items:center;color:var(--ink)}
-.badge .hx svg{width:18px;height:18px}
-.badge small{display:block;font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:11.5px;color:var(--muted)}
-.badge b{font-family:var(--display);font-size:17px;font-weight:700}
-.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:28px}
-.two>*{min-width:0}
-.sec-t{font-size:26px;color:var(--amber-deep);font-weight:700;margin-bottom:10px;padding-bottom:4px;border-bottom:3px solid var(--amber);display:inline-block}
-.sec-t.g{color:var(--green);border-bottom-color:var(--green)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .sec-t:not(.g){color:var(--amber)}}
-:root[data-theme="dark"] .sec-t:not(.g){color:var(--amber)}
-.kv{display:grid;gap:7px}
-.kv .row{display:grid;grid-template-columns:minmax(110px,38%) 1fr;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
-.kv .k{background:var(--amber-deep);color:#fff;font-family:var(--display);font-weight:600;font-size:15px;padding:7px 10px;display:flex;align-items:center}
-.kv .v{padding:7px 10px;font-size:14px}
+/* ---------- Ficha da espécie ---------- */
+.ficha-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 var(--web-espaco-20)}
+.embp-plataforma a.embp-button{display:inline-flex;align-items:center;gap:6px;margin:0;padding:5px 16px;font-size:.875rem}
+.embp-plataforma a.embp-button.sec{background:var(--web-botao-secundario-fundo);color:var(--web-botao-secundario-texto);border-color:var(--web-botao-secundario-texto)}
+.embp-plataforma a.embp-button.sec:hover{background:var(--web-acao);color:var(--web-texto-acao)}
+.ficha-hero{border-radius:var(--web-raio-card);overflow:hidden;background:var(--web-fundo);border:1px solid var(--web-borda)}
+.ficha-hero .hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
+.ficha-hero .photo{background:var(--web-fundo);min-height:260px;display:grid;place-items:center}
+.ficha-hero .photo img{width:100%;height:100%;object-fit:contain;max-height:380px;display:block}
+.ficha-hero .photo .ph{font-weight:700;font-size:4rem;color:var(--marrom)}
+.ficha-hero .txt{padding:24px;display:flex;flex-direction:column;justify-content:center;gap:6px;background:var(--web-fundo-secao)}
+.ficha-hero .txt .embp-chapeu{display:block}
+.ficha-hero .pop{font-weight:700;font-size:1.375rem;text-transform:uppercase;letter-spacing:.03rem;color:var(--marrom);line-height:1.2}
+.ficha-hero .other{color:var(--web-texto-meta);font-size:.875rem}
+.ficha-hero .lead{margin:8px 0 0;max-width:46ch}
+.faixa{background:var(--amarelo);color:var(--web-azul-noite);font-weight:700;text-transform:uppercase;letter-spacing:.04rem;font-size:.9375rem;white-space:nowrap;overflow:hidden;padding:6px 0}
+.faixa span{display:inline-block;padding-left:12px}
+.faixa b{font-weight:400;opacity:.6}
+@media (max-width:720px){.ficha-hero .hero-in{grid-template-columns:1fr}}
+.selos{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:var(--web-espaco-20) 0 0;padding:0;list-style:none}
+.selos li{display:flex;align-items:center;gap:10px;background:var(--web-fundo);border:1px solid var(--web-borda);border-radius:var(--web-raio-card);padding:10px 12px;line-height:1.2}
+.selos .hx{flex:none;width:36px;aspect-ratio:1/1.1547;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--amarelo);display:grid;place-items:center;color:var(--web-azul-noite)}
+.selos .hx svg{width:18px;height:18px}
+.selos small{display:block;text-transform:uppercase;letter-spacing:.06rem;font-size:.6875rem;color:var(--web-texto-meta)}
+.selos b{font-size:.9375rem;font-weight:600;color:var(--web-titulo)}
+.duas{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--web-espaco-20);margin-top:var(--web-espaco-20)}
+.duas>*{min-width:0}
+.kvl{display:grid;gap:6px}
+.kvl .row{display:grid;grid-template-columns:minmax(110px,38%) 1fr;border:1px solid var(--web-borda);border-radius:var(--web-raio-caixa);overflow:hidden;background:var(--web-fundo)}
+.kvl .k{background:var(--web-fundo-escuro);color:var(--web-texto-claro);font-weight:600;font-size:.8125rem;padding:7px 10px;display:flex;align-items:center}
+.kvl .v{padding:7px 10px;font-size:.875rem}
 .bio p{margin:0 0 12px}
-.bio b{font-family:var(--display);font-size:16px;letter-spacing:.02em}
-.ma{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .ma .hd{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
-.stbig{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:14px;border-radius:999px;padding:3px 12px}
-.stbig.c{background:var(--green);color:#fff}.stbig.i{background:var(--blue);color:#fff}.stbig.r{background:var(--red);color:#fff}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{border:1.5px solid var(--line);border-radius:999px;padding:2px 10px;font-size:13.5px;background:var(--surface-2)}
-.chip.pl{border-color:var(--green);background:var(--green-soft)}
+.stbig{font-weight:700;text-transform:uppercase;letter-spacing:.04rem;font-size:.75rem;border-radius:var(--web-raio-botao);padding:3px 12px;color:var(--web-texto-claro)}
+.stbig.c{background:var(--verde-embrapa)}.stbig.i{background:var(--azul-embrapa)}.stbig.r{background:#b42318}
+.chip.pl{background:color-mix(in srgb,var(--verde-embrapa) 12%,var(--web-fundo));border-color:var(--verde-embrapa)}
 .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
-.gal figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
-.gal button{all:unset;cursor:zoom-in;display:block;background:#fff;aspect-ratio:4/3}
-.gal button:focus-visible{outline:3px solid var(--amber);outline-offset:-3px}
+.gal figure{margin:0;background:var(--web-fundo);border:1px solid var(--web-borda);border-radius:var(--web-raio-card);overflow:hidden;display:flex;flex-direction:column}
+.embp-plataforma .gal button{all:unset;cursor:zoom-in;display:block;background:var(--web-fundo);aspect-ratio:4/3}
+.embp-plataforma .gal button:focus-visible{outline:2px solid var(--web-foco);outline-offset:-2px}
 .gal img{width:100%;height:100%;object-fit:contain;display:block}
-.gal figcaption{padding:6px 8px;font-size:12.5px;line-height:1.3}
-.gal figcaption span{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
-.callout{border-radius:12px;border:2px solid var(--green);background:var(--surface);overflow:hidden}
-.callout h4{margin:0;background:var(--green);color:#fff;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:16px;padding:7px 14px;text-align:center}
-.callout .b{padding:12px 16px}.callout ul{margin:0;padding-left:18px}.callout li{margin:6px 0}
-.callout.warn{border-color:var(--red)}.callout.warn h4{background:var(--red)}
-.pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:30px}
+.gal figcaption{padding:6px 8px;font-size:.8125rem;line-height:1.3}
+.gal figcaption span{display:block;color:var(--web-texto-meta);font-size:.75rem;margin-top:2px}
+.dicas{border-radius:var(--web-raio-card);overflow:hidden;border:1px solid var(--web-contorno)}
+.dicas h3{margin:0;background:var(--verde-embrapa);color:var(--web-texto-claro);font-size:.9375rem;font-weight:700;text-transform:uppercase;letter-spacing:.04rem;padding:8px 16px}
+.dicas .b{padding:12px 16px;background:color-mix(in srgb,var(--verde-embrapa) 8%,var(--web-fundo))}
+.dicas.warn h3{background:#b42318}.dicas.warn .b{background:color-mix(in srgb,#b42318 7%,var(--web-fundo))}
+.dicas ul{margin:0;padding-left:1.25rem}.dicas li{margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:var(--web-espaco-32)}
 .lb[hidden]{display:none!important}
-.lb{position:fixed;inset:0;z-index:50;background:rgba(10,8,4,.88);display:grid;place-items:center;padding:20px}
-.lb img{max-width:100%;max-height:86vh;object-fit:contain;background:#fff;border-radius:6px}
-.lb .cap{color:#fff;text-align:center;margin-top:8px;font-size:13px;max-width:80ch}
-.lb button{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:14px;font:700 16px var(--display);text-transform:uppercase;background:#fff;color:#111;border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-@media (max-width:520px){.kv .row{grid-template-columns:1fr}.plates{grid-template-columns:repeat(auto-fill,minmax(112px,1fr))}.hex{width:80px}}
-</style>
+.lb{position:fixed;inset:0;z-index:1000;background:rgba(0,38,76,.92);display:grid;place-items:center;padding:20px}
+.lb img{max-width:100%;max-height:84vh;object-fit:contain;background:var(--web-fundo);border-radius:var(--web-raio-caixa)}
+.lb .cap{color:var(--web-texto-claro);text-align:center;margin-top:8px;font-size:.8125rem;max-width:80ch}
+.embp-plataforma .lb button{position:absolute;top:14px;right:14px}
+@media (max-width:520px){.kvl .row{grid-template-columns:1fr}.placas{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}.hex{width:78px}}
 
-<div class="wrap" id="app"></div>
-<div class="lb" id="lb" hidden><div><img id="lbimg" alt=""><div class="cap" id="lbcap"></div></div><button type="button" id="lbx">Fechar</button></div>
+/* Ajustes finos */
+.tablebox{width:fit-content;max-width:100%}
+.embp__breadcrumb ol{flex-wrap:wrap;row-gap:2px}
+</style>
+</head>
+<body class="embp-web embp-plataforma">
+<a class="embp-pular-conteudo" href="#main-content">Pular para o conteúdo principal</a>
+<header class="embp_header">
+  <div class="embp_header_container">
+    <a class="embp_header_logo" href="https://www.embrapa.br/web/maranhao" title="Embrapa Maranhão"><svg role="img" aria-label="Embrapa" focusable="false" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 769.39 283.99"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <g id="Camada_x0020_1">
+  <path fill="#FEFEFE" d="M756.03 189.26c1.15,-11.15 1.27,-15.29 2.07,-19.31l10.57 -48.69c4.93,-21.24 -16.55,-29.4 -35.72,-29.4 -10.56,0 -23.08,1.15 -33.87,5.75 -10.57,4.24 -19.19,12.05 -21.93,25.38l33.76 0c1.03,-5.62 5.73,-14.14 14.47,-14.47 14.46,-0.57 9.99,11.47 8.15,19.74l-11.25 0c-31.01,0 -54.08,9.42 -59.48,32.5 -4.48,19.42 4.59,31.35 26.97,31.35 17.81,0 27.79,-8.84 33.54,-15.5l0.46 0c-1.49,6.66 -2.19,9.65 -2.08,12.65l34.34 0zm-58.11 -30.22c1.38,-6.66 6.33,-9.99 12.18,-12.63 5.39,-2.53 12.52,-2.07 19.98,-2.07 -2.75,12.64 -7.12,27.1 -22.62,27.1 -6.77,0 -11.02,-5.62 -9.54,-12.4z"/>
+  <polygon fill="#FEFEFE" points="103.69,189.26 109.32,162.95 43.41,162.95 49.6,134.12 110.24,134.12 115.98,107.71 55.23,107.71 61.32,79.7 127.35,79.7 132.97,53.29 29.28,53.29 0,189.26 "/>
+  <path fill="#FEFEFE" d="M351.83 141.7c2.53,-11.7 4.6,-29.04 -10.68,-29.04 -16.18,0 -21.47,18.14 -24.11,30.76 -2.3,10.57 -2.87,28.02 10.11,28.02 15.72,0 22.05,-17.45 24.68,-29.74z"/>
+  <path fill="#FEFEFE" d="M492.96 159.04c-1.49,6.78 2.76,12.4 9.53,12.4 15.51,0 19.86,-14.47 22.62,-27.1 -7.57,0 -14.58,-0.46 -20.1,2.07 -5.84,2.64 -10.67,5.97 -12.05,12.63z"/>
+  <path fill="#FEFEFE" d="M626.05 142.04c-2.54,12.07 -8.5,29.4 -23.65,29.4 -15.05,0 -13.56,-17.33 -11.03,-29.4 2.64,-12.04 8.61,-29.38 23.77,-29.38 15.05,0 13.55,17.34 10.91,29.38zm-197.17 9.41l-8.14 37.81 -35.72 0 15.05 -70.18c1.84,-8.51 2.87,-14.11 4.01,-24.34l36.4 0 -3.21 17.68 0.35 0c7.57,-15.63 20.32,-20.88 36.17,-20.56l-6.56 30.43c-2.63,-0.22 -5.04,-0.22 -7.57,-0.22 -18.72,0.22 -27.43,11.36 -30.78,29.38zm204.41 -59.59c-13.9,0 -24.7,5.17 -34.23,16.31l-0.33 0 2.87 -13.43 -35.84 0 -20.34 94.52 -2.88 0 -25.81 0c-0.11,-3.01 0.58,-5.99 1.94,-12.66l-0.34 0c-5.73,6.67 -15.84,15.51 -33.52,15.51 -22.39,0 -31.46,-11.93 -26.98,-31.35 5.4,-23.07 28.47,-32.5 59.36,-32.5l11.37 0c1.83,-8.27 6.32,-20.31 -8.15,-19.74 -8.73,0.33 -13.44,8.85 -14.47,14.47l-33.77 0c2.77,-13.33 11.38,-21.14 21.94,-25.38 10.79,-4.6 23.2,-5.75 33.76,-5.75 6,0 12.22,0.79 17.76,2.51l-2.58 -12.15c-9.64,-45.36 -55.45,-82.22 -100.81,-82.22l-176.15 0 22.81 107.72 11.72 -54.43 35.83 0 -11.14 51.44 0.46 0c8.38,-8.5 20.79,-12.87 31.58,-12.87 29.04,0 37.32,21.93 31.58,48.7 -6.2,28.81 -24,51.55 -55.24,51.55 -11.02,0 -22.39,-7.24 -22.84,-16.65l-0.69 0 -4.02 13.73 2.67 12.57c9.63,45.35 55.46,82.23 100.7,82.23l176.38 0 -12.44 -58.57 10.23 -47.31 0.34 0c4.82,8.14 13.2,14 23.77,14 30.31,0 49.38,-23.66 55.34,-51.33 5.4,-24.91 -1.72,-48.92 -29.84,-48.92z"/>
+  <path fill="#FEFEFE" d="M261.61 91.86c-14.25,0.47 -28.6,6.78 -37.44,18.16 -1.49,-11.49 -13.2,-17.58 -24.68,-17.58 -14.13,0 -27.68,4.94 -37.1,17.91l-0.34 0 2.86 -15.61 -35.47 0c-1.27,10.23 -2.3,15.83 -4.14,24.35l-15.15 70.17 35.83 0 11.69 -54.21c0.24,-1.16 2.2,-20.57 19.88,-20.57 11.14,0 11.25,10 9.64,19.29l-11.94 55.49 35.83 0 11.6 -54.21c0.35,-1.16 2.18,-20.57 19.98,-20.57 11.03,0 11.14,10 9.53,19.29l-11.94 55.49 31.09 0 17.56 -81.53c-3.87,-10.05 -13.81,-15.87 -27.29,-15.87z"/>
+ </g>
+</svg></a>
+    <div class="embp_header_container_menus">
+      <nav aria-label="Principal"><ul class="embp_header_menu_bottom_list">
+        <li class="embp_header_menu_bottom_list_nav_item"><a href="https://www.embrapa.br/web/maranhao">Embrapa Maranhão</a></li>
+        <li class="embp_header_menu_bottom_list_nav_item"><a href="https://www.embrapa.br/web/maranhao/solucoes-tecnologicas">Tecnologias</a></li>
+        <li class="embp_header_menu_bottom_list_nav_item"><a href="https://www.embrapa.br/web/maranhao/publicacoes">Publicações</a></li>
+        <li class="embp_header_menu_bottom_list_nav_item"><a href="https://www.embrapa.br/web/maranhao/contato">Contato</a></li>
+      </ul></nav>
+    </div>
+  </div>
+</header>
+
+<div id="app"></div>
+
+<footer class="embp-footer">
+  <div class="embp-footer__container">
+    <div class="embp-footer__infos">
+      <div class="embp-footer__infos_logo"><svg role="img" aria-label="Embrapa" focusable="false" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 769.39 283.99"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <g >
+  <path fill="#FEFEFE" d="M756.03 189.26c1.15,-11.15 1.27,-15.29 2.07,-19.31l10.57 -48.69c4.93,-21.24 -16.55,-29.4 -35.72,-29.4 -10.56,0 -23.08,1.15 -33.87,5.75 -10.57,4.24 -19.19,12.05 -21.93,25.38l33.76 0c1.03,-5.62 5.73,-14.14 14.47,-14.47 14.46,-0.57 9.99,11.47 8.15,19.74l-11.25 0c-31.01,0 -54.08,9.42 -59.48,32.5 -4.48,19.42 4.59,31.35 26.97,31.35 17.81,0 27.79,-8.84 33.54,-15.5l0.46 0c-1.49,6.66 -2.19,9.65 -2.08,12.65l34.34 0zm-58.11 -30.22c1.38,-6.66 6.33,-9.99 12.18,-12.63 5.39,-2.53 12.52,-2.07 19.98,-2.07 -2.75,12.64 -7.12,27.1 -22.62,27.1 -6.77,0 -11.02,-5.62 -9.54,-12.4z"/>
+  <polygon fill="#FEFEFE" points="103.69,189.26 109.32,162.95 43.41,162.95 49.6,134.12 110.24,134.12 115.98,107.71 55.23,107.71 61.32,79.7 127.35,79.7 132.97,53.29 29.28,53.29 0,189.26 "/>
+  <path fill="#FEFEFE" d="M351.83 141.7c2.53,-11.7 4.6,-29.04 -10.68,-29.04 -16.18,0 -21.47,18.14 -24.11,30.76 -2.3,10.57 -2.87,28.02 10.11,28.02 15.72,0 22.05,-17.45 24.68,-29.74z"/>
+  <path fill="#FEFEFE" d="M492.96 159.04c-1.49,6.78 2.76,12.4 9.53,12.4 15.51,0 19.86,-14.47 22.62,-27.1 -7.57,0 -14.58,-0.46 -20.1,2.07 -5.84,2.64 -10.67,5.97 -12.05,12.63z"/>
+  <path fill="#FEFEFE" d="M626.05 142.04c-2.54,12.07 -8.5,29.4 -23.65,29.4 -15.05,0 -13.56,-17.33 -11.03,-29.4 2.64,-12.04 8.61,-29.38 23.77,-29.38 15.05,0 13.55,17.34 10.91,29.38zm-197.17 9.41l-8.14 37.81 -35.72 0 15.05 -70.18c1.84,-8.51 2.87,-14.11 4.01,-24.34l36.4 0 -3.21 17.68 0.35 0c7.57,-15.63 20.32,-20.88 36.17,-20.56l-6.56 30.43c-2.63,-0.22 -5.04,-0.22 -7.57,-0.22 -18.72,0.22 -27.43,11.36 -30.78,29.38zm204.41 -59.59c-13.9,0 -24.7,5.17 -34.23,16.31l-0.33 0 2.87 -13.43 -35.84 0 -20.34 94.52 -2.88 0 -25.81 0c-0.11,-3.01 0.58,-5.99 1.94,-12.66l-0.34 0c-5.73,6.67 -15.84,15.51 -33.52,15.51 -22.39,0 -31.46,-11.93 -26.98,-31.35 5.4,-23.07 28.47,-32.5 59.36,-32.5l11.37 0c1.83,-8.27 6.32,-20.31 -8.15,-19.74 -8.73,0.33 -13.44,8.85 -14.47,14.47l-33.77 0c2.77,-13.33 11.38,-21.14 21.94,-25.38 10.79,-4.6 23.2,-5.75 33.76,-5.75 6,0 12.22,0.79 17.76,2.51l-2.58 -12.15c-9.64,-45.36 -55.45,-82.22 -100.81,-82.22l-176.15 0 22.81 107.72 11.72 -54.43 35.83 0 -11.14 51.44 0.46 0c8.38,-8.5 20.79,-12.87 31.58,-12.87 29.04,0 37.32,21.93 31.58,48.7 -6.2,28.81 -24,51.55 -55.24,51.55 -11.02,0 -22.39,-7.24 -22.84,-16.65l-0.69 0 -4.02 13.73 2.67 12.57c9.63,45.35 55.46,82.23 100.7,82.23l176.38 0 -12.44 -58.57 10.23 -47.31 0.34 0c4.82,8.14 13.2,14 23.77,14 30.31,0 49.38,-23.66 55.34,-51.33 5.4,-24.91 -1.72,-48.92 -29.84,-48.92z"/>
+  <path fill="#FEFEFE" d="M261.61 91.86c-14.25,0.47 -28.6,6.78 -37.44,18.16 -1.49,-11.49 -13.2,-17.58 -24.68,-17.58 -14.13,0 -27.68,4.94 -37.1,17.91l-0.34 0 2.86 -15.61 -35.47 0c-1.27,10.23 -2.3,15.83 -4.14,24.35l-15.15 70.17 35.83 0 11.69 -54.21c0.24,-1.16 2.2,-20.57 19.88,-20.57 11.14,0 11.25,10 9.64,19.29l-11.94 55.49 35.83 0 11.6 -54.21c0.35,-1.16 2.18,-20.57 19.98,-20.57 11.03,0 11.14,10 9.53,19.29l-11.94 55.49 31.09 0 17.56 -81.53c-3.87,-10.05 -13.81,-15.87 -27.29,-15.87z"/>
+ </g>
+</svg></div>
+      <span class="embp-footer__infos_info">Embrapa Maranhão<br>Praça da República, 147 - Diamante, São Luís, MA<br>CEP 65020-500 / Telefone (98) 3878-2234</span>
+    </div>
+    <nav class="embp-footer__menus" aria-label="Rodapé">
+      <div class="embp-footer__menus_menu"><h3>Grupos</h3><ul id="rod-grupos"></ul></div>
+      <div class="embp-footer__menus_menu"><h3>Autores</h3><ul id="rod-autores"></ul></div>
+      <div class="embp-footer__menus_menu"><h3>Institucional</h3><ul><li class="embp-footer__menus_menu_item"><a href="https://www.embrapa.br/">Portal Embrapa</a></li><li class="embp-footer__menus_menu_item"><a href="https://www.embrapa.br/web/maranhao">Embrapa Maranhão</a></li><li class="embp-footer__menus_menu_item"><a href="https://moure.cria.org.br/catalogue?id=117368">Catálogo Moure</a></li></ul></div>
+    </nav>
+  </div>
+  <section class="embp-footer__container2"><div><p>Todos os direitos reservados, conforme Lei nº 9.610</p><p>Projeto SACMA · Sistema Automático de Classificação de Meliponíneos do Maranhão</p></div></section>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Imagem ampliada"><div><img id="lbimg" alt=""><div class="cap" id="lbcap"></div></div><button type="button" id="lbx">Fechar</button></div>
 
 <script src="data.js" charset="utf-8"></script>
 <script src="imgs.js" charset="utf-8"></script>
@@ -225,22 +537,28 @@ const esc = s => String(s??"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">"
 const NI = '<span class="ni">não informado</span>';
 const slugOf = x => x.dup ? "ptilotrigona-heideri" : (x.g+"-"+x.e).toLowerCase();
 const imgKey = x => (x.g+"-"+x.e).toLowerCase();
-const imgsOf = x => x.dup ? [] : (IMGS[imgKey(x)]||[]);
+const imgsOf = x => x.dup ? [] : ((typeof IMGS!=="undefined" && IMGS[imgKey(x)])||[]);
 const cover = x => { const L=imgsOf(x).filter(i=>!/ficha/.test(i.f)); return L.length? "img/"+L[0].f : null; };
 const byN = [...SP].sort((a,b)=>a.n-b.n);
+const TOTAL = SP.length;
 const STL = {c:"Registro confirmado",i:"Registro de identidade incerta",r:"Revisar: não confirmado"};
 const MANL = {Sim:["sim","Manejável"],"Não":["nao","Não manejável"],"Chão":["chao","Ninho no chão"]};
 const initials = x => x.g[0]+x.e[0];
+const AUTORES = [
+  {sigla:"AP", nome:"Aluisio José Pereira", cargo:"Pesquisador em Ciência de Dados · Embrapa Maranhão"},
+  {sigla:"AP", nome:"Alexandre Piccinini", cargo:"Pesquisador em (Api/Meli)ponicultura · Embrapa Maranhão"}
+];
+const MIGALHA = (ultimo, meio) => `<nav class="embp__breadcrumb" aria-label="Caminho de navegação"><ol><li><a href="https://www.embrapa.br/web/maranhao">Embrapa Maranhão</a></li>${meio?`<li><a href="#">${meio}</a></li>`:'<li><a href="#">Guias</a></li>'}<li><span aria-current="page">${ultimo}</span></li></ol></nav>`;
 
 function hex(x,cls=""){
   const c=cover(x);
-  return `<div class="hex ${cls}"><div class="in" ${c?`style="background-image:url('${c}')"`:''}>${c?'':initials(x).toUpperCase()}</div></div>`;
+  return `<div class="hex ${cls}" aria-hidden="true"><div class="in" ${c?`style="background-image:url('${c}')"`:''}>${c?'':initials(x).toUpperCase()}</div></div>`;
 }
 function plate(x){
   const f = x.ma.s==="r"?'<span class="flag r">Revisar</span>':x.ma.s==="i"?'<span class="flag i">Incerta</span>':'';
-  return `<a class="plate" href="#${slugOf(x)}" data-q="${esc((x.g+' '+x.e+' '+x.pop+' '+(x.outros||[]).join(' ')+' '+(x.lista||'')).toLowerCase())}" aria-label="Abrir ficha de ${esc(x.g+' '+x.e)}, ${esc(x.pop)}">
+  return `<li><a class="placa" href="#${slugOf(x)}" aria-label="Abrir ficha de ${esc(x.g+' '+x.e)}, ${esc(x.pop)}">
    <span class="no">nº ${x.n}</span>${f}${hex(x)}
-   <span class="g">${esc(x.g)}</span><span class="e">${esc(x.dup?'heideri':x.e)}</span><span class="p">${esc(x.pop)}</span></a>`;
+   <span class="g">${esc(x.g)}</span><span class="e">${esc(x.dup?'heideri':x.e)}</span><span class="p">${esc(x.pop)}</span></a></li>`;
 }
 const pill = m => `<span class="pill ${MANL[m][0]}">${esc(m)}</span>`;
 const stTxt = x => `<span class="st ${x.ma.s}">${x.ma.s==="c"?"Confirmado":x.ma.s==="i"?"Incerto":"Revisar"}</span>`;
@@ -259,10 +577,10 @@ function guideTable(L){
    ["Manejável (lista)",x=>pill(x.man)],
    ["Cultivos que poliniza",x=>x.pol?esc(x.pol.slice(0,6).join(", "))+(x.pol.length>6?` <small>+${x.pol.length-6} na ficha</small>`:''):'<span class="ni">sem registro nas fontes</span>']
   ];
-  let h=`<div class="tablebox"><table class="guide"><thead><tr><th class="corner" colspan="2"></th>${L.map(x=>`<th class="thname"><a href="#${slugOf(x)}">${hex(x)}<span class="g">${esc(x.g)}</span><span class="e">${esc(x.dup?'heideri':x.e)}</span></a></th>`).join('')}</tr></thead><tbody>`;
-  cz.forEach((r,i)=>{h+=`<tr class="cz">${i===0?`<th class="band" rowspan="${cz.length}"><span>Características</span></th>`:''}<th class="lab">${r[0]}</th>${L.map(x=>`<td>${r[1](x)}</td>`).join('')}</tr>`});
-  mg.forEach((r,i)=>{h+=`<tr class="mg">${i===0?`<th class="band m" rowspan="${mg.length}"><span>Manejo</span></th>`:''}<th class="lab">${r[0]}</th>${L.map(x=>`<td>${r[1](x)}</td>`).join('')}</tr>`});
-  return h+`</tbody></table></div>`;
+  let h=`<div class="tablebox"><table class="guide"><thead><tr><th class="corner" colspan="2"><span class="embp-sr-only">Atributo</span></th>${L.map(x=>`<th class="thname" scope="col"><a href="#${slugOf(x)}">${hex(x)}<span class="g">${esc(x.g)}</span><span class="e">${esc(x.dup?'heideri':x.e)}</span></a></th>`).join('')}</tr></thead><tbody>`;
+  cz.forEach((r,i)=>{h+=`<tr class="cz">${i===0?`<th class="band" rowspan="${cz.length}"><span>Características</span></th>`:''}<th class="lab" scope="row">${r[0]}</th>${L.map(x=>`<td>${r[1](x)}</td>`).join('')}</tr>`});
+  mg.forEach((r,i)=>{h+=`<tr class="mg">${i===0?`<th class="band m" rowspan="${mg.length}"><span>Manejo</span></th>`:''}<th class="lab" scope="row">${r[0]}</th>${L.map(x=>`<td>${r[1](x)}</td>`).join('')}</tr>`});
+  return h+`</tbody></table></div>${L.length>4?'<p class="scrollnote">Role a tabela para o lado para ver todas as espécies do grupo.</p>':''}`;
 }
 
 let STATE={q:"",man:"",st:""};
@@ -278,81 +596,75 @@ function renderSections(){
   $("#secs").innerHTML = GROUPS.map(G=>{
     const L=byN.filter(x=>x.grp===G.id && match(x)); total+=L.length;
     if(!L.length) return '';
-    return `<section class="seg" id="${G.id}"><div class="seg-head"><h2 class="seg-pill">${esc(G.t)}</h2><span class="gen">${esc(G.gen)}</span><p>${esc(G.d)}</p></div>
-      <div class="plates">${L.map(plate).join('')}</div>${guideTable(L)}</section>`;
-  }).join('') || `<p class="empty" style="margin-top:30px">Nenhuma espécie corresponde aos filtros. Limpe a busca ou escolha outro filtro.</p>`;
-  $("#count").textContent = `${total} de ${SP.length} espécies`;
+    return `<section class="secao-painel" id="${G.id}" aria-labelledby="t-${G.id}"><div class="grupo-cab"><h2 class="portlet-title-text" id="t-${G.id}">${esc(G.t)}</h2><span class="embp-chapeu">${esc(G.gen)}</span><p>${esc(G.d)}</p></div>
+      <ul class="placas">${L.map(plate).join('')}</ul>${guideTable(L)}</section>`;
+  }).join('') || `<p class="empty">Nenhuma espécie corresponde aos filtros. Limpe a busca ou escolha outro filtro.</p>`;
+  $("#count").textContent = `${total} de ${TOTAL} espécies`;
 }
 
 function renderGuide(){
-  document.title="Abelhas sem Ferrão do Maranhão";
+  document.title="Guia de abelhas sem ferrão do Maranhão — Embrapa Maranhão";
   const nConf=SP.filter(x=>x.ma.s==="c").length, nRev=SP.filter(x=>x.ma.s!=="c").length, nGen=new Set(SP.filter(x=>!x.dup).map(x=>x.g)).size;
   const revs=byN.filter(x=>x.ma.s!=="c"||x.lista);
   $("#app").innerHTML=`
-  <header class="mast"><canvas id="comb" aria-hidden="true"></canvas><div class="in">
-   <div><div class="kicker">Meliponíneos · Apidae: Meliponini</div>
-    <h1><span>Guia de abelhas sem ferrão do</span>Maranhão</h1>
-    <p class="sub">As 63 espécies da lista de ocorrência no estado, com nomes conferidos no Catálogo Moure, fichas biológicas, fotos e registros de município. Cada placa abre a ficha completa da espécie.</p>
-    <span class="hint">Clique nas placas (favos) e acesse as informações de cada abelha</span></div>
-   <div class="stats"><div><b>63</b>espécies</div><div><b>${nGen}</b>gêneros</div><div><b>${nConf}</b>registros<br>confirmados</div><div><b>${nRev}</b>a revisar<br>ou incertos</div></div>
-  </div>
-  <div class="authors" aria-label="Autores do guia">
-   <div class="lbl">Autores do guia</div>
-   <div class="author"><span class="hx" aria-hidden="true">AP</span><div><b>Aluisio José Pereira</b><span>Pesquisador em Ciência de Dados · Embrapa Maranhão</span></div></div>
-   <div class="author"><span class="hx" aria-hidden="true">AP</span><div><b>Alexandre Piccinini</b><span>Pesquisador em (Api/Meli)ponicultura · Embrapa Maranhão</span></div></div>
-  </div>
-  </header>
-  <div class="tools" role="search">
-   <input id="q" type="search" placeholder="Buscar por nome científico ou popular (ex.: tiúba, jataí, Partamona)" aria-label="Buscar espécie">
-   <select id="fman" aria-label="Filtrar por manejo"><option value="">Manejo: todas</option><option value="Sim">Manejável</option><option value="Não">Não manejável</option><option value="Chão">Ninho no chão</option></select>
-   <select id="fst" aria-label="Filtrar por registro no Maranhão"><option value="">Registro no MA: todos</option><option value="c">Confirmado</option><option value="i">Identidade incerta</option><option value="r">Revisar</option></select>
-   <span class="count" id="count"></span>
-   <nav class="jump" aria-label="Grupos">${GROUPS.map(G=>`<a href="#${G.id}">${esc(G.t.split(',')[0].split(' e ')[0])}</a>`).join('')}<a href="#revisoes">Revisões</a></nav>
-  </div>
-  <div id="secs"></div>
-  <section class="rev seg" id="revisoes"><h3>Revisões na lista de espécies</h3>
-   <p class="muted" style="max-width:85ch;margin:0 0 12px">Cada nome da lista foi conferido no Moure's Bee Catalogue (CRIA) em 29/09/2026. Abaixo, as correções de grafia e autoria e os registros que o catálogo não confirma para o Maranhão. A numeração é a da lista original.</p>
-   <div class="tblw"><table class="dt"><thead><tr><th>Nº</th><th>Como está na lista</th><th>Nome válido</th><th>Situação no Maranhão</th></tr></thead><tbody>
-   ${revs.map(x=>`<tr><td>${x.n}</td><td>${esc(x.lista||(x.g+' '+x.e+' '+x.a))}</td><td><a href="#${slugOf(x)}"><i class="sci">${esc(x.g+' '+x.e)}</i></a> ${esc(x.a)}</td><td>${stTxt(x)}${x.ma.nota?`<br><span class="muted" style="font-size:13px">${esc(x.ma.nota)}</span>`:(x.ma.s==="c"?`<br><span class="muted" style="font-size:13px">${esc(x.dest)}</span>`:'')}</td></tr>`).join('')}
-   </tbody></table></div></section>
-  <div class="grid2">
-   <div class="panel g"><h3>Criação legal</h3><ul>
-    <li>A Resolução CONAMA nº 496/2020 disciplina a meliponicultura. O uso e manejo de até 49 colônias sem exploração econômica dispensa autorização ambiental (art. 3º, § 3º).</li>
-    <li>A Portaria ICMBio nº 665/2021 criou o Catálogo Nacional de Abelhas-Nativas-Sem-Ferrão e restringe a criação à região de ocorrência natural de cada espécie (art. 3º). Fora dela, só com autorização do órgão ambiental.</li>
-    <li>Captura de ninhos por resgate exige autorização do órgão ambiental. Ninhos-isca são permitidos nas condições da Resolução 496/2020.</li></ul></div>
-   <div class="panel"><h3>Como ler o guia</h3><ul>
-    <li><b>Manejável</b>: classificação da lista original (Sim, Não ou Chão, para espécies de ninho subterrâneo).</li>
-    <li><b>Registro no Maranhão</b>: <span class="st c">confirmado</span> com localidade no Catálogo Moure; <span class="st i">incerto</span> quando o catálogo marca a identidade como duvidosa; <span class="st r">revisar</span> quando o catálogo não lista o estado ou considera o registro um erro.</li>
-    <li>Tamanho, colônia e voo vêm das fichas catalográficas (24 espécies). Nas demais, <span class="ni">não informado</span>.</li></ul></div>
-   <div class="panel"><h3>Fontes</h3><ol class="src">
-    <li>Lista de espécies de meliponíneos com ocorrência no Maranhão (anexo único, compilada da bibliografia científica).</li>
-    <li>Menezes, C. et al. <a href="https://www.embrapa.br/busca-de-publicacoes/-/publicacao/1150556/fichas-catalograficas-de-especies-de-abelhas-sem-ferrao-relevantes-para-a-meliponicultura" target="_blank" rel="noopener">Fichas catalográficas de espécies de abelhas sem ferrão relevantes para a meliponicultura</a>. Embrapa Meio Ambiente, 2022. Fotos © Cristiano Menezes; espécimes © RPSP (USP).</li>
-    <li><a href="https://abelha.org.br/fichas-catalograficas-das-especies-relevantes-para-a-meliponicultura-2/" target="_blank" rel="noopener">A.B.E.L.H.A.: fichas e cartões de espécies</a>.</li>
-    <li><a href="https://moure.cria.org.br/catalogue?id=117368" target="_blank" rel="noopener">Moure's Bee Catalogue: Meliponini</a> (CRIA), consultado em 29/09/2026.</li>
-    <li><a href="http://www2.mma.gov.br/port/conama/legiabre.cfm?codlegi=747" target="_blank" rel="noopener">Resolução CONAMA nº 496/2020</a> · <a href="https://www.gov.br/icmbio/pt-br/acesso-a-informacao/institucional/legislacao/portarias/portarias-2021/Portaria_665_de_03_de_novembro.pdf" target="_blank" rel="noopener">Portaria ICMBio nº 665/2021</a>.</li></ol></div>
-  </div>
-  <p class="foot">Guia elaborado em 09/2026 para o projeto SACMA (Sistema Automático de Classificação de Meliponíneos do Maranhão). Os registros de ocorrência vêm do Catálogo Moure e podem não incluir coletas recentes. Nomes populares variam entre regiões. Imagens sem autoria identificada estão marcadas como "autoria a confirmar" e devem ter o crédito conferido antes da divulgação.</p>`;
+  <div class="embp-page-banner"><div class="embp-container">
+   ${MIGALHA("Abelhas sem ferrão do Maranhão")}
+   <p class="embp-chapeu">Guia · Meliponíneos (Apidae: Meliponini)</p>
+   <h1>Guia de abelhas sem ferrão do Maranhão</h1>
+   <p class="subtitulo">As ${TOTAL} espécies da lista de ocorrência no estado, com nomes conferidos no Catálogo Moure, fichas biológicas, fotos e registros de município. Cada placa (favo) abre a ficha completa da espécie.</p>
+   <ul class="painel-stats" aria-label="Indicadores do guia">
+    <li><b>${TOTAL}</b><span>espécies</span></li><li><b>${nGen}</b><span>gêneros</span></li>
+    <li><b>${nConf}</b><span>registros confirmados</span></li><li><b>${nRev}</b><span>a revisar ou incertos</span></li>
+   </ul>
+   <ul class="autores-guia" aria-label="Autores do guia">${AUTORES.map(a=>`<li><span class="hx" aria-hidden="true">${esc(a.sigla)}</span><div><b>${esc(a.nome)}</b><span class="cargo">${esc(a.cargo)}</span></div></li>`).join('')}</ul>
+  </div></div>
+  <nav class="embp_unidades_menu menu-paineis" aria-label="Grupos de abelhas"><ul>${GROUPS.map(G=>`<li><a href="#${G.id}">${esc(G.t.split(',')[0].split(' e ')[0])}</a></li>`).join('')}<li><a href="#revisoes">Revisões</a></li><li><a href="#criacao">Criação legal</a></li></ul></nav>
+  <main id="main-content" class="embp-main"><div class="embp-container">
+   <section class="card ferramentas" role="search" aria-label="Buscar e filtrar espécies">
+    <div class="ctrl">
+     <input id="q" type="search" placeholder="Buscar por nome científico ou popular (ex.: tiúba, jataí, Partamona)" aria-label="Buscar espécie">
+     <label>Manejo <select id="fman"><option value="">todas</option><option value="Sim">Manejável</option><option value="Não">Não manejável</option><option value="Chão">Ninho no chão</option></select></label>
+     <label>Registro no MA <select id="fst"><option value="">todos</option><option value="c">Confirmado</option><option value="i">Identidade incerta</option><option value="r">Revisar</option></select></label>
+     <span class="contagem" id="count" aria-live="polite"></span>
+    </div>
+   </section>
+   <div id="secs"></div>
+   <section class="secao-painel" id="revisoes" aria-labelledby="t-rev"><h2 class="portlet-title-text" id="t-rev">Revisões na lista de espécies</h2>
+    <p style="max-width:var(--web-texto-largura)">Cada nome da lista foi conferido no Moure's Bee Catalogue (CRIA) em 29/09/2026. Abaixo, as correções de grafia e autoria e os registros que o catálogo não confirma para o Maranhão. A numeração é a da lista original.</p>
+    <div class="scroll" style="max-height:none"><table class="dt"><thead><tr><th>Nº</th><th>Como está na lista</th><th>Nome válido</th><th>Situação no Maranhão</th></tr></thead><tbody>
+    ${revs.map(x=>`<tr><td>${x.n}</td><td>${esc(x.lista||(x.g+' '+x.e+' '+x.a))}</td><td><a href="#${slugOf(x)}"><i class="sci">${esc(x.g+' '+x.e)}</i></a> ${esc(x.a)}</td><td>${stTxt(x)}${x.ma.nota?`<br><span class="muted">${esc(x.ma.nota)}</span>`:(x.ma.s==="c"?`<br><span class="muted">${esc(x.dest)}</span>`:'')}</td></tr>`).join('')}
+    </tbody></table></div></section>
+   <section class="secao-painel" id="criacao" aria-label="Criação legal, leitura do guia e fontes">
+    <div class="embp-grade embp-grade-3">
+     <div class="card"><div class="card-cab"><span class="embp-chapeu">Legislação</span><h2>Criação legal</h2></div><ul>
+      <li>A Resolução CONAMA nº 496/2020 disciplina a meliponicultura. O uso e manejo de até 49 colônias sem exploração econômica dispensa autorização ambiental (art. 3º, § 3º).</li>
+      <li>A Portaria ICMBio nº 665/2021 criou o Catálogo Nacional de Abelhas-Nativas-Sem-Ferrão e restringe a criação à região de ocorrência natural de cada espécie (art. 3º). Fora dela, só com autorização do órgão ambiental.</li>
+      <li>Captura de ninhos por resgate exige autorização do órgão ambiental. Ninhos-isca são permitidos nas condições da Resolução 496/2020.</li></ul></div>
+     <div class="card"><div class="card-cab"><span class="embp-chapeu">Legenda</span><h2>Como ler o guia</h2></div><ul>
+      <li><b>Manejável</b>: classificação da lista original (Sim, Não ou Chão, para espécies de ninho subterrâneo).</li>
+      <li><b>Registro no Maranhão</b>: <span class="st c">confirmado</span> com localidade no Catálogo Moure; <span class="st i">incerto</span> quando o catálogo marca a identidade como duvidosa; <span class="st r">revisar</span> quando o catálogo não lista o estado ou considera o registro um erro.</li>
+      <li>Tamanho, colônia e voo vêm das fichas catalográficas (24 espécies). Nas demais, <span class="ni">não informado</span>.</li></ul></div>
+     <div class="card"><div class="card-cab"><span class="embp-chapeu">Referências</span><h2>Fontes</h2></div><ol class="src">
+      <li>Lista de espécies de meliponíneos com ocorrência no Maranhão (anexo único, compilada da bibliografia científica).</li>
+      <li>Menezes, C. et al. <a href="https://www.embrapa.br/busca-de-publicacoes/-/publicacao/1150556/fichas-catalograficas-de-especies-de-abelhas-sem-ferrao-relevantes-para-a-meliponicultura" target="_blank" rel="noopener">Fichas catalográficas de espécies de abelhas sem ferrão relevantes para a meliponicultura</a>. Embrapa Meio Ambiente, 2022. Fotos © Cristiano Menezes; espécimes © RPSP (USP).</li>
+      <li><a href="https://abelha.org.br/fichas-catalograficas-das-especies-relevantes-para-a-meliponicultura-2/" target="_blank" rel="noopener">A.B.E.L.H.A.: fichas e cartões de espécies</a>.</li>
+      <li><a href="https://moure.cria.org.br/catalogue?id=117368" target="_blank" rel="noopener">Moure's Bee Catalogue: Meliponini</a> (CRIA), consultado em 29/09/2026.</li>
+      <li><a href="http://www2.mma.gov.br/port/conama/legiabre.cfm?codlegi=747" target="_blank" rel="noopener">Resolução CONAMA nº 496/2020</a> · <a href="https://www.gov.br/icmbio/pt-br/acesso-a-informacao/institucional/legislacao/portarias/portarias-2021/Portaria_665_de_03_de_novembro.pdf" target="_blank" rel="noopener">Portaria ICMBio nº 665/2021</a>.</li></ol></div>
+    </div>
+    <p class="nota-rodape">Guia elaborado em 09/2026 para o projeto SACMA (Sistema Automático de Classificação de Meliponíneos do Maranhão). Os registros de ocorrência vêm do Catálogo Moure e podem não incluir coletas recentes. Nomes populares variam entre regiões. Imagens sem autoria identificada estão marcadas como "autoria a confirmar" e devem ter o crédito conferido antes da divulgação.</p>
+   </section>
+  </div></main>`;
   $("#q").value=STATE.q; $("#fman").value=STATE.man; $("#fst").value=STATE.st;
   $("#q").addEventListener("input",e=>{STATE.q=e.target.value;renderSections()});
   $("#fman").addEventListener("change",e=>{STATE.man=e.target.value;renderSections()});
   $("#fst").addEventListener("change",e=>{STATE.st=e.target.value;renderSections()});
-  renderSections(); drawComb();
+  renderSections(); marcaMenu();
 }
 
-function drawComb(){
-  const c=$("#comb"); if(!c) return; const r=c.getBoundingClientRect(); const d=window.devicePixelRatio||1;
-  c.width=r.width*d; c.height=r.height*d; const g=c.getContext("2d"); g.scale(d,d);
-  const s=22, w=Math.sqrt(3)*s; g.strokeStyle="rgba(247,213,122,.9)"; g.lineWidth=1.2;
-  for(let row=-1; row*s*1.5<r.height+s; row++) for(let col=-1; col*w<r.width+w; col++){
-    const cx=col*w+(row%2?w/2:0), cy=row*s*1.5; g.beginPath();
-    for(let k=0;k<6;k++){const a=Math.PI/3*k+Math.PI/6; const px=cx+s*Math.cos(a), py=cy+s*Math.sin(a); k?g.lineTo(px,py):g.moveTo(px,py);} g.closePath(); g.stroke();
-  }
-}
-
-const ICON={home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10l8-6 8 6v10"/><path d="M10 20v-6h4v6"/></svg>',
- ruler:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17 17 3l4 4L7 21z"/><path d="M8 12l2 2M11 9l2 2M14 6l2 2"/></svg>',
- fly:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13"/><path d="m12 7 5 5-5 5"/><circle cx="20" cy="12" r="1.5"/></svg>',
- hand:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>'};
+const ICON={home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10l8-6 8 6v10"/><path d="M10 20v-6h4v6"/></svg>',
+ ruler:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 17 17 3l4 4L7 21z"/><path d="M8 12l2 2M11 9l2 2M14 6l2 2"/></svg>',
+ fly:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h13"/><path d="m12 7 5 5-5 5"/><circle cx="20" cy="12" r="1.5"/></svg>',
+ hand:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>'};
 
 function manejoTips(x){
   const t=[];
@@ -368,10 +680,10 @@ function manejoTips(x){
 }
 
 function renderSpecies(x){
-  document.title=`${x.g} ${x.dup?'heideri':x.e} · Abelhas sem Ferrão do Maranhão`;
+  const ep = x.dup?'heideri':x.e;
+  document.title=`${x.g} ${ep} · Guia de abelhas sem ferrão do Maranhão — Embrapa Maranhão`;
   const i=byN.indexOf(x), prev=byN[(i-1+byN.length)%byN.length], next=byN[(i+1)%byN.length];
   const G=GROUPS.find(g=>g.id===x.grp); const IM=imgsOf(x); const main=IM.find(m=>!/ficha/.test(m.f));
-  const ep = x.dup?'heideri':x.e;
   const kv=[["Nome científico válido",`<i class="sci">${esc(x.g+' '+x.e)}</i> ${esc(x.a)}`],
     x.lista?["Como consta na lista",esc(x.lista)]:null,
     ["Gênero",`<i class="sci">${esc(x.g)}</i>`],["Grupo no guia",esc(G.t)],
@@ -379,56 +691,75 @@ function renderSpecies(x){
     ["Manejável (lista)",pill(x.man)],["Nidificação",nid(x)?esc(nid(x)):NI],
     ["Colônia",x.ficha?esc(x.ficha.col):NI],["Tamanho aproximado",x.ficha?esc(x.ficha.tam):NI],["Distância máxima de voo",x.ficha?esc(x.ficha.voo):NI]].filter(Boolean);
   const tips=manejoTips(x); const warn=x.man==="Não"||x.grp==="limao"||x.g==="Oxytrigona";
-  $("#app").innerHTML=`<article class="flyer">
-   <div class="fl-top"><a class="btn" href="#${x.grp}">← Guia de abelhas</a><span class="muted">${esc(G.t)} · nº ${x.n} de 63</span></div>
-   <section class="fl-hero"><div class="hero-in">
-     <div class="photo">${main?`<img src="img/${main.f}" alt="${esc(x.g+' '+x.e+': '+main.k)}">`:`<span class="ph">${initials(x).toUpperCase()}</span>`}</div>
-     <div class="txt"><div class="no">Nº ${x.n} da lista · ${esc(G.gen.split(' · ').length>1?x.g:G.gen)}</div>
-       <h2>${esc(x.g)} ${esc(ep)}${x.dup?'':''} <span class="auth">${esc(x.dup?'Friese, 1900':x.a)}</span></h2>
+  $("#app").innerHTML=`
+  <div class="embp-page-banner"><div class="embp-container">
+   ${MIGALHA(`<i>${esc(x.g+' '+ep)}</i>`, "Abelhas sem ferrão do Maranhão")}
+   <p class="embp-chapeu">Ficha nº ${x.n} de ${TOTAL} · ${esc(G.t)}</p>
+   <h1><i>${esc(x.g)} ${esc(ep)}</i> <span style="font-weight:400;font-size:.6em;opacity:.85">${esc(x.dup?'Friese, 1900':x.a)}</span></h1>
+   <p class="subtitulo">${esc(x.pop)}${x.outros&&x.outros.length?` · também chamada ${esc(x.outros.join(", "))}`:''}</p>
+  </div></div>
+  <main id="main-content" class="embp-main"><div class="embp-container">
+   <div class="ficha-top"><a class="embp-button sec" href="#${x.grp}">← Voltar ao guia</a><span class="muted">${esc(G.t)} · nº ${x.n} de ${TOTAL}</span></div>
+   <section class="ficha-hero" aria-label="Apresentação da espécie"><div class="hero-in">
+     <div class="photo">${main?`<img src="img/${main.f}" alt="${esc(x.g+' '+x.e+': '+main.k)}">`:`<span class="ph" aria-hidden="true">${initials(x).toUpperCase()}</span>`}</div>
+     <div class="txt"><span class="embp-chapeu">Nº ${x.n} da lista · <i>${esc(x.g)}</i></span>
        <div class="pop">${esc(x.pop)}</div>${x.outros&&x.outros.length?`<div class="other">Também: ${esc(x.outros.join(", "))}</div>`:''}
        <p class="lead">${esc(x.dest)}</p></div></div>
-     <div class="marquee" aria-hidden="true"><span>${Array(6).fill(`${esc(x.pop)} <b>·</b> <i>${esc(x.g+' '+ep)}</i> <b>·</b> Maranhão <b>·</b> `).join('')}</span></div>
+     <div class="faixa" aria-hidden="true"><span>${Array(6).fill(`${esc(x.pop)} <b>·</b> <i>${esc(x.g+' '+ep)}</i> <b>·</b> Maranhão <b>·</b> `).join('')}</span></div>
    </section>
-   <div class="badges">
-     <div class="badge"><span class="hx">${ICON.hand}</span><span><small>Manejável</small><b>${esc(MANL[x.man][1])}</b></span></div>
-     <div class="badge"><span class="hx">${ICON.home}</span><span><small>Nidificação</small><b>${nid(x)?esc(nid(x).split(/[,(]/)[0]):'Não informado'}</b></span></div>
-     <div class="badge"><span class="hx">${ICON.ruler}</span><span><small>Tamanho</small><b>${x.ficha?esc(x.ficha.tam):'Não informado'}</b></span></div>
-     <div class="badge"><span class="hx">${ICON.fly}</span><span><small>Voo máximo</small><b>${x.ficha?esc(x.ficha.voo):'Não informado'}</b></span></div>
-   </div>
-   <div class="two">
-     <section><h3 class="sec-t g">Características / perfil</h3><div class="kv">${kv.map(r=>`<div class="row"><div class="k">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div></section>
-     <section><h3 class="sec-t">Ocorrência no Maranhão</h3>
-       <div class="ma"><div class="hd"><span class="stbig ${x.ma.s}">${STL[x.ma.s]}</span></div>
-        ${x.ma.loc?`<div class="chips">${x.ma.loc.map(l=>`<span class="chip">${esc(l)}</span>`).join('')}</div>`:''}
-        ${x.ma.nota?`<p style="margin:10px 0 0;font-size:14px">${esc(x.ma.nota)}</p>`:''}
-        <p class="muted" style="margin:10px 0 0;font-size:12.5px">Localidades do <a href="${MOURE(x.moure)}" target="_blank" rel="noopener">Catálogo Moure</a>, consultado em 29/09/2026.</p></div>
-       <h3 class="sec-t g" style="margin-top:22px">Cultivos e plantas que poliniza</h3>
-       ${x.pol?`<div class="chips">${x.pol.map(p=>`<span class="chip pl">${esc(p)}</span>`).join('')}</div><p class="muted" style="font-size:12.5px;margin:8px 0 0">Fonte: cartão de espécie A.B.E.L.H.A.</p>`:`<p class="muted" style="margin:0">Sem registro de polinização de cultivos nas fontes consultadas.</p>`}
+   <ul class="selos" aria-label="Resumo da espécie">
+     <li><span class="hx">${ICON.hand}</span><span><small>Manejável</small><b>${esc(MANL[x.man][1])}</b></span></li>
+     <li><span class="hx">${ICON.home}</span><span><small>Nidificação</small><b>${nid(x)?esc(nid(x).split(/[,(]/)[0]):'Não informado'}</b></span></li>
+     <li><span class="hx">${ICON.ruler}</span><span><small>Tamanho</small><b>${x.ficha?esc(x.ficha.tam):'Não informado'}</b></span></li>
+     <li><span class="hx">${ICON.fly}</span><span><small>Voo máximo</small><b>${x.ficha?esc(x.ficha.voo):'Não informado'}</b></span></li>
+   </ul>
+   <div class="duas">
+     <section class="card"><div class="card-cab"><span class="embp-chapeu">Perfil</span><h2>Características</h2></div><div class="kvl">${kv.map(r=>`<div class="row"><div class="k">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div></section>
+     <section class="card ma"><div class="card-cab"><span class="embp-chapeu">Catálogo Moure</span><h2>Ocorrência no Maranhão</h2></div>
+       <div class="hd"><span class="stbig ${x.ma.s}">${STL[x.ma.s]}</span></div>
+       ${x.ma.loc?`<div class="chips">${x.ma.loc.map(l=>`<span class="chip">${esc(l)}</span>`).join('')}</div>`:''}
+       ${x.ma.nota?`<p style="margin:10px 0 0;font-size:.875rem">${esc(x.ma.nota)}</p>`:''}
+       <p class="muted" style="margin:10px 0 0">Localidades do <a href="${MOURE(x.moure)}" target="_blank" rel="noopener">Catálogo Moure</a>, consultado em 29/09/2026.</p>
+       <h3>Cultivos e plantas que poliniza</h3>
+       ${x.pol?`<div class="chips">${x.pol.map(p=>`<span class="chip pl">${esc(p)}</span>`).join('')}</div><p class="muted" style="margin:8px 0 0">Fonte: cartão de espécie A.B.E.L.H.A.</p>`:`<p class="muted" style="margin:0">Sem registro de polinização de cultivos nas fontes consultadas.</p>`}
      </section>
    </div>
-   <section style="margin-top:28px"><h3 class="sec-t">Biologia</h3>
-     ${x.ficha?`<div class="bio"><p><b>Ninho.</b> ${esc(x.ficha.ninho)}</p><p><b>Colônia.</b> ${esc(x.ficha.col)}.</p><p><b>Aspectos gerais.</b> ${esc(x.ficha.asp)}</p><p class="muted" style="font-size:12.5px">Texto das Fichas catalográficas de espécies de abelhas sem ferrão (Menezes et al., Embrapa/USP/A.B.E.L.H.A., 2022).</p></div>`
-      : x.bio?`<div class="bio"><p><b>Nidificação.</b> ${esc(x.bio.nid)}.</p><p>${esc(x.bio.nota)}</p><p class="muted" style="font-size:12.5px">Esta espécie não tem ficha catalográfica no acervo; dados resumidos do Catálogo Moure e, quando indicado, do cartão A.B.E.L.H.A.</p></div>`
-      : `<p class="muted">Consulte a ficha de <a href="#ptilotrigona-lurida">Ptilotrigona lurida</a>.</p>`}
+   <section class="card" style="margin-top:var(--web-espaco-20)"><div class="card-cab"><span class="embp-chapeu">Ninho e colônia</span><h2>Biologia</h2></div>
+     ${x.ficha?`<div class="bio"><p><b>Ninho.</b> ${esc(x.ficha.ninho)}</p><p><b>Colônia.</b> ${esc(x.ficha.col)}.</p><p><b>Aspectos gerais.</b> ${esc(x.ficha.asp)}</p><p class="muted">Texto das Fichas catalográficas de espécies de abelhas sem ferrão (Menezes et al., Embrapa/USP/A.B.E.L.H.A., 2022).</p></div>`
+      : x.bio?`<div class="bio"><p><b>Nidificação.</b> ${esc(x.bio.nid)}.</p><p>${esc(x.bio.nota)}</p><p class="muted">Esta espécie não tem ficha catalográfica no acervo; dados resumidos do Catálogo Moure e, quando indicado, do cartão A.B.E.L.H.A.</p></div>`
+      : `<p class="muted">Consulte a ficha de <a href="#ptilotrigona-lurida"><i>Ptilotrigona lurida</i></a>.</p>`}
    </section>
-   ${IM.length?`<section style="margin-top:22px"><h3 class="sec-t">Galeria</h3><div class="gal">${IM.map((m,k)=>`<figure><button type="button" data-k="${k}" aria-label="Ampliar: ${esc(m.k)}"><img src="img/${m.f}" alt="${esc(x.g+' '+x.e+': '+m.k)}" loading="lazy"></button><figcaption>${esc(m.k)}<span>${esc(m.c)}</span></figcaption></figure>`).join('')}</div></section>`:''}
-   <div class="two">
-     <div class="callout${warn?' warn':''}"><h4>${warn?'Atenção no manejo':'Dicas para o manejo'}</h4><div class="b"><ul>${tips.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div></div>
-     <section><h3 class="sec-t">Fontes</h3><ol class="src">
+   ${IM.length?`<section class="card" style="margin-top:var(--web-espaco-20)"><div class="card-cab"><span class="embp-chapeu">Fotos</span><h2>Galeria</h2></div><div class="gal">${IM.map((m,k)=>`<figure><button type="button" data-k="${k}" aria-label="Ampliar: ${esc(m.k)}"><img src="img/${m.f}" alt="${esc(x.g+' '+x.e+': '+m.k)}" loading="lazy"></button><figcaption>${esc(m.k)}<span>${esc(m.c)}</span></figcaption></figure>`).join('')}</div></section>`:''}
+   <div class="duas">
+     <section class="dicas${warn?' warn':''}" aria-label="${warn?'Atenção no manejo':'Dicas para o manejo'}"><h3>${warn?'Atenção no manejo':'Dicas para o manejo'}</h3><div class="b"><ul>${tips.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div></section>
+     <section class="card"><div class="card-cab"><span class="embp-chapeu">Referências</span><h2>Fontes</h2></div><ol class="src">
        <li><a href="${MOURE(x.moure)}" target="_blank" rel="noopener">Moure's Bee Catalogue: <i>${esc(x.g+' '+x.e)}</i></a></li>
        ${x.ficha?`<li>Menezes, C. et al. <a href="https://www.embrapa.br/busca-de-publicacoes/-/publicacao/1150556/fichas-catalograficas-de-especies-de-abelhas-sem-ferrao-relevantes-para-a-meliponicultura" target="_blank" rel="noopener">Fichas catalográficas de espécies de abelhas sem ferrão</a>. Embrapa Meio Ambiente, 2022.</li>`:''}
        ${x.pol||IM.some(m=>/card/.test(m.f))?`<li><a href="https://abelha.org.br/fichas-catalograficas-das-especies-relevantes-para-a-meliponicultura-2/" target="_blank" rel="noopener">A.B.E.L.H.A.: cartões de espécies</a></li>`:''}
        <li>Lista de meliponíneos com ocorrência no Maranhão (anexo único), nº ${x.n}.</li></ol></section>
    </div>
-   <nav class="pager"><a class="btn" href="#${slugOf(prev)}">← nº ${prev.n} <i class="sci">${esc(prev.g[0]+'. '+(prev.dup?'heideri':prev.e))}</i></a><a class="btn" href="#${slugOf(next)}">nº ${next.n} <i class="sci">${esc(next.g[0]+'. '+(next.dup?'heideri':next.e))}</i> →</a></nav>
-   <p class="foot">Guia de abelhas sem ferrão do Maranhão · 09/2026. Imagens com os créditos indicados; as marcadas "autoria a confirmar" precisam de crédito antes da divulgação.</p>
-  </article>`;
+   <nav class="pager" aria-label="Espécie anterior e seguinte"><a class="embp-button sec" href="#${slugOf(prev)}">← nº ${prev.n} <i class="sci">${esc(prev.g[0]+'. '+(prev.dup?'heideri':prev.e))}</i></a><a class="embp-button sec" href="#${slugOf(next)}">nº ${next.n} <i class="sci">${esc(next.g[0]+'. '+(next.dup?'heideri':next.e))}</i> →</a></nav>
+   <p class="nota-rodape">Guia de abelhas sem ferrão do Maranhão · 09/2026. Imagens com os créditos indicados; as marcadas "autoria a confirmar" precisam de crédito antes da divulgação.</p>
+  </div></main>`;
   document.querySelectorAll(".gal button").forEach(b=>b.addEventListener("click",()=>{const m=IM[+b.dataset.k]; $("#lbimg").src="img/"+m.f; $("#lbimg").alt=m.k; $("#lbcap").textContent=m.k+" · "+m.c; $("#lb").hidden=false; $("#lbx").focus();}));
   window.scrollTo(0,0);
 }
 $("#lbx").addEventListener("click",()=>{$("#lb").hidden=true});
 $("#lb").addEventListener("click",e=>{if(e.target.id==="lb")$("#lb").hidden=true});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#lb").hidden=true});
+
+/* Menu de grupos: marca a seção visível (aria-current), como no padrão Embrapa */
+let IO=null;
+function marcaMenu(){
+  if(IO){IO.disconnect();IO=null;} if(!("IntersectionObserver" in window)) return;
+  const links=[...document.querySelectorAll(".menu-paineis a")];
+  IO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.removeAttribute("aria-current"));const a=document.querySelector('.menu-paineis a[href="#'+e.target.id+'"]');if(a)a.setAttribute("aria-current","page");}}),{rootMargin:"-40% 0px -55% 0px"});
+  document.querySelectorAll(".secao-painel").forEach(s=>IO.observe(s));
+}
+
+/* Rodapé: grupos e autores a partir dos dados */
+$("#rod-grupos").innerHTML = GROUPS.map(G=>`<li class="embp-footer__menus_menu_item"><a href="#${G.id}">${esc(G.t.split(',')[0].split(' e ')[0])}</a></li>`).join('') + `<li class="embp-footer__menus_menu_item"><a href="#revisoes">Revisões</a></li>`;
+$("#rod-autores").innerHTML = AUTORES.map(a=>`<li class="embp-footer__menus_menu_item"><span style="font-size:.875rem;color:var(--web-link-rodape)">${esc(a.nome)}</span></li>`).join('');
 
 let onGuide=false;
 function route(){
@@ -438,8 +769,7 @@ function route(){
   if(h){const el=document.getElementById(h); if(el) el.scrollIntoView();} else window.scrollTo(0,0);
 }
 window.addEventListener("hashchange",route);
-window.addEventListener("resize",()=>{if(onGuide)drawComb()});
 route();
 </script>
-
-</body></html>
+</body>
+</html>
