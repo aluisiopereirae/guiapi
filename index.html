@@ -616,7 +616,7 @@ function renderGuide(){
     <li><b>${TOTAL}</b><span>espécies</span></li><li><b>${nGen}</b><span>gêneros</span></li>
     <li><b>${nConf}</b><span>registros confirmados</span></li><li><b>${nRev}</b><span>a revisar ou incertos</span></li>
    </ul>
-   <ul class="autores-guia" aria-label="Autores do guia">${AUTORES.map(a=>`<li><span class="hx" aria-hidden="true">${esc(a.sigla)}</span><div><b>${esc(a.nome)}</b><span class="cargo">${esc(a.cargo)}</span></div></li>`).join('')}</ul>
+      <ul class="autores-guia" aria-label="Autores do guia">${AUTORES.map(a=>`<li><span class="hx" aria-hidden="true">${esc(a.sigla)}</span><div><b>${a.url?`<a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.nome)}</a>`:esc(a.nome)}</b><span class="cargo">${esc(a.cargo)}</span></div></li>`).join('')}</ul>
   </div></div>
   <nav class="embp_unidades_menu menu-paineis" aria-label="Grupos de abelhas"><ul>${GROUPS.map(G=>`<li><a href="#${G.id}">${esc(G.t.split(',')[0].split(' e ')[0])}</a></li>`).join('')}<li><a href="#revisoes">Revisões</a></li><li><a href="#criacao">Criação legal</a></li></ul></nav>
   <main id="main-content" class="embp-main"><div class="embp-container">
@@ -759,7 +759,7 @@ function marcaMenu(){
 
 /* Rodapé: grupos e autores a partir dos dados */
 $("#rod-grupos").innerHTML = GROUPS.map(G=>`<li class="embp-footer__menus_menu_item"><a href="#${G.id}">${esc(G.t.split(',')[0].split(' e ')[0])}</a></li>`).join('') + `<li class="embp-footer__menus_menu_item"><a href="#revisoes">Revisões</a></li>`;
-$("#rod-autores").innerHTML = AUTORES.map(a=>`<li class="embp-footer__menus_menu_item"><span style="font-size:.875rem;color:var(--web-link-rodape)">${esc(a.nome)}</span></li>`).join('');
+$("#rod-autores").innerHTML = AUTORES.map(a=>`<li class="embp-footer__menus_menu_item">${a.url?`<a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.nome)}</a>`:`<span style="font-size:.875rem;color:var(--web-link-rodape)">${esc(a.nome)}</span>`}</li>`).join('');
 
 let onGuide=false;
 function route(){
