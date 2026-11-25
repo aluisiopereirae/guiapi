@@ -1,0 +1,114 @@
+
+/* =====================================================================
+   Atlas da tiúba — ajustes desta página (tokens Embrapa web)
+   As cores da ilustração (corpo da abelha e sistemas internos) são informativas
+   e ficam fora da paleta institucional.
+   ===================================================================== */
+.atlas{
+  --bg:var(--web-fundo); --honey:#b97a0a; --hl:var(--web-azul);
+  --chitin:#2d2723; --chitin-edge:#120f0d; --band:#c8b26e; --wing:rgba(170,195,205,.28); --wing-edge:#6f8b95; --hair:#8a7a62;
+  --dig:#d9822b; --nerv:#d6b11c; --circ:#d0453f; --resp:#3f97c2; --gland:#9a66d4; --repro:#d0619c; --musc:#7e9a34;
+}
+/* Controles */
+.atlas-ctrl{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
+.atlas-ctrl .grp{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.grp-l{font-weight:600;font-size:.8125rem;color:var(--web-titulo)}
+.seg{display:inline-flex;border:1px solid var(--web-acao);border-radius:var(--web-raio-botao);overflow:hidden;background:var(--web-fundo)}
+.embp-plataforma .seg button{border:0;border-radius:0;background:var(--web-fundo);color:var(--web-acao);padding:6px 16px;font-size:.875rem;font-weight:600;min-height:36px}
+.embp-plataforma .seg button + button{border-left:1px solid var(--web-acao)}
+.embp-plataforma .seg button:hover{background:var(--web-fundo-claro);color:var(--web-titulo)}
+.embp-plataforma .seg button[aria-pressed="true"]{background:var(--web-acao);color:var(--web-texto-acao)}
+.embp-plataforma .seg button:focus-visible{outline:2px solid var(--web-foco);outline-offset:-3px}
+
+/* Grade: ilustração + coluna lateral */
+.atlas-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:var(--web-espaco-20);align-items:start;margin-top:var(--web-espaco-20)}
+@media (max-width:991.98px){.atlas-grid{grid-template-columns:1fr}}
+.atlas-esq{display:flex;flex-direction:column;gap:var(--web-espaco-20);min-width:0}
+.kvl-2 .row.wide{grid-column:1/-1}
+.kvl-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));column-gap:12px}
+.atlas-lado{display:flex;flex-direction:column;gap:var(--web-espaco-20);min-width:0}
+.stage{padding:12px}
+.atlas-rodape{display:flex;justify-content:flex-start;align-items:center;gap:8px 16px;flex-wrap:wrap;padding:4px 8px 2px}
+.hint{font-size:.8125rem;color:var(--web-texto-meta)}
+.escala line{stroke:var(--web-titulo);stroke-width:2.5}
+.escala text{font:600 12px var(--font-web);fill:var(--web-titulo)}
+.tracos{margin:12px 0 0;padding-left:1.25rem;font-size:.875rem}.tracos li{margin:4px 0}
+
+/* Etiquetas dos sistemas internos */
+.sis-chips{display:flex;flex-wrap:wrap;gap:8px;padding:4px 4px 12px}
+.sis-chips[hidden]{display:none!important}
+.embp-plataforma .sis{display:inline-flex;align-items:center;gap:6px;background:var(--web-fundo);color:var(--web-titulo);border:1px solid var(--web-borda);border-radius:var(--web-raio-botao);padding:4px 12px;font-size:.8125rem;font-weight:600;line-height:20px}
+.embp-plataforma .sis:hover{background:var(--web-fundo-claro);border-color:var(--web-borda);color:var(--web-titulo)}
+.sis i{width:10px;height:10px;border-radius:50%;background:var(--c);display:inline-block}
+.embp-plataforma .sis[aria-pressed="false"]{color:var(--web-texto-meta);background:var(--web-fundo-secao)}
+.sis[aria-pressed="false"] i{background:transparent;border:1.5px solid var(--c)}
+
+/* Ilustração */
+svg#bee{width:100%;height:auto;display:block;touch-action:manipulation}
+.part{cursor:pointer;transition:opacity .25s,filter .2s}
+.ext .ch{fill:var(--chitin);stroke:var(--chitin-edge);stroke-width:1.5}
+.ext .band{fill:var(--band)}
+.ext .eye{fill:#3b3a35;stroke:var(--chitin-edge)}
+.ext .wing{fill:var(--wing);stroke:var(--wing-edge);stroke-width:1.2}
+.ext .vein{fill:none;stroke:var(--wing-edge);stroke-width:1;opacity:.8}
+.ext .hairs{stroke:var(--hair);stroke-width:1;fill:none;opacity:.7}
+.ext .leg{fill:none;stroke:var(--chitin);stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.ext .legthin{fill:none;stroke:var(--chitin);stroke-width:5;stroke-linecap:round}
+.ext .pollen{fill:#e3a92a;stroke:#9c6b10}
+.ext .spir{fill:var(--bg);stroke:var(--web-acao);stroke-width:1.5}
+.internal .ext .ch,.internal .ext .eye{fill-opacity:.12}
+.internal .ext .band{fill-opacity:.15}
+.internal .ext .leg,.internal .ext .legthin{stroke-opacity:.25}
+.internal .ext .wing,.internal .ext .vein,.internal .ext .hairs,.internal .ext .pollen{opacity:.15}
+.internal .ext .part{pointer-events:none}
+.int{display:none}
+.internal .int{display:inline}
+.int .layer[data-off="1"]{display:none}
+.dig{fill:var(--dig);stroke:color-mix(in srgb,var(--dig) 60%,#000);stroke-width:1.2}
+.digline{fill:none;stroke:var(--dig);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.nerv{fill:var(--nerv);stroke:color-mix(in srgb,var(--nerv) 55%,#000);stroke-width:1.2}
+.nervline{fill:none;stroke:var(--nerv);stroke-width:3.5;stroke-linecap:round}
+.circline{fill:none;stroke:var(--circ);stroke-width:5;stroke-linecap:round}
+.circ{fill:var(--circ)}
+.respline{fill:none;stroke:var(--resp);stroke-width:2;stroke-linecap:round;opacity:.9}
+.resp{fill:var(--resp);fill-opacity:.35;stroke:var(--resp);stroke-width:1.5}
+.gland{fill:var(--gland);fill-opacity:.85;stroke:color-mix(in srgb,var(--gland) 55%,#000);stroke-width:1}
+.repro{fill:var(--repro);stroke:color-mix(in srgb,var(--repro) 55%,#000);stroke-width:1}
+.reproline{fill:none;stroke:var(--repro);stroke-width:3;stroke-linecap:round}
+.musc{fill:var(--musc);fill-opacity:.55;stroke:var(--musc);stroke-width:1}
+.muscline{stroke:var(--musc);stroke-width:1.2;opacity:.9}
+.part:hover,.part.sel{filter:drop-shadow(0 0 4px var(--hl)) drop-shadow(0 0 1px var(--hl))}
+.dim .part:not(.sel){opacity:.35}
+.lbl{font:600 11px var(--font-web);fill:var(--web-titulo);pointer-events:none;paint-order:stroke;stroke:var(--web-fundo);stroke-width:3.5px;stroke-linejoin:round}
+.lblline{stroke:var(--web-texto-meta);stroke-width:.8;fill:none;stroke-dasharray:2 2}
+.labels[data-off="1"]{display:none}
+.c-queen .worker-only,.c-male .worker-only,.c-worker .male-only,.c-queen .male-only,.c-worker .queen-only,.c-male .queen-only,.c-male .female-only,.c-worker .no-worker{display:none}
+/* Traços de gênero */
+svg:not(.g-faixas) .ext .band{display:none}
+.ant-longa{display:none}
+.g-antlonga:not(.c-male) .ant-longa{display:inline}
+.g-antlonga .ant-normal{display:none}
+.g-semcorb [data-id="corbicula"]{display:none}
+.g-semcorb.c-worker .no-worker{display:inline}
+.g-basit.c-worker [data-id="basitarso"] .leg{stroke-width:22}
+.c-queen .abd-scale{transform:translate(620px,265px) scale(1.22,1.18) translate(-620px,-265px)}
+
+/* Ficha da estrutura selecionada */
+.card.info{border-top:4px solid var(--c,var(--web-acao))}
+.info .embp-chapeu{color:var(--c,var(--web-texto-meta));font-weight:600}
+.info h2{margin:2px 0 0;font-size:1.375rem;line-height:1.25}
+.info .termo{font-style:italic;font-size:.875rem;color:var(--web-texto-meta)}
+.info p{margin:10px 0 0}
+.info .note{background:var(--web-fundo-claro);border-radius:var(--web-raio-caixa);padding:10px 12px;font-size:.875rem;margin-top:12px}
+.info .note b{display:block;font-size:.75rem;letter-spacing:.075rem;text-transform:uppercase;color:var(--web-titulo)}
+
+/* Índice de estruturas */
+.list{max-height:380px;overflow:auto;padding-right:4px}
+.list h3{display:flex;align-items:center;gap:6px;margin:14px 0 4px;font-size:.75rem;letter-spacing:.075rem;text-transform:uppercase;color:var(--web-texto-meta);font-weight:600}
+.list h3:first-child{margin-top:0}
+.list h3 i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.embp-plataforma .list button{display:block;width:100%;text-align:left;background:none;border:0;border-radius:var(--web-raio-caixa);color:var(--web-texto);font-size:.875rem;padding:5px 8px}
+.embp-plataforma .list button:hover{background:var(--web-fundo-claro);color:var(--web-titulo)}
+.embp-plataforma .list button.sel{background:var(--web-acao);color:var(--web-texto-acao)}
+.embp-plataforma .list button:focus-visible{outline:2px solid var(--web-foco);outline-offset:-2px}
+@media (prefers-reduced-motion:reduce){.part{transition:none}}

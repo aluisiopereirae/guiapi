@@ -1,0 +1,405 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Atlas da Tiúba</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: prancha de espécime — ilustração grande à esquerda, ficha técnica à direita; empilha no celular */
+:root{
+  --bg:#eef0ea; --panel:#f8f9f5; --ink:#1d2420; --muted:#5d6961; --line:#d3d9cf; --honey:#b97a0a; --honey-soft:#f3e2b8;
+  --chitin:#2d2723; --chitin-edge:#120f0d; --band:#c8b26e; --wing:rgba(170,195,205,.28); --wing-edge:#6f8b95; --hair:#8a7a62;
+  --dig:#d9822b; --nerv:#d6b11c; --circ:#d0453f; --resp:#3f97c2; --gland:#9a66d4; --repro:#d0619c; --musc:#7e9a34;
+  --f-display:"Young Serif",Georgia,serif; --f-body:"Figtree",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121613; --panel:#1a1f1b; --ink:#e6ebe3; --muted:#9aa59c; --line:#2c352f; --honey:#e9ab3c; --honey-soft:#3a2f17;
+  --chitin:#4b423b; --chitin-edge:#8c7f72; --band:#a8935a; --wing:rgba(140,175,190,.18); --wing-edge:#7d9ca7; --hair:#a8977c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121613; --panel:#1a1f1b; --ink:#e6ebe3; --muted:#9aa59c; --line:#2c352f; --honey:#e9ab3c; --honey-soft:#3a2f17;
+  --chitin:#4b423b; --chitin-edge:#8c7f72; --band:#a8935a; --wing:rgba(140,175,190,.18); --wing-edge:#7d9ca7; --hair:#a8977c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.05;margin:0;text-wrap:balance}
+h1 em{font-style:italic;color:var(--honey)}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.sci{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--panel)}
+.seg button{font:600 .85rem var(--f-body);border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.seg button:focus-visible,.chip:focus-visible,.list button:focus-visible{outline:2px solid var(--honey);outline-offset:2px}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+@media (max-width:900px){.main{grid-template-columns:1fr}}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;min-width:0;position:relative}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 4px 10px}
+.chip{display:inline-flex;align-items:center;gap:6px;font:500 .8rem var(--f-body);color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:4px 10px;cursor:pointer}
+.chip i{width:10px;height:10px;border-radius:50%;background:var(--c);display:inline-block}
+.chip[aria-pressed="false"]{color:var(--muted);opacity:.55}
+.chip[aria-pressed="false"] i{background:transparent;border:1.5px solid var(--c)}
+.chips[hidden]{display:none!important}
+svg#bee{width:100%;height:auto;display:block;touch-action:manipulation}
+.scale{position:absolute;right:20px;bottom:14px;font-family:var(--f-mono);font-size:.7rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.scale b{display:inline-block;width:82px;height:2px;background:var(--muted)}
+.hint{font-size:.8rem;color:var(--muted);padding:2px 6px}
+/* SVG parts */
+.part{cursor:pointer;transition:opacity .25s,filter .2s}
+.ext .ch{fill:var(--chitin);stroke:var(--chitin-edge);stroke-width:1.5}
+.ext .band{fill:var(--band)}
+.ext .eye{fill:#3b3a35;stroke:var(--chitin-edge)}
+.ext .wing{fill:var(--wing);stroke:var(--wing-edge);stroke-width:1.2}
+.ext .vein{fill:none;stroke:var(--wing-edge);stroke-width:1;opacity:.8}
+.ext .hairs{stroke:var(--hair);stroke-width:1;fill:none;opacity:.7}
+.ext .leg{fill:none;stroke:var(--chitin);stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.ext .legthin{fill:none;stroke:var(--chitin);stroke-width:5;stroke-linecap:round}
+.ext .pollen{fill:#e3a92a;stroke:#9c6b10}
+.ext .spir{fill:var(--bg);stroke:var(--honey);stroke-width:1.5}
+.internal .ext .ch,.internal .ext .eye{fill-opacity:.12}
+.internal .ext .band{fill-opacity:.15}
+.internal .ext .leg,.internal .ext .legthin{stroke-opacity:.25}
+.internal .ext .wing,.internal .ext .vein,.internal .ext .hairs,.internal .ext .pollen{opacity:.15}
+.internal .ext .part{pointer-events:none}
+.int{display:none}
+.internal .int{display:inline}
+.int .layer[data-off="1"]{display:none}
+.dig{fill:var(--dig);stroke:color-mix(in srgb,var(--dig) 60%,#000);stroke-width:1.2}
+.digline{fill:none;stroke:var(--dig);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.nerv{fill:var(--nerv);stroke:color-mix(in srgb,var(--nerv) 55%,#000);stroke-width:1.2}
+.nervline{fill:none;stroke:var(--nerv);stroke-width:3.5;stroke-linecap:round}
+.circline{fill:none;stroke:var(--circ);stroke-width:5;stroke-linecap:round}
+.circ{fill:var(--circ)}
+.respline{fill:none;stroke:var(--resp);stroke-width:2;stroke-linecap:round;opacity:.9}
+.resp{fill:var(--resp);fill-opacity:.35;stroke:var(--resp);stroke-width:1.5}
+.gland{fill:var(--gland);fill-opacity:.85;stroke:color-mix(in srgb,var(--gland) 55%,#000);stroke-width:1}
+.repro{fill:var(--repro);stroke:color-mix(in srgb,var(--repro) 55%,#000);stroke-width:1}
+.reproline{fill:none;stroke:var(--repro);stroke-width:3;stroke-linecap:round}
+.musc{fill:var(--musc);fill-opacity:.55;stroke:var(--musc);stroke-width:1}
+.muscline{stroke:var(--musc);stroke-width:1.2;opacity:.9}
+.part:hover,.part.sel{filter:drop-shadow(0 0 4px var(--honey)) drop-shadow(0 0 1px var(--honey))}
+.dim .part:not(.sel){opacity:.35}
+.lbl{font:600 11px var(--f-mono);fill:var(--muted);pointer-events:none}
+.lblline{stroke:var(--muted);stroke-width:.8;fill:none;stroke-dasharray:2 2}
+.labels[data-off="1"]{display:none}
+/* caste toggles */
+.c-queen .worker-only,.c-male .worker-only,.c-worker .male-only,.c-queen .male-only,.c-worker .queen-only,.c-male .queen-only,.c-male .female-only,.c-worker .no-worker{display:none}
+.c-queen .abd-scale{transform:translate(620px,265px) scale(1.22,1.18) translate(-620px,-265px)}
+/* side panel */
+aside{display:flex;flex-direction:column;gap:14px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card.info{border-top:4px solid var(--c,var(--honey))}
+.info h2{font-family:var(--f-display);font-weight:400;font-size:1.5rem;margin:2px 0 2px;line-height:1.15}
+.info .tag{display:inline-block;font:600 .7rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c,var(--honey))}
+.info p{margin:.6em 0 0}
+.info .note{background:var(--honey-soft);border-radius:8px;padding:8px 10px;font-size:.88rem;margin-top:12px}
+.info .note b{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;display:block;color:var(--honey)}
+.list{max-height:360px;overflow:auto;padding-right:4px}
+.list h3{font:600 .72rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 0 4px;display:flex;align-items:center;gap:6px}
+.list h3:first-child{margin-top:0}
+.list h3 i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.list button{display:block;width:100%;text-align:left;background:none;border:0;color:var(--ink);font:400 .9rem var(--f-body);padding:4px 8px;border-radius:6px;cursor:pointer}
+.list button:hover{background:var(--honey-soft)}
+.list button.sel{background:var(--ink);color:var(--bg)}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.88rem;margin:0}
+.facts dt{font:600 .7rem var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.facts dd{margin:0}
+footer{color:var(--muted);font-size:.8rem;max-width:75ch}
+@media (prefers-reduced-motion:reduce){.part{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="sci">Melipona fasciculata · Apidae · Meliponini</div>
+      <h1>Atlas da <em>Tiúba</em></h1>
+      <p class="sub">A abelha-sem-ferrão do Maranhão, por fora e por dentro. Toque em qualquer estrutura.</p>
+    </div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Vista">
+        <button id="v-ext" aria-pressed="true">Externa</button>
+        <button id="v-int" aria-pressed="false">Interna</button>
+      </div>
+      <div class="seg" role="group" aria-label="Casta">
+        <button id="c-worker" aria-pressed="true">Operária</button>
+        <button id="c-queen" aria-pressed="false">Rainha</button>
+        <button id="c-male" aria-pressed="false">Macho</button>
+      </div>
+      <div class="seg" role="group" aria-label="Rótulos">
+        <button id="t-lbl" aria-pressed="true">Rótulos</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="main">
+    <section class="stage" aria-label="Ilustração da tiúba">
+      <div class="chips" id="chips" hidden></div>
+      <svg id="bee" viewBox="0 0 900 540" role="img" aria-label="Vista lateral de uma tiúba">
+        <!-- ============ EXTERNA ============ -->
+        <g class="ext">
+          <!-- asas (atrás do corpo nas pernas, à frente do tórax) -->
+          <g class="part" data-id="asa-ant">
+            <path class="wing" d="M352,172 C420,120 560,92 700,96 C752,98 770,118 748,134 C700,166 560,184 420,190 C390,190 362,186 352,172Z"/>
+            <path class="vein" d="M356,174 C450,146 560,124 690,112 M372,182 C470,168 560,160 640,150 M520,130 L560,170 M600,118 L626,158 M440,150 L470,184"/>
+          </g>
+          <g class="part" data-id="asa-pos">
+            <path class="wing" d="M380,196 C450,186 560,184 640,192 C672,196 672,214 640,218 C560,226 450,222 392,214Z"/>
+            <path class="vein" d="M386,204 C470,200 560,200 630,204"/>
+          </g>
+          <g class="part" data-id="hamulos"><path class="vein" d="M470,188 l4,6 M480,188 l4,6 M490,188 l4,6 M500,189 l4,6" stroke-width="2"/></g>
+
+          <!-- pernas -->
+          <g class="part" data-id="perna-ant"><path class="leg" d="M312,312 L284,372 L250,402"/><path class="legthin" d="M250,402 L226,452 L214,470"/></g>
+          <g class="part" data-id="perna-med"><path class="leg" d="M372,322 L380,382 L362,420"/><path class="legthin" d="M362,420 L366,470 L374,490"/></g>
+          <g class="part" data-id="femur"><path class="leg" d="M432,318 L470,370" stroke-width="12"/></g>
+          <g class="part worker-only" data-id="corbicula">
+            <path class="ch" d="M466,364 C500,372 548,402 578,432 C584,444 572,452 558,446 C524,428 484,404 462,380Z"/>
+            <ellipse class="pollen" cx="528" cy="414" rx="26" ry="15" transform="rotate(32 528 414)"/>
+            <path class="hairs" d="M480,372 l6,-10 M496,380 l7,-10 M514,390 l8,-9 M534,402 l9,-8 M552,416 l10,-7 M566,430 l11,-5"/>
+          </g>
+          <g class="part no-worker" data-id="tibia-post"><path class="leg" d="M470,370 L560,438" stroke-width="10"/></g>
+          <g class="part" data-id="basitarso"><path class="leg" d="M566,442 L612,470" stroke-width="10"/><path class="legthin" d="M612,470 L640,494 L652,502"/></g>
+          <g class="part" data-id="garras"><path class="vein" d="M652,502 q8,0 10,8 M652,502 q2,9 -4,12" stroke="var(--chitin)" stroke-width="2.5"/></g>
+
+          <!-- metassoma -->
+          <g class="part abd-scale" data-id="metassoma">
+            <path class="ch" d="M488,254 C510,186 620,168 700,186 C772,204 790,250 780,276 C766,330 690,360 610,356 C540,352 494,318 488,254Z"/>
+            <path class="band" d="M548,192 C552,240 556,300 560,344 L578,350 C572,300 570,240 568,186Z"/>
+            <path class="band" d="M612,178 C616,236 618,300 616,354 L634,354 C636,300 636,238 632,178Z"/>
+            <path class="band" d="M676,184 C680,236 680,300 674,346 L690,340 C696,296 696,236 692,190Z"/>
+            <path class="band" d="M734,204 C738,240 738,290 730,326 L742,316 C750,284 750,240 746,212Z"/>
+          </g>
+          <g class="part abd-scale female-only" data-id="glandulas-cera"><path d="M560,190 C590,180 640,176 690,184 L690,198 C640,190 590,194 562,204Z" fill="var(--honey)" fill-opacity=".55"/></g>
+          <g class="part abd-scale" data-id="tergitos"><path class="vein" d="M548,190 L568,186 M612,178 L632,178 M676,184 L692,190 M734,204 L746,212" stroke="var(--honey)" stroke-width="2.5"/></g>
+          <g class="part abd-scale" data-id="esternitos"><path class="vein" d="M560,344 L578,350 M616,354 L634,354 M674,346 L690,340" stroke="var(--honey)" stroke-width="2.5"/></g>
+          <g class="part abd-scale female-only" data-id="ferrao"><path d="M778,268 L800,272 L778,276Z" fill="var(--chitin)" stroke="var(--chitin-edge)"/></g>
+          <g class="part abd-scale male-only" data-id="genitalia"><path d="M776,262 C796,258 808,270 800,282 C792,288 780,284 776,278Z" fill="var(--chitin)" stroke="var(--chitin-edge)"/></g>
+
+          <!-- pecíolo -->
+          <g class="part" data-id="peciolo"><path class="ch" d="M452,232 C468,226 486,232 494,244 C496,262 482,272 466,270 C452,264 446,246 452,232Z"/></g>
+
+          <!-- mesossoma -->
+          <g class="part" data-id="mesossoma">
+            <path class="ch" d="M262,236 C268,176 320,148 380,152 C440,156 470,196 466,250 C462,304 418,334 360,334 C300,334 258,296 262,236Z"/>
+            <path class="hairs" d="M300,170 l-4,-10 M320,160 l-2,-11 M342,154 l0,-11 M364,152 l2,-11 M386,152 l4,-10 M408,158 l6,-9 M428,168 l7,-8"/>
+          </g>
+          <g class="part" data-id="escutelo"><path d="M420,166 C444,170 462,190 466,212 C452,210 432,200 420,186Z" fill="var(--chitin)" stroke="var(--band)" stroke-width="1.5" class="ch"/></g>
+          <g class="part" data-id="propodeu"><path d="M444,226 C458,236 462,262 452,282 C440,270 434,246 444,226Z" fill="var(--band)" fill-opacity=".35" stroke="var(--chitin-edge)"/></g>
+          <g class="part" data-id="espiraculos">
+            <circle class="spir" cx="318" cy="214" r="5"/><circle class="spir" cx="430" cy="252" r="4"/>
+            <circle class="spir abd-scale" cx="560" cy="226" r="4"/><circle class="spir abd-scale" cx="622" cy="216" r="4"/><circle class="spir abd-scale" cx="684" cy="222" r="4"/><circle class="spir abd-scale" cx="738" cy="236" r="3.5"/>
+          </g>
+
+          <!-- cabeça -->
+          <g class="part" data-id="cabeca">
+            <path class="ch" d="M262,238 C266,188 240,168 202,166 C150,166 116,212 118,262 C120,312 150,336 188,336 C232,334 258,288 262,238Z"/>
+            <path class="hairs" d="M160,176 l-6,-8 M180,168 l-2,-10 M226,172 l4,-9 M246,186 l8,-6"/>
+          </g>
+          <g class="part" data-id="olho"><path class="eye" d="M186,190 C214,188 228,222 226,258 C224,292 210,314 192,312 C174,308 168,276 170,248 C172,214 174,192 186,190Z"/></g>
+          <g class="part" data-id="ocelos"><circle cx="214" cy="176" r="4.5" fill="#6b6559" stroke="var(--honey)"/><circle cx="230" cy="182" r="4" fill="#6b6559" stroke="var(--honey)"/><circle cx="198" cy="174" r="4" fill="#6b6559" stroke="var(--honey)"/></g>
+          <g class="part" data-id="clipeo"><path d="M128,262 C134,286 146,302 160,308 C152,286 146,270 140,256Z" fill="var(--band)" fill-opacity=".6" stroke="var(--chitin-edge)"/></g>
+          <g class="part" data-id="antena">
+            <path class="leg" d="M160,214 L132,170" stroke-width="7"/>
+            <path class="legthin female-only" d="M132,170 C110,140 86,122 58,108" stroke-dasharray="7 2"/>
+            <path class="legthin male-only" d="M132,170 C108,134 80,112 40,96" stroke-dasharray="7 2"/>
+          </g>
+          <g class="part" data-id="mandibula"><path class="ch" d="M150,310 C138,322 130,336 136,344 C150,346 166,336 172,322Z"/></g>
+          <g class="part" data-id="probóscide">
+            <path class="leg" d="M164,326 C166,360 176,392 196,426" stroke-width="6"/>
+            <path class="legthin" d="M196,426 C202,438 206,450 206,462" stroke="var(--honey)"/>
+          </g>
+        </g>
+
+        <!-- ============ INTERNA ============ -->
+        <g class="int">
+          <g class="layer" data-sys="musc">
+            <g class="part" data-id="musc-dl"><path class="musc" d="M300,196 C340,180 400,180 440,198 L438,226 C400,212 340,212 302,226Z"/><path class="muscline" d="M310,206 L432,206 M310,216 L432,216"/></g>
+            <g class="part" data-id="musc-dv"><path class="musc" d="M330,236 L360,236 L364,316 L334,312Z"/><path class="musc" d="M372,236 L402,238 L398,316 L370,318Z"/><path class="muscline" d="M340,240 L344,312 M350,240 L354,312 M382,240 L380,316 M392,240 L388,316"/></g>
+          </g>
+          <g class="layer" data-sys="resp">
+            <g class="part" data-id="traqueias"><path class="respline" d="M318,214 C300,230 290,250 284,276 M318,214 C340,196 370,190 410,196 M318,214 C280,214 250,222 226,236 M430,252 C470,250 520,244 560,226 M560,226 C600,212 640,212 684,222 C710,228 730,234 738,236 M560,226 C560,270 580,300 600,320 M684,222 C690,262 690,300 680,320 M226,236 C220,210 220,196 214,186"/></g>
+            <g class="part" data-id="sacos-aereos"><ellipse class="resp abd-scale" cx="600" cy="214" rx="32" ry="16"/><ellipse class="resp abd-scale" cx="664" cy="224" rx="24" ry="14"/><ellipse class="resp" cx="232" cy="226" rx="14" ry="20"/></g>
+          </g>
+          <g class="layer" data-sys="circ">
+            <g class="part" data-id="aorta"><path class="circline" d="M226,214 C260,196 300,186 350,182 C410,180 450,200 476,232"/></g>
+            <g class="part abd-scale" data-id="coracao"><path class="circline" d="M476,232 C520,206 600,192 660,196 C710,200 750,220 770,246" stroke-width="9"/><g class="circ"><circle cx="560" cy="202" r="3" fill="var(--bg)"/><circle cx="620" cy="194" r="3" fill="var(--bg)"/><circle cx="680" cy="198" r="3" fill="var(--bg)"/><circle cx="730" cy="214" r="3" fill="var(--bg)"/></g></g>
+          </g>
+          <g class="layer" data-sys="dig">
+            <g class="part" data-id="faringe"><path class="digline" d="M162,310 C176,286 196,266 222,256"/></g>
+            <g class="part" data-id="esofago"><path class="digline" d="M222,256 C270,250 340,252 410,256 C446,258 470,256 496,252" stroke-width="5"/></g>
+            <g class="part abd-scale" data-id="papo"><ellipse class="dig" cx="536" cy="250" rx="40" ry="30"/></g>
+            <g class="part abd-scale" data-id="proventriculo"><ellipse class="dig" cx="580" cy="262" rx="10" ry="12" style="filter:brightness(.8)"/></g>
+            <g class="part abd-scale" data-id="ventriculo"><path class="digline" d="M588,268 C620,300 650,250 676,292 C696,326 640,330 640,300 C640,282 680,282 700,290" stroke-width="13" style="stroke:color-mix(in srgb,var(--dig) 80%,#fff)"/></g>
+            <g class="part abd-scale" data-id="malpighi"><path class="nervline" style="stroke:#c9c27a;stroke-width:1.3" d="M700,290 C690,320 660,334 620,330 M700,290 C720,316 700,336 680,340 M700,290 C640,276 610,300 600,322 M700,290 C710,256 680,240 650,246 M700,290 C740,300 750,320 730,334"/></g>
+            <g class="part abd-scale" data-id="ileo"><path class="digline" d="M700,290 C716,282 728,278 734,276" stroke-width="5"/></g>
+            <g class="part abd-scale" data-id="reto"><ellipse class="dig" cx="752" cy="272" rx="20" ry="14"/></g>
+          </g>
+          <g class="layer" data-sys="gland">
+            <g class="part" data-id="g-hipofaringea"><g class="gland"><circle cx="196" cy="220" r="6"/><circle cx="208" cy="232" r="6"/><circle cx="194" cy="242" r="6"/><circle cx="210" cy="250" r="5"/><circle cx="186" cy="230" r="5"/><circle cx="200" cy="262" r="5"/></g></g>
+            <g class="part" data-id="g-mandibular"><ellipse class="gland" cx="168" cy="296" rx="12" ry="9"/></g>
+            <g class="part" data-id="g-salivar"><g class="gland"><ellipse cx="306" cy="268" rx="18" ry="10"/><ellipse cx="292" cy="290" rx="14" ry="8"/></g><path class="reproline" style="stroke:var(--gland);stroke-width:1.5" d="M290,284 C250,290 210,300 168,316"/></g>
+            <g class="part abd-scale female-only" data-id="g-dufour"><ellipse class="gland" cx="752" cy="300" rx="12" ry="7"/></g>
+          </g>
+          <g class="layer" data-sys="repro">
+            <g class="part abd-scale worker-only" data-id="ovarios-op"><g class="repro"><ellipse cx="716" cy="246" rx="16" ry="6"/><ellipse cx="712" cy="258" rx="14" ry="5"/></g><path class="reproline" d="M728,252 C746,260 760,268 774,272"/></g>
+            <g class="part abd-scale queen-only" data-id="ovarios-rainha"><g class="repro"><path d="M590,226 C640,210 700,216 720,240 C700,260 640,262 594,250Z"/><path d="M600,300 C650,290 700,292 718,276 C700,320 640,330 604,318Z"/></g><path class="reproline" d="M720,240 C740,252 756,264 776,272 M718,276 L776,272"/><circle cx="740" cy="250" r="7" class="repro" style="filter:brightness(.8)"/></g>
+            <g class="part abd-scale male-only" data-id="testiculos"><g class="repro"><ellipse cx="640" cy="232" rx="30" ry="14"/><ellipse cx="636" cy="310" rx="26" ry="12"/></g><path class="reproline" d="M668,236 C710,250 740,262 776,270 M660,308 C700,296 740,280 776,272"/></g>
+          </g>
+          <g class="layer" data-sys="nerv">
+            <g class="part" data-id="cerebro"><path class="nerv" d="M186,198 C210,188 238,196 244,218 C246,236 232,246 212,244 C192,240 180,218 186,198Z"/><path class="nervline" d="M186,206 C170,200 152,210 150,214"/></g>
+            <g class="part" data-id="subesofagico"><ellipse class="nerv" cx="214" cy="276" rx="12" ry="9"/></g>
+            <g class="part" data-id="cordao"><path class="nervline" d="M214,276 C250,300 300,310 340,306 L400,306 C460,306 520,322 580,328 C640,330 690,318 730,300"/><circle class="nerv" cx="320" cy="306" r="8"/><circle class="nerv" cx="394" cy="306" r="11"/><circle class="nerv abd-scale" cx="560" cy="326" r="6"/><circle class="nerv abd-scale" cx="616" cy="330" r="6"/><circle class="nerv abd-scale" cx="670" cy="324" r="6"/><circle class="nerv abd-scale" cx="720" cy="306" r="6"/></g>
+          </g>
+        </g>
+
+        <!-- rótulos -->
+        <g class="labels" id="labels"></g>
+      </svg>
+      <div class="hint" id="hint">Passe o mouse ou toque nas partes. Em “Interna”, ligue e desligue os sistemas.</div>
+      <div class="scale" aria-hidden="true"><b></b>≈ 2 mm</div>
+    </section>
+
+    <aside>
+      <div class="card info" id="info" aria-live="polite"></div>
+      <div class="card"><div class="list" id="list"></div></div>
+      <div class="card">
+        <dl class="facts">
+          <dt>Nome</dt><dd>Tiúba, uruçu-cinzenta</dd>
+          <dt>Espécie</dt><dd><i>Melipona fasciculata</i> Smith, 1854</dd>
+          <dt>Tamanho</dt><dd>Operária com cerca de 10–11 mm</dd>
+          <dt>Ocorrência</dt><dd>Maranhão, Pará, Piauí e Tocantins; matas, cerrado e baixada maranhense</dd>
+          <dt>Ninho</dt><dd>Ocos de árvores; entrada feita de geoprópolis (barro + resina)</dd>
+          <dt>Ferrão</dt><dd>Atrofiado; defende-se com mordidas</dd>
+        </dl>
+      </div>
+    </aside>
+  </div>
+  <footer>Ilustração esquemática em vista lateral, para fins didáticos. As proporções e posições dos órgãos internos são simplificadas a partir da anatomia geral de abelhas Apidae.</footer>
+</div>
+
+<script>
+(function(){
+const SYS={
+  ext:{n:"Exoesqueleto e apêndices",c:"var(--honey)"},
+  dig:{n:"Digestório",c:"var(--dig)"}, nerv:{n:"Nervoso",c:"var(--nerv)"}, circ:{n:"Circulatório",c:"var(--circ)"},
+  resp:{n:"Respiratório",c:"var(--resp)"}, gland:{n:"Glândulas",c:"var(--gland)"}, repro:{n:"Reprodutor",c:"var(--repro)"}, musc:{n:"Muscular",c:"var(--musc)"}
+};
+// id: [sistema, nome, termo, descrição, nota tiúba, rótulo [x,y,lx,ly]]
+const P={
+ cabeca:["ext","Cabeça","Caput","Cápsula rígida que abriga o cérebro, as glândulas de alimento e as peças bucais. Leva os principais órgãos dos sentidos: olhos, ocelos e antenas.","Na tiúba a cabeça é escura e larga; a face tem marcas claras discretas no clípeo.",[140,190,90,200]],
+ olho:["ext","Olho composto","Oculus compositus","Formado por milhares de omatídeos, cada um uma pequena lente. Detecta movimento, cor (inclusive ultravioleta) e luz polarizada, usada para orientação pelo sol.","Abelhas não enxergam o vermelho puro, mas veem padrões ultravioleta nas flores que nós não vemos.",[200,300,236,350]],
+ ocelos:["ext","Ocelos","Ocelli","Três olhos simples no alto da cabeça. Não formam imagem; medem a intensidade da luz e ajudam a manter o voo estável e a calcular a hora do dia.","",[214,174,240,140]],
+ antena:["ext","Antena","Antenna","Escapo, pedicelo e flagelo. Cheia de sensilas para olfato, tato, umidade e vibração; é como a abelha reconhece flores, companheiras e o cheiro da colônia.","Fêmeas têm 12 artículos na antena; machos têm 13 e antenas mais longas.",[90,128,40,150]],
+ clipeo:["ext","Clípeo","Clypeus","Placa frontal da face, acima do lábio superior (labro). Serve de base para músculos que movem a faringe.","",[140,280,90,270]],
+ mandibula:["ext","Mandíbula","Mandibula","Par de peças cortantes usadas para moldar cera e cerume, manipular resina e barro e morder intrusos.","Como o ferrão é atrofiado, a mandíbula é a principal arma da tiúba. Ela também é a ferramenta que molda a geoprópolis da entrada.",[140,342,90,372]],
+ "probóscide":["ext","Probóscide (língua)","Glossa + maxilas + palpos labiais","Tubo formado pela glossa, maxilas e palpos labiais. Estende-se para sugar néctar e água e recolhe-se dobrada sob a cabeça quando não está em uso.","As Melipona têm língua comprida, o que permite explorar flores de corola profunda.",[200,440,250,470]],
+ mesossoma:["ext","Mesossoma (tórax)","Mesosoma","Região locomotora: carrega os três pares de pernas e os dois pares de asas e é quase todo preenchido pelos músculos de voo. Inclui o primeiro segmento abdominal (propódeo).","Tem pilosidade densa, que retém pólen durante a visita às flores.",[360,150,330,110]],
+ escutelo:["ext","Escutelo","Scutellum","Placa dorsal posterior do tórax, que protege a junção das asas e a base dos músculos de voo.","",[444,186,470,150]],
+ propodeu:["ext","Propódeo","Propodeum","Primeiro segmento do abdome, fundido ao tórax. É típico dos himenópteros apócritos.","",[448,268,410,470]],
+ peciolo:["ext","Pecíolo (cintura)","Petiolus","Constrição estreita entre o mesossoma e o metassoma. Dá mobilidade ao abdome e deixa passar intestino, cordão nervoso, traqueias e vaso dorsal.","",[470,264,486,500]],
+ metassoma:["ext","Metassoma (abdome)","Metasoma","Região visceral: contém papo, intestino, coração, sacos aéreos, órgãos reprodutores e glândulas. É formada por tergitos (dorsais) e esternitos (ventrais) unidos por membranas.","A tiúba tem faixas claras e pilosas nas bordas dos tergitos, que dão o aspecto acinzentado do nome “uruçu-cinzenta”.",[700,350,740,400]],
+ tergitos:["ext","Tergitos","Terga","Placas dorsais do abdome. Encaixam-se como telhas e deslizam umas sobre as outras durante a respiração e quando o papo se enche.","",[690,188,760,160]],
+ esternitos:["ext","Esternitos","Sterna","Placas ventrais do abdome, articuladas aos tergitos por membranas flexíveis.","",[626,354,660,460]],
+ "glandulas-cera":["ext","Glândulas de cera","Glandulae ceriferae","Nos meliponíneos ficam no dorso do abdome, sob os tergitos, e não no ventre como na abelha-europeia. A cera sai em escamas finas.","A tiúba mistura cera com resina para fazer o cerume dos potes de mel, dos favos e do invólucro.",[620,184,600,130]],
+ ferrao:["ext","Ferrão atrofiado","Aculeus vestigialis","Resto do ovipositor modificado. Nos Meliponini é reduzido e não perfura a pele.","Por isso a tiúba é manejada sem roupa de proteção pesada. Mesmo assim, ela defende o ninho com mordidas e enroscando-se nos cabelos.",[796,272,820,240]],
+ genitalia:["ext","Genitália do macho","Capsula genitalis","Cápsula esclerotizada na ponta do abdome do macho, usada na cópula com a rainha virgem durante o voo nupcial.","",[796,276,820,240]],
+ "asa-ant":["ext","Asa anterior","Ala anterior","Membrana sustentada por nervuras ocas por onde passam hemolinfa, traqueias e nervos. É maior que a posterior e conduz o batimento.","Em Melipona as nervuras da ponta da asa são fracas, um traço útil para reconhecer o gênero.",[660,110,700,70]],
+ "asa-pos":["ext","Asa posterior","Ala posterior","Menor, presa à anterior durante o voo para formar uma única superfície de sustentação.","",[620,210,700,232]],
+ hamulos:["ext","Hâmulos","Hamuli","Fileira de ganchos na borda da asa posterior que engata numa dobra da asa anterior.","",[490,192,500,232]],
+ "perna-ant":["ext","Perna anterior","Pes prothoracicus","Tem um pente no basitarso (estrígilo) usado para limpar as antenas. Segmentos: coxa, trocânter, fêmur, tíbia e tarso.","",[250,402,190,410]],
+ "perna-med":["ext","Perna mediana","Pes mesothoracicus","Dá apoio ao andar e ajuda a transferir pólen e resina para a perna posterior.","",[366,470,320,510]],
+ femur:["ext","Fêmur posterior","Femur","Segmento longo e musculoso que liga a coxa à tíbia.","",[452,346,500,320]],
+ corbicula:["ext","Corbícula","Corbicula","Tíbia posterior larga, lisa e côncava, cercada de pelos longos. Funciona como cesta para carregar pólen, resina ou barro até o ninho.","A tiúba usa a corbícula também para trazer o barro da geoprópolis. Só operárias têm corbícula funcional.",[556,440,590,410]],
+ "tibia-post":["ext","Tíbia posterior","Tibia","Na rainha e no macho a tíbia é estreita e sem corbícula, pois eles não coletam recursos.","",[516,404,590,410]],
+ basitarso:["ext","Basitarso","Basitarsus","Primeiro segmento do tarso, largo e com escovas de pelos que penteiam o pólen do corpo para dentro da corbícula.","",[600,462,660,450]],
+ garras:["ext","Garras tarsais","Ungues","Par de garras e uma almofada (arólio) na ponta do pé que permitem andar em superfícies lisas ou ásperas.","",[660,508,720,500]],
+ espiraculos:["ext","Espiráculos","Spiracula","Pequenas aberturas laterais com válvulas, por onde o ar entra no sistema traqueal. Há pares no tórax e em vários segmentos abdominais.","",[318,214,268,150]],
+ // internos
+ faringe:["dig","Faringe","Pharynx","Bomba muscular logo atrás da boca que suga o néctar e a água pela probóscide.","",[180,286,120,240]],
+ esofago:["dig","Esôfago","Oesophagus","Tubo fino que atravessa o tórax e o pecíolo levando o alimento até o abdome.","",[340,252,310,130]],
+ papo:["dig","Papo (estômago de mel)","Ingluvies","Bolsa elástica que guarda o néctar coletado. Ele não é digerido aí: a operária o regurgita no ninho para virar mel.","O mel de tiúba é mais líquido e ácido que o da abelha-europeia, com maior teor de água.",[536,226,520,130]],
+ proventriculo:["dig","Proventrículo","Proventriculus","Válvula entre papo e ventrículo. Filtra grãos de pólen para o intestino e deixa o néctar no papo.","",[580,262,560,460]],
+ ventriculo:["dig","Ventrículo (intestino médio)","Ventriculus","Onde ocorre a digestão e a absorção dos nutrientes, principalmente do pólen.","",[650,300,680,470]],
+ malpighi:["dig","Túbulos de Malpighi","Tubuli Malpighiani","Dezenas de túbulos finos que retiram resíduos nitrogenados da hemolinfa. Fazem o papel dos rins.","",[620,330,600,500]],
+ ileo:["dig","Íleo","Ileum","Intestino posterior anterior; reabsorve água e sais.","",[720,280,780,190]],
+ reto:["dig","Reto","Rectum","Armazena fezes até a abelha sair do ninho. Tem papilas que reabsorvem água.","",[752,272,820,300]],
+ cerebro:["nerv","Cérebro","Cerebrum","Centraliza o processamento de visão, olfato, memória e aprendizagem. Os corpos cogumelares são essenciais para a memória das rotas de forrageamento.","",[214,196,240,120]],
+ subesofagico:["nerv","Gânglio subesofágico","Ganglion suboesophageale","Controla as peças bucais e o paladar.","",[214,284,250,370]],
+ cordao:["nerv","Cordão nervoso ventral","Chorda ventralis","Corrente de gânglios ao longo do ventre. Os gânglios torácicos comandam pernas e asas; os abdominais, respiração, ferrão e reprodução.","",[394,306,420,370]],
+ aorta:["circ","Aorta","Aorta","Parte anterior do vaso dorsal; leva a hemolinfa até a cabeça. A hemolinfa banha os órgãos livremente (sistema aberto).","",[340,182,300,110]],
+ coracao:["circ","Coração","Cor","Tubo dorsal no abdome com aberturas (óstios) que puxam a hemolinfa e a bombeiam para a frente.","",[620,194,640,110]],
+ traqueias:["resp","Traqueias","Tracheae","Rede de tubos de ar que parte dos espiráculos e chega até as células. Não há pulmões e o sangue não transporta oxigênio.","",[290,262,250,470]],
+ "sacos-aereos":["resp","Sacos aéreos","Sacculi aerei","Dilatações das traqueias que funcionam como foles e reduzem o peso do corpo.","",[664,224,700,140]],
+ "g-hipofaringea":["gland","Glândulas hipofaríngeas","Glandulae hypopharyngeae","Produzem o alimento larval proteico nas operárias jovens.","Nas Melipona não há geleia real especial: as células são abastecidas uma vez com alimento larval e fechadas (aprovisionamento massal).",[196,232,110,250]],
+ "g-mandibular":["gland","Glândula mandibular","Glandula mandibularis","Secreta feromônios de alarme e de marcação, além de substâncias que amolecem cera e resina.","",[168,296,100,300]],
+ "g-salivar":["gland","Glândulas salivares","Glandulae labiales","Par no tórax (e na cabeça) que produz secreções para diluir alimento e trabalhar materiais.","",[300,278,260,420]],
+ "g-dufour":["gland","Glândula de Dufour","Glandula Dufouri","Associada ao ferrão; em abelhas sociais participa de sinais químicos e de revestimento.","",[752,300,800,330]],
+ "ovarios-op":["repro","Ovários da operária","Ovaria","Pequenos. Em Melipona as operárias podem pôr ovos que geram machos ou servem de alimento à rainha.","",[714,250,760,190]],
+ "ovarios-rainha":["repro","Ovários da rainha","Ovaria + spermatheca","Muito desenvolvidos na rainha fecundada, que fica fisogástrica (abdome dilatado). A espermateca guarda o sêmen de um único acasalamento.","Em Melipona a casta é influenciada pela genética, e as rainhas nascem de células do mesmo tamanho que as das operárias.",[650,236,680,140]],
+ testiculos:["repro","Testículos","Testes","Produzem espermatozoides, que amadurecem antes do voo de acasalamento.","",[640,232,680,140]],
+ "musc-dl":["musc","Músculos dorsoventrais e longitudinais","Musculi indirecti alarum","Músculos indiretos de voo: os longitudinais encurtam o tórax e os dorsoventrais o achatam, alternando e fazendo as asas vibrarem centenas de vezes por segundo.","",[370,206,380,120]],
+ "musc-dv":["musc","Músculos dorsoventrais","Musculi dorsoventrales","Puxam o teto do tórax para baixo e elevam as asas. Também geram calor para aquecer as crias quando a abelha vibra sem voar.","",[366,280,400,400]]
+};
+const order=["ext","dig","nerv","circ","resp","gland","repro","musc"];
+const svg=document.getElementById("bee"),root=document.documentElement;
+let view="ext",caste="worker",sel=null,labelsOn=true;
+const off={};
+function visible(id){const el=svg.querySelector('[data-id="'+id+'"]');if(!el)return false;return el.getClientRects().length>0}
+function renderInfo(){
+  const box=document.getElementById("info");
+  const id=sel&&P[sel]?sel:null;
+  if(!id){box.style.setProperty("--c","var(--honey)");box.innerHTML='<span class="tag">Comece aqui</span><h2>Toque numa estrutura</h2><p>A vista externa mostra cabeça, mesossoma e metassoma, com asas, pernas e corbícula. A vista interna revela sete sistemas: digestório, nervoso, circulatório, respiratório, glândulas, reprodutor e muscular.</p><p>Troque a casta para ver como rainha e macho diferem da operária.</p>';return}
+  const [s,n,t,d,note]=P[id];
+  box.style.setProperty("--c",SYS[s].c);
+  box.innerHTML='<span class="tag">'+SYS[s].n+'</span><h2>'+n+'</h2><div class="sci">'+t+'</div><p>'+d+'</p>'+(note?'<div class="note"><b>Na tiúba</b>'+note+'</div>':'');
+}
+function renderList(){
+  const L=document.getElementById("list");L.innerHTML="";
+  order.forEach(s=>{
+    if(view==="ext"&&s!=="ext")return; if(view==="int"&&s==="ext")return;
+    if(off[s])return;
+    const ids=Object.keys(P).filter(k=>P[k][0]===s&&visible(k));
+    if(!ids.length)return;
+    const h=document.createElement("h3");h.style.setProperty("--c",SYS[s].c);h.innerHTML="<i></i>"+SYS[s].n;L.appendChild(h);
+    ids.forEach(k=>{const b=document.createElement("button");b.textContent=P[k][1];b.className=k===sel?"sel":"";b.onclick=()=>select(k);L.appendChild(b)});
+  });
+}
+function renderLabels(){
+  const g=document.getElementById("labels");g.innerHTML="";g.dataset.off=labelsOn?"0":"1";
+  Object.keys(P).forEach(k=>{
+    const s=P[k][0]; if((view==="ext")!==(s==="ext"))return; if(off[s]||!visible(k))return;
+    const [x,y,lx,ly]=P[k][5];
+    const l=document.createElementNS("http://www.w3.org/2000/svg","path");l.setAttribute("class","lblline");l.setAttribute("d","M"+x+","+y+" L"+lx+","+ly);g.appendChild(l);
+    const t=document.createElementNS("http://www.w3.org/2000/svg","text");t.setAttribute("class","lbl");t.setAttribute("x",lx);t.setAttribute("y",ly+(ly<y?-4:12));
+    t.setAttribute("text-anchor",lx<x-10?"end":lx>x+10?"start":"middle");t.textContent=P[k][1].split(" (")[0];
+    if(k===sel)t.style.fill="var(--ink)";g.appendChild(t);
+  });
+}
+function select(id){
+  sel=id;svg.querySelectorAll(".part").forEach(p=>p.classList.toggle("sel",p.dataset.id===id));
+  svg.classList.toggle("dim",!!id);renderInfo();renderList();renderLabels();
+}
+function refresh(){
+  svg.classList.toggle("internal",view==="int");
+  svg.classList.remove("c-worker","c-queen","c-male");svg.classList.add("c-"+caste);
+  document.getElementById("chips").hidden=view!=="int";
+  svg.querySelectorAll(".layer").forEach(l=>l.dataset.off=off[l.dataset.sys]?"1":"0");
+  if(sel&&(!visible(sel)||((view==="ext")!==(P[sel][0]==="ext"))))sel=null;
+  select(sel);
+}
+// chips
+const chips=document.getElementById("chips");
+order.slice(1).forEach(s=>{const b=document.createElement("button");b.className="chip";b.id="chip-"+s;b.style.setProperty("--c",SYS[s].c);b.setAttribute("aria-pressed","true");b.innerHTML="<i></i>"+SYS[s].n;
+  b.onclick=()=>{off[s]=!off[s];b.setAttribute("aria-pressed",off[s]?"false":"true");refresh()};chips.appendChild(b)});
+function seg(ids,fn){ids.forEach(id=>{document.getElementById(id).onclick=()=>{ids.forEach(j=>document.getElementById(j).setAttribute("aria-pressed",j===id?"true":"false"));fn(id)}})}
+seg(["v-ext","v-int"],id=>{view=id==="v-int"?"int":"ext";refresh()});
+seg(["c-worker","c-queen","c-male"],id=>{caste=id.slice(2);refresh()});
+const tl=document.getElementById("t-lbl");tl.onclick=()=>{labelsOn=!labelsOn;tl.setAttribute("aria-pressed",labelsOn);renderLabels()};
+svg.addEventListener("click",e=>{const p=e.target.closest(".part");if(p&&P[p.dataset.id])select(p.dataset.id===sel?null:p.dataset.id);else if(!p)select(null)});
+svg.addEventListener("mouseover",e=>{const p=e.target.closest(".part");if(p&&P[p.dataset.id]&&!sel){const keep=sel;sel=p.dataset.id;renderInfo();sel=keep}});
+svg.addEventListener("mouseleave",()=>{if(!sel)renderInfo()});
+try{const h=location.hash.slice(1);if(h==="interna"){document.getElementById("v-int").click()}}catch(e){}
+refresh();
+})();
+</script>
+
+</body></html>
